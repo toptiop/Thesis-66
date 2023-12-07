@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78acf52f470b4b208edf3a39c0dfd5f2, type: 3}
+  m_Name: New Header Preset
+  m_EditorClassIdentifier: 
+  coloredHeaderPreset:
+  - headerText: Camera
+    headerColor: {r: 1, g: 1, b: 1, a: 0}
+    textAlignmentOptions: 0
+    fontStyleOptions: 0
+    fontSize: 12
+    fontColor: {r: 0, g: 0, b: 0, a: 1}
+    dropShadow: 0
+  - headerText: LIGHTING
+    headerColor: {r: 0.9758564, g: 1, b: 0, a: 0}
+    textAlignmentOptions: 0
+    fontStyleOptions: 0
+    fontSize: 12
+    fontColor: {r: 0, g: 0, b: 0, a: 1}
+    dropShadow: 0
+  - headerText: ENVIROMENT
+    headerColor: {r: 0.011263847, g: 0, b: 1, a: 0}
+    textAlignmentOptions: 0
+    fontStyleOptions: 0
+    fontSize: 12
+    fontColor: {r: 1, g: 1, b: 1, a: 1}
+    dropShadow: 0
+  - headerText: PLAYER
+    headerColor: {r: 0, g: 1, b: 0.00427413, a: 0}
+    textAlignmentOptions: 0
+    fontStyleOptions: 0
+    fontSize: 12
+    fontColor: {r: 1, g: 1, b: 1, a: 1}
+    dropShadow: 1
+  - headerText: System
+    headerColor: {r: 1, g: 0.8135679, b: 0, a: 0}
+    textAlignmentOptions: 0
+    fontStyleOptions: 0
+    fontSize: 12
+    fontColor: {r: 1, g: 1, b: 1, a: 1}
+    dropShadow: 1
