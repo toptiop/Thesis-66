@@ -20,15 +20,15 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Walls
-  m_Shader: {fileID: -6465566751694194690, guid: 3bb35f7f86ffc45c2aa6fc4291f787fc,
+  m_Name: Walls 1
+  m_Shader: {fileID: -6465566751694194690, guid: d2109d3266b9bfa409deec2be7e53a3b,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _SHADING_STYLE_SKIN_AND_TEXTILES
   m_InvalidKeywords:
-  - _NORMALMAP
+  - _USE_CUTOUT_USE
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -41,6 +41,10 @@ Material:
     m_TexEnvs:
     - _BaseMap:
         m_Texture: {fileID: 2800000, guid: b23b96e58405f5a47a3552f22652ba7b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Base_Map:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -63,7 +67,15 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Emission_Map:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
+        m_Texture: {fileID: 2800000, guid: b23b96e58405f5a47a3552f22652ba7b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Main_Texture:
         m_Texture: {fileID: 2800000, guid: b23b96e58405f5a47a3552f22652ba7b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -73,6 +85,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
         m_Texture: {fileID: 2800000, guid: 1153af84499b94845918edffb27b71fa, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Normal_Map:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -109,26 +125,40 @@ Material:
     - _Metallic: 0.802
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _PaintbrushStrokesAngle: 0.3
-    - _PaintbrushStrokesSize: 0.67
+    - _Opacity: 0.73
+    - _PaintbrushStrokesAngle: 40
+    - _PaintbrushStrokesSize: 0.4
     - _Parallax: 0.02
-    - _QueueControl: -1
+    - _QueueControl: 0
     - _QueueOffset: 0
     - _SHADING_STYLE: 0
     - _ShadowsFloor: 0.25
-    - _Smoothness: 0.502
+    - _Size: 1
+    - _Sizec: 0
+    - _Smoothness: 0.58
     - _SmoothnessTextureChannel: 0
+    - _Smoothness_1: 0.4
+    - _Smoothness_Cutout: 1
     - _SpecularHighlights: 1
-    - _SpecularNoiseSize: 1
+    - _SpecularNoiseSize: 1.88
+    - _Specular_Noise_Size: 1
     - _SrcBlend: 1
     - _StrongRimStrength: 1
-    - _ToonCutoffPoint: 0.2
+    - _ToonCutoffPoint: 0.188
+    - _USE_CUTOUT: 0
     - _UVSec: 0
+    - _UseCutout: 1
     - _UseEmission: 0
+    - _Use_Emission: 0
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Emission_Color: {r: 0, g: 0, b: 0, a: 0}
+    - _Position: {r: 0.5, g: 0.5, b: 0, a: 0}
+    - _Positionc: {r: 0.5040214, g: 0.49278814, b: 13.037432, a: 0}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 0}
+    - _Specular_Tint: {r: 1, g: 1, b: 1, a: 0}
+    - _Tint: {r: 1, g: 1, b: 1, a: 0.3254902}
   m_BuildTextureStacks: []

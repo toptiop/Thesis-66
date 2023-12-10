@@ -14,6 +14,9 @@ public class ToonShaderGUI : ShaderGUI
     private bool _toonPropsVisible = true;
     private bool _emission;
 
+    private bool _useCutout;
+
+
     private const string SkinKeyword = "_SHADING_STYLE_SKIN_AND_TEXTILES";
     private const string HairKeyword = "_SHADING_STYLE_HAIR_AND_METAL";
 
@@ -99,6 +102,20 @@ public class ToonShaderGUI : ShaderGUI
             materialEditor.RangeProperty(FindProperty("_StrongRimStrength", properties), "Strong rim strength");
             EditorGUI.indentLevel--;
         }
+
+        EditorGUILayout.Space(4f);
+        _useCutout = DrawCutoutToggle(materialEditor, FindProperty("_UseCutout", properties));
+        if (_useCutout)
+        {
+            EditorGUI.indentLevel++;
+            EditorGUILayout.LabelField("Cutout properties", EditorStyles.boldLabel);
+            materialEditor.VectorProperty(FindProperty("_Positionc", properties), "Player Position");
+            materialEditor.RangeProperty(FindProperty("_Sizec", properties), "Size");
+            materialEditor.RangeProperty(FindProperty("_Smoothness_Cutout", properties), "Smoothness");
+            materialEditor.RangeProperty(FindProperty("_Opacity", properties), "Opacity");
+            EditorGUI.indentLevel--;
+        }
+        
     }
 
     private bool DrawEmissionToggle(MaterialEditor materialEditor, MaterialProperty prop)
@@ -110,6 +127,24 @@ public class ToonShaderGUI : ShaderGUI
 
         // Show the toggle control
         value = EditorGUILayout.Toggle("Emission", value);
+
+        EditorGUI.showMixedValue = false;
+        if (EditorGUI.EndChangeCheck())
+        {
+            prop.floatValue = value ? 1.0f : 0.0f;
+        }
+
+        return value && !prop.hasMixedValue;
+    } 
+    private bool DrawCutoutToggle(MaterialEditor materialEditor, MaterialProperty prop)
+    {
+        bool value = (prop.floatValue != 0.0f);
+
+        EditorGUI.BeginChangeCheck();
+        EditorGUI.showMixedValue = prop.hasMixedValue;
+
+        // Show the toggle control
+        value = EditorGUILayout.Toggle("Cutout", value);
 
         EditorGUI.showMixedValue = false;
         if (EditorGUI.EndChangeCheck())
