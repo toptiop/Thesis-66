@@ -157,7 +157,7 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Emission_Color: {r: 0, g: 0, b: 0, a: 0}
     - _Position: {r: 0.5, g: 0.5, b: 0, a: 0}
-    - _Positionc: {r: 0.5010058, g: 0.49382177, b: 13.032978, a: 0}
+    - _Positionc: {r: 0.5030125, g: 0.48301393, b: 13.022232, a: 0}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 0}
     - _Specular_Tint: {r: 1, g: 1, b: 1, a: 0}
     - _Tint: {r: 1, g: 1, b: 1, a: 0.3254902}

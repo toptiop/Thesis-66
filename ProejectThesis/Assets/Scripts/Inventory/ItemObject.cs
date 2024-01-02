@@ -57,6 +57,9 @@ public class ItemObject : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        PickupItem();
+        if(inventory != null)
+        {
+            PickupItem();
+        }
     }
 }
