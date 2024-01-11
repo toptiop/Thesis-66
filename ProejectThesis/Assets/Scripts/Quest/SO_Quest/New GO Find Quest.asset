@@ -15,5 +15,7 @@ MonoBehaviour:
   title: 
   description: 
   icon: {fileID: 0}
-  type: 0
-  destination: {fileID: 0}
+  Reward: {fileID: 0}
+  amountReward: 0
+  type: 2
+  destination: {x: 25.3, y: 1.1, z: 27.9}

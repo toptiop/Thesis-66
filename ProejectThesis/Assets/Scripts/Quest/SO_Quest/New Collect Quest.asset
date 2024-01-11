@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c79a91d0d192854d80c3184c14e809f, type: 3}
   m_Name: New Collect Quest
   m_EditorClassIdentifier: 
-  title: 
+  title: Get Carrot
   description: 
-  icon: {fileID: 0}
-  type: 0
-  requiredItemCount: 0
-  collectItem: {fileID: 0}
+  icon: {fileID: 21300000, guid: 414a7639d2781fc46a364368d37c1d97, type: 3}
+  Reward: {fileID: 0}
+  amountReward: 0
+  type: 1
+  requiredItemCount: 1
+  collectItem: {fileID: 11400000, guid: 70c2b23816ab06a4182cf6f9f8cc3457, type: 2}

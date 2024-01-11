@@ -5,6 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New GO Find Quest", menuName = "Create new Quest/GO Find Quest")]
 public class SO_GO_FindQuest : SO_Quest
 {
-    [Header("GENERAL DETIALS")]
-    public Transform destination; // จุดที่ผู้เล่นต้องไปหา 
+    [Header("FindQuest DETIALS")]
+    public Vector3 destination; // จุดที่ผู้เล่นต้องไปหา 
 }

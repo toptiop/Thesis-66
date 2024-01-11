@@ -147,5 +147,27 @@ public class Inventory : MonoBehaviour
         rightClickSlot = null;
         miniCanvas.gameObject.SetActive(false);
     }
+
+    public bool CheckInventoryForItems(SO_Item item, int requiredAmount)
+    {
+        int totalAmountInInventory = 0;
+
+        foreach (InventorySlot slot in inventorySlots)
+        {
+            if (slot.item == item)
+            {
+                totalAmountInInventory += slot.stack;
+
+                // If you find enough items in the inventory, break out of the loop
+                if (totalAmountInInventory >= requiredAmount)
+                {
+                    return true;
+                }
+            }
+        }
+
+        // If you reach this point, required items were not found in the inventory
+        return false;
+    }
     #endregion
 }

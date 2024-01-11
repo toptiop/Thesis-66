@@ -61,7 +61,7 @@ Material:
     - _SHADING_STYLE: 0
     - _ShadowsFloor: 0.25
     - _Size: 0
-    - _Sizec: 0
+    - _Sizec: 1
     - _Smoothness: 0.4
     - _Smoothness_Cutout: 0.63
     - _SpecularNoiseSize: 1
@@ -73,7 +73,7 @@ Material:
     - _BaseColor: {r: 0.4245283, g: 0.4245283, b: 0.4245283, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
     - _Position: {r: 0.49662974, g: 0.5149767, b: 9.60507, a: 0}
-    - _Positionc: {r: 0.4993853, g: 0.49557874, b: 13.031848, a: 0}
+    - _Positionc: {r: 0.49481145, g: 0.49011418, b: 13.01478, a: 0}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &8461298109232547902
