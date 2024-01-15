@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a1537b6b50350564583225ca16b3e736, type: 3}
-  m_Name: New GO Find Quest
+  m_Name: 001 Point A
   m_EditorClassIdentifier: 
-  title: 
-  description: 
+  title: Go To Point A
+  description: Go To Box
   icon: {fileID: 0}
   Reward: {fileID: 0}
   amountReward: 0
   type: 2
+  NextQuest: {fileID: 11400000, guid: c6a25164cf44f5240b03ffd0f90a8978, type: 2}
   destination: {x: 25.3, y: 1.1, z: 27.9}

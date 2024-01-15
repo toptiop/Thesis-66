@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class QuestManager : MonoBehaviour
 {
@@ -11,6 +12,12 @@ public class QuestManager : MonoBehaviour
     [Header("Script")]
     public Transform playerPosition;
     public Inventory inventory;
+    public QuestWaypoint waypoint;
+
+    [Header("UI Elements")]
+    public TMP_Text questTitleText;
+    public TMP_Text questDescriptionText;
+    public TMP_Text questRewardText;
     private void Awake()
     {
         if (instance == null)
@@ -26,6 +33,8 @@ public class QuestManager : MonoBehaviour
     private void Start()
     {
         InitializeQuests();
+        UpdateUIWithCurrentQuest();
+        DebugCurrentQuest();
     }
     private void Update()
     {
@@ -38,11 +47,30 @@ public class QuestManager : MonoBehaviour
         {
             currentQuestType = quests[0].type;
         }
+        StartCurrentQuest();
+    }
+
+    void StartCurrentQuest()
+    {
+        if (quests.Count > 0)
+        {
+            SO_Quest currentQuest = quests[0];
+            Debug.Log("Starting Quest: " + currentQuest.title);
+
+            // Optionally, you might want to handle other quest-related logic here
+
+            // Check if the quest has a NextQuest defined
+            if (currentQuest.NextQuest != null)
+            {
+                // Optionally, you might want to handle transitions or triggers for quest sequences
+                Debug.Log("Next Quest: " + currentQuest.NextQuest.title);
+            }
+        }
     }
     void CheckQuestStatus()
     {
-        List<SO_Quest> questsCopy = new List<SO_Quest>(quests);
-        foreach (SO_Quest quest in questsCopy)
+       // List<SO_Quest> questsCopy = new List<SO_Quest>(quests);
+        foreach (SO_Quest quest in quests)
         {
             if (quest.type == currentQuestType)
             {
@@ -57,7 +85,7 @@ public class QuestManager : MonoBehaviour
                         break;
 
                     case SO_Quest.QuestType.GO_Find:
-                        GoFindQuest(quest as SO_GO_FindQuest);
+                        GoFindQuest(quest as SO_GO_FindQuest);                        
                         break;
                 }
             }
@@ -88,6 +116,8 @@ public class QuestManager : MonoBehaviour
 
     void GoFindQuest(SO_GO_FindQuest quest)
     {
+        waypoint.SetPoint(quest.destination);
+        waypoint.ToggleWaypoint(true);
         float distanceToDestination = Vector3.Distance(playerPosition.position, quest.destination);
 
         if(distanceToDestination < 2.0)
@@ -100,9 +130,15 @@ public class QuestManager : MonoBehaviour
     void CompleteQuest(SO_Quest quest)
     {
         int questIndex = quests.IndexOf(quest);
+        if (quest.NextQuest != null)
+        {
+            // Optionally, you might want to handle transitions or triggers for quest sequences
+            Debug.Log("Next Quest: " + quest.NextQuest.title);
+            quests.Add(quest.NextQuest);
+        }
 
         if (questIndex != -1)
-        {
+        {           
             Debug.Log("Quest Completed: " + quest.title);
 
             // Remove the completed quest from the list
@@ -127,7 +163,58 @@ public class QuestManager : MonoBehaviour
         {
             Debug.LogWarning("Quest not found in the list!");
         }
+
+        if (currentQuestType != SO_Quest.QuestType.GO_Find)
+            waypoint.ToggleWaypoint(false);
+
+        UpdateUIWithCurrentQuest();
+        DebugCurrentQuest();
     }
 
+    void UpdateUIWithCurrentQuest()
+    {
+        if (quests.Count > 0)
+        {
+            SO_Quest currentQuest = quests[0];
 
+            questTitleText.text =   currentQuest.title;
+            questDescriptionText.text =   currentQuest.description;
+
+            if (currentQuest.Reward != null)
+            {
+               // questRewardText.text = "Reward: " + currentQuest.amountReward + " " + currentQuest.Reward.itemName;
+            }
+            else
+            {
+               // questRewardText.text = "Reward: None";
+            }
+
+            // Update other UI elements as needed
+        }
+        else
+        {
+            // No quests available, clear the UI
+            questTitleText.text = "No Active Quest";
+            questDescriptionText.text = "";
+            //questRewardText.text = "";
+            // Clear other UI elements as needed
+        }
+    }
+
+    void DebugCurrentQuest()
+    {
+        if (quests.Count > 0)
+        {
+            SO_Quest currentQuest = quests[0];
+            Debug.Log("Current Quest : " + currentQuest.name);
+            Debug.Log("Current Quest Type: " + currentQuest.type);
+            Debug.Log("Current Quest Title: " + currentQuest.title);
+            Debug.Log("Current Quest Description: " + currentQuest.description);
+            // Add more debug statements for other quest details as needed
+        }
+        else
+        {
+            Debug.Log("No Active Quest");
+        }
+    }
 }

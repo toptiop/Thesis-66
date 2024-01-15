@@ -12,6 +12,6 @@ public class SO_Quest : ScriptableObject
     public SO_Item Reward;
     public int amountReward;
     public QuestType type;
-
+    public SO_Quest NextQuest;
     public enum QuestType {Speak, Collect, GO_Find};
 }
