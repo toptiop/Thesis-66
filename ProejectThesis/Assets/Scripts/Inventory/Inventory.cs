@@ -148,6 +148,8 @@ public class Inventory : MonoBehaviour
         miniCanvas.gameObject.SetActive(false);
     }
 
+    #endregion
+
     public bool CheckInventoryForItems(SO_Item item, int requiredAmount)
     {
         int totalAmountInInventory = 0;
@@ -169,5 +171,4 @@ public class Inventory : MonoBehaviour
         // If you reach this point, required items were not found in the inventory
         return false;
     }
-    #endregion
 }

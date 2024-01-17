@@ -8,6 +8,10 @@ public class QuestManager : MonoBehaviour
     public static QuestManager instance;
     public SO_Quest.QuestType currentQuestType;
     public List<SO_Quest> quests = new List<SO_Quest>();
+    public GameObject questPanel;
+
+    [Header("Setting")]
+    public float distanceToDestinationRang = 2f;
 
     [Header("Script")]
     public Transform playerPosition;
@@ -32,6 +36,7 @@ public class QuestManager : MonoBehaviour
 
     private void Start()
     {
+        questPanel.SetActive(true);
         InitializeQuests();
         UpdateUIWithCurrentQuest();
         DebugCurrentQuest();
@@ -102,25 +107,46 @@ public class QuestManager : MonoBehaviour
 
         if (collectQuest != null)
         {
-            if (inventory.CheckInventoryForItems(collectQuest.collectItem, collectQuest.requiredItemCount))
+            foreach (Collecter collecter in collectQuest.itemCollect)
             {
-                Debug.Log("CollectQuest Completed!");
-                CompleteQuest(quest);
-            }
-            else
-            {
-                Debug.Log("CollectQuest Incomplete - Required items not found in the inventory.");
+                // Check if the required items are collected
+                if (inventory.CheckInventoryForItems(collecter.collectItem, collecter.requiredItemCount))
+                {
+                    // Items collected for this Collecter
+                    Debug.Log("Collected " + collecter.currentItemCount + " out of " + collecter.requiredItemCount + " " + collecter.collectItem.itemName);
+
+                    // Update the current item count
+                    collecter.currentItemCount += collecter.requiredItemCount;
+
+                    // Debug the updated current item count
+                    Debug.Log("Updated currentItemCount: " + collecter.currentItemCount);
+
+                    // Check if the current item count meets the required count
+                    if (collecter.currentItemCount >= collecter.requiredItemCount)
+                    {
+                        Debug.Log("CollectQuest Completed for " + collecter.collectItem.itemName);
+
+                        // Optionally, you might want to handle other completion-related logic here
+                        CompleteQuest(quest);
+                    }
+                }
+                else
+                {
+                    Debug.Log("CollectQuest Incomplete - Required items not found in the inventory for " + collecter.collectItem.itemName);
+                }
             }
         }
     }
 
+
+
     void GoFindQuest(SO_GO_FindQuest quest)
     {
         waypoint.SetPoint(quest.destination);
-        waypoint.ToggleWaypoint(true);
+        waypoint.ToggleWaypoint(quest.activeWaypoint);
         float distanceToDestination = Vector3.Distance(playerPosition.position, quest.destination);
 
-        if(distanceToDestination < 2.0)
+        if(distanceToDestination < distanceToDestinationRang)
         {
             Debug.Log("GO_Find");
             CompleteQuest(quest);

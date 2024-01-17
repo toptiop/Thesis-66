@@ -19,4 +19,5 @@ MonoBehaviour:
   amountReward: 0
   type: 2
   NextQuest: {fileID: 11400000, guid: c6a25164cf44f5240b03ffd0f90a8978, type: 2}
+  activeWaypoint: 0
   destination: {x: 25.3, y: 1.1, z: 27.9}

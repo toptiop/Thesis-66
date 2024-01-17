@@ -10,6 +10,7 @@ public class Detection : MonoBehaviour
 
 
     public InputManager _input;
+    public ActionUI actionUI;
     void Start()
     {
         
@@ -30,18 +31,25 @@ public class Detection : MonoBehaviour
         foreach(Collider col in hitColliders)
         {
             Debug.Log("Detected: " + col.gameObject.name);//Debug
+
             IInteractable interactableObject = col.gameObject.GetComponent<IInteractable>();
             if(interactableObject != null)
             {
                 string interactionText = interactableObject.GetInteractionText();
 
-                // ActionText
+                if (actionUI != null)
+                {
+                    actionUI.ShowInteractionUI(interactionText);
+                    Debug.Log("Action != Null");
+                }
 
                 if (_input.interaction)
                 {
                     _input.interaction = false;
                     interactableObject.Interact();
                 }
+                interactableFound = true;
+
             }
             else
             {
@@ -50,7 +58,10 @@ public class Detection : MonoBehaviour
             }
         }
 
-        // Hide ActionUI
+        if (!interactableFound && actionUI != null)
+        {
+            actionUI.HideCanvas();
+        }
     }
 
     IEnumerator DelayFalse()

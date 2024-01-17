@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c8b674d9f966af49b0ec919b36bb587, type: 3}
   m_Name: 001_Carrot
   m_EditorClassIdentifier: 
+  itemType: 1
   icon: {fileID: 21300000, guid: 414a7639d2781fc46a364368d37c1d97, type: 3}
   id: 001
   itemName: Carrot

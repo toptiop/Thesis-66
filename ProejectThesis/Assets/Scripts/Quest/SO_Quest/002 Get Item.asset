@@ -19,5 +19,7 @@ MonoBehaviour:
   amountReward: 0
   type: 1
   NextQuest: {fileID: 11400000, guid: 222178190048ee54187a3eccf8a113a2, type: 2}
-  requiredItemCount: 10
-  collectItem: {fileID: 11400000, guid: 70c2b23816ab06a4182cf6f9f8cc3457, type: 2}
+  itemCollect:
+  - currentItemCount: 50
+    requiredItemCount: 50
+    collectItem: {fileID: 11400000, guid: 70c2b23816ab06a4182cf6f9f8cc3457, type: 2}

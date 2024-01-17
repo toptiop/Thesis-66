@@ -16,6 +16,10 @@ public class ItemObject : MonoBehaviour, IInteractable
     [SerializeField]
     private Inventory inventory;
 
+    private void Awake()
+    {
+        actionText = "Pick up " + item.itemName;
+    }
     public void SetAmout(int newAmont)
     {
         amont = newAmont;

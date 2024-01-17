@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +7,13 @@ using UnityEngine;
 public class SO_CollectQuest : SO_Quest
 {
     [Header("CollectQuest DETIALS")]
+    public List<Collecter> itemCollect;
+}
+
+[Serializable]
+public class Collecter
+{
+    public int currentItemCount;
     public int requiredItemCount; // จำนวนของที่ผู้เล่นต้องเก็บ
     public SO_Item collectItem; // ไอเท็มที่ต้องเก็บ
 }
