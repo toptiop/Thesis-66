@@ -9,17 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca606818643c3144a812b88e348b2441, type: 3}
-  m_Name: New Speak Quest
+  m_Script: {fileID: 11500000, guid: 3e1ecf2d8ac1bde45bc8bfed6b8debde, type: 3}
+  m_Name: 001 Go To Point A
   m_EditorClassIdentifier: 
-  title: 
-  description: 
+  type: 1
+  title: Go To Point A
+  description: Go To Point A
   icon: {fileID: 0}
   Reward: {fileID: 0}
   amountReward: 0
-  type: 0
-  Speeches:
-  - 
-  - 
-  - 
-  SpeecIndex: 0
+  NextQuest: {fileID: 11400000, guid: dafc9162eb4726449ac947b3612f3659, type: 2}
+  itemCollect: []
+  activeWaypoint: 1
+  destination: {x: 27.63, y: 1.1, z: 37.9}

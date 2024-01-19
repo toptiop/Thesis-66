@@ -13,6 +13,7 @@ public class Singleton : MonoBehaviour
     public DialogueManager dialogueManager;
     public Detection detection;
     public QuestManager quest;
+    public ActionUI actionUI;
 
     private void Awake()
     {
@@ -26,6 +27,7 @@ public class Singleton : MonoBehaviour
             DontDestroyOnLoad(this.gameObject);
         }
 
+        #region FindScript
         controller = FindAnyObjectByType<PlayerController>();
         inputManager = FindAnyObjectByType<InputManager>();
         inventory = FindAnyObjectByType<Inventory>();
@@ -33,5 +35,7 @@ public class Singleton : MonoBehaviour
         dialogueManager = FindAnyObjectByType<DialogueManager>();
         detection = FindAnyObjectByType<Detection>();
         quest = FindAnyObjectByType<QuestManager>();
+        actionUI = FindAnyObjectByType<ActionUI>();
+        #endregion
     }
 }

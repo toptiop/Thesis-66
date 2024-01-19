@@ -80,17 +80,13 @@ public class QuestManager : MonoBehaviour
             if (quest.type == currentQuestType)
             {
                 switch (quest.type)
-                {
-                    case SO_Quest.QuestType.Speak:
-                        SpeakQuest(quest);
-                        break;
-
+                {              
                     case SO_Quest.QuestType.Collect:
                         CollectQuest(quest);
                         break;
 
                     case SO_Quest.QuestType.GO_Find:
-                        GoFindQuest(quest as SO_GO_FindQuest);                        
+                        GoFindQuest(quest);                        
                         break;
                 }
             }
@@ -103,11 +99,11 @@ public class QuestManager : MonoBehaviour
 
     void CollectQuest(SO_Quest quest)
     {
-        SO_CollectQuest collectQuest = quest as SO_CollectQuest;
+        //SO_CollectQuest collectQuest = quest as SO_CollectQuest;
 
-        if (collectQuest != null)
+        if (quest != null)
         {
-            foreach (Collecter collecter in collectQuest.itemCollect)
+            foreach (Collecter collecter in quest.itemCollect)
             {
                 // Check if the required items are collected
                 if (inventory.CheckInventoryForItems(collecter.collectItem, collecter.requiredItemCount))
@@ -140,7 +136,7 @@ public class QuestManager : MonoBehaviour
 
 
 
-    void GoFindQuest(SO_GO_FindQuest quest)
+    void GoFindQuest(SO_Quest quest)
     {
         waypoint.SetPoint(quest.destination);
         waypoint.ToggleWaypoint(quest.activeWaypoint);
@@ -181,7 +177,7 @@ public class QuestManager : MonoBehaviour
             else
             {
                 // If there are no more quests, you can reset or handle the quest manager state accordingly
-                currentQuestType = SO_Quest.QuestType.Speak; // Set a default type or handle as needed
+                currentQuestType = SO_Quest.QuestType.Collect; // Set a default type or handle as needed
                 Debug.Log("All quests completed!");
             }
         }

@@ -9,15 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1537b6b50350564583225ca16b3e736, type: 3}
-  m_Name: 001 Point A
+  m_Script: {fileID: 11500000, guid: 3e1ecf2d8ac1bde45bc8bfed6b8debde, type: 3}
+  m_Name: 003 Go To Point B
   m_EditorClassIdentifier: 
-  title: Go To Point A
-  description: Go To Box
+  type: 1
+  title: Go To Point B
+  description: Go To Point B
   icon: {fileID: 0}
   Reward: {fileID: 0}
   amountReward: 0
-  type: 2
-  NextQuest: {fileID: 11400000, guid: c6a25164cf44f5240b03ffd0f90a8978, type: 2}
+  NextQuest: {fileID: 0}
+  itemCollect: []
   activeWaypoint: 0
-  destination: {x: 25.3, y: 1.1, z: 27.9}
+  destination: {x: 17.7, y: 0.91, z: 47.88}

@@ -12,7 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e1ecf2d8ac1bde45bc8bfed6b8debde, type: 3}
   m_Name: New Quest
   m_EditorClassIdentifier: 
+  type: 0
   title: 
   description: 
   icon: {fileID: 0}
-  type: 0
+  Reward: {fileID: 0}
+  amountReward: 0
+  NextQuest: {fileID: 0}
+  itemCollect:
+  - currentItemCount: 0
+    requiredItemCount: 0
+    collectItem: {fileID: 0}
+  activeWaypoint: 0
+  destination: {x: 0, y: 0, z: 0}

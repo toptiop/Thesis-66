@@ -9,17 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c79a91d0d192854d80c3184c14e809f, type: 3}
-  m_Name: 002 Get Item
+  m_Script: {fileID: 11500000, guid: 3e1ecf2d8ac1bde45bc8bfed6b8debde, type: 3}
+  m_Name: 002 Get Carrot
   m_EditorClassIdentifier: 
+  type: 0
   title: Get Carrot
-  description: Get 10
-  icon: {fileID: 21300000, guid: 414a7639d2781fc46a364368d37c1d97, type: 3}
+  description: Get Carrot 10 p
+  icon: {fileID: 0}
   Reward: {fileID: 0}
   amountReward: 0
-  type: 1
-  NextQuest: {fileID: 11400000, guid: 222178190048ee54187a3eccf8a113a2, type: 2}
+  NextQuest: {fileID: 11400000, guid: 9a5a8b0e1f9168c48a8ffc7641d47bf7, type: 2}
   itemCollect:
-  - currentItemCount: 50
-    requiredItemCount: 50
+  - currentItemCount: 10
+    requiredItemCount: 10
     collectItem: {fileID: 11400000, guid: 70c2b23816ab06a4182cf6f9f8cc3457, type: 2}
+  activeWaypoint: 0
+  destination: {x: 0, y: 0, z: 0}
