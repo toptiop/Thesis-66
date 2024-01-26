@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Active ActionUI")]
     public bool InteractUI;
+    public bool cameraMove;
 
     private void Awake()
     {
@@ -22,10 +23,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        ChangeCursorState(true);
+    }
 
     private void Update()
     {
         ControlActionUI();
+        ChangeCursorState(!InteractUI);
     }
 
     public void ControlActionUI()
@@ -37,6 +43,22 @@ public class GameManager : MonoBehaviour
         else
         {
             Singleton.Instance.actionUI.gameObject.SetActive(false);
+        }
+    }
+
+    public void ChangeCursorState(bool newState)
+    {       
+        if(newState)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            cameraMove = false;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            cameraMove = true;
         }
     }
 }

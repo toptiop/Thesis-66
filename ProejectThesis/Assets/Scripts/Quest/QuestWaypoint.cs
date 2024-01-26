@@ -25,7 +25,7 @@ public class QuestWaypoint : MonoBehaviour
 
         Vector2 pos = Camera.main.WorldToScreenPoint(target + offset);
 
-        if (Vector3.Dot((target - transform.position).normalized, transform.position - transform.position) < 0)
+        if (Vector3.Dot((target - transform.position), transform.position - transform.position) < 0)
         {
             if (pos.x < Screen.width)
             {

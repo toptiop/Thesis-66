@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+public class RobotController : MonoBehaviour
 {
     #region PlayerController
     [Header("Player")]
@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
 
     public Animator _animator;
     [HideInInspector] public CharacterController _controller;
-    private InputManager _input;
+    private InputRobotManager _input;
     private GameObject _mainCamera;
 
     private const float _threshold = 0.01f;
@@ -86,7 +86,7 @@ public class PlayerController : MonoBehaviour
         _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
 
         _controller = GetComponent<CharacterController>();
-        _input = GetComponent<InputManager>();
+        _input = GetComponent<InputRobotManager>();
         _playerInput = GetComponent<PlayerInput>();
 
 
@@ -96,7 +96,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        
+
         if (!canMove)
         {
             Move();
@@ -201,8 +201,11 @@ public class PlayerController : MonoBehaviour
         _controller.Move(targetDirection.normalized * (_speed * Time.deltaTime) +
                          new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
 
-        _animator.SetFloat(_animIDSpeed, _animationBlend);
-        _animator.SetFloat(_animIDMotionSpeed, inputMagnitude);
+        if(_animator != null)
+        {
+            _animator.SetFloat(_animIDSpeed, _animationBlend);
+            _animator.SetFloat(_animIDMotionSpeed, inputMagnitude);
+        }
     }
 
 
@@ -215,7 +218,4 @@ public class PlayerController : MonoBehaviour
 
 
 
-
-
 }
-

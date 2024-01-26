@@ -43,15 +43,15 @@ public class InputManager : MonoBehaviour
 
     public void OnLook(InputValue value)
     {
-        LookInput(value.Get<Vector2>());
-        /* if (Singletons.Instance.invUI.cameraMove)
+       
+         if (GameManager.Instance.cameraMove)
          {
              look = Vector2.zero;
          }
          else
          {
-
-         }*/
+            LookInput(value.Get<Vector2>());
+         }
     }
 
     public void OnJump(InputValue value)

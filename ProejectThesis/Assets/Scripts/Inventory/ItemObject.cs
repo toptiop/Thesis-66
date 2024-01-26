@@ -33,7 +33,7 @@ public class ItemObject : MonoBehaviour, IInteractable
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Robot"))
         {
             inventory = other.GetComponent<ItemPicker>().inventory;
             //Destroy(gameObject);
@@ -41,7 +41,7 @@ public class ItemObject : MonoBehaviour, IInteractable
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Robot"))
         {
             inventory = null;
             

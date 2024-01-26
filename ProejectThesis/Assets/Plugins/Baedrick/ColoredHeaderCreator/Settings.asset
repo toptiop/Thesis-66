@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Settings
   m_EditorClassIdentifier: 
   headerSettings:
-    headerText: New Header
-    headerColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    headerText: ROBOT
+    headerColor: {r: 0.086863644, g: 0.3018868, b: 0.11392532, a: 1}
     textAlignmentOptions: 0
     fontStyleOptions: 0
     fontSize: 12

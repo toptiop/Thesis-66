@@ -1,0 +1,72 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.InputSystem;
+using Cinemachine;
+
+public class switchcharacters : MonoBehaviour
+{
+    [Header("[Player Component]")]
+    public PlayerInput player;
+    public Detection playerDetec;
+    public CinemachineVirtualCamera camPlayer;
+
+    [Header("[Robot Component]")]
+    public PlayerInput robot;
+    public RobotDetection robotDetec;
+    public CinemachineVirtualCamera camRobot;
+
+    public bool isSwitch;
+    void Start()
+    {
+        Invoke("SwitchControl",1.0f);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        SwitchControl();
+    }
+
+    void SwitchControl()
+    {
+        if (isSwitch)
+        {
+            DisableControlRobot();
+            EnableControlPlayer();            
+        }
+        else
+        {
+            DisableControlPlayer();
+            EnableControlRobot();
+        }
+    }
+
+
+    void EnableControlPlayer()
+    {
+        player.enabled = true;
+        playerDetec.enabled = true;
+        camPlayer.gameObject.SetActive(true);
+    }
+
+    void DisableControlPlayer()
+    {
+        player.enabled = false;
+        playerDetec.enabled = false;
+        camPlayer.gameObject.SetActive(false);
+    }
+
+    void EnableControlRobot()
+    {
+        robot.enabled = true;
+        robotDetec.enabled = true;
+        camRobot.gameObject.SetActive(true);
+    }
+    void DisableControlRobot()
+    {
+        robot.enabled = false;
+        robotDetec.enabled = false;
+        camRobot.gameObject.SetActive(false);
+    }
+}
