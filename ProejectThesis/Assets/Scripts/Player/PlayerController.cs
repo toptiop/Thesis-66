@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
 
 
     [Header("Cinemachine")]
+    public bool useCamera;
     public GameObject CinemachineCameraTarget;
     public float TopClamp = 70.0f;
     public float BottomClamp = -30.0f;
@@ -109,7 +110,10 @@ public class PlayerController : MonoBehaviour
 
     private void LateUpdate()
     {
-        CameraRotation();
+        if(useCamera)
+        {
+            CameraRotation();
+        }       
     }
 
     private void AssignAnimationIDs()
