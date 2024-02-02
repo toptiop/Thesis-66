@@ -25,7 +25,7 @@
                 },
                 {
                     "name": "Jump",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "8c4abdf8-4099-493a-aa1a-129acec7c3df",
                     "expectedControlType": "Button",
                     "processors": "",
@@ -51,7 +51,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Switch",
+                    "name": "Swap",
                     "type": "Button",
                     "id": "468d6c48-decd-4dfc-9ec4-d6c65746ab87",
                     "expectedControlType": "Button",
@@ -180,6 +180,15 @@
                     "name": "MouseHold",
                     "type": "PassThrough",
                     "id": "760f0e0a-5ce6-40d3-988d-cb6a3cb309df",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Down",
+                    "type": "PassThrough",
+                    "id": "826d6f52-7204-40b9-afdb-97c20643e7bb",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -381,7 +390,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyboardMouse",
-                    "action": "Switch",
+                    "action": "Swap",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -536,6 +545,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "MouseHold",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ca9d8110-012a-4baa-91fd-c65c08a7878e",
+                    "path": "<Keyboard>/ctrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Down",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

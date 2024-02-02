@@ -11,16 +11,20 @@ public class PlayerController : MonoBehaviour
     public float SprintSpeed = 5.335f;
     public float Gravity = 9.81f;
 
+    [Header("Interacting")]
+    public bool isInteractingBox;
+
+    [Header("Pickup Position")]
+    public bool pickupOnHand;
+    public Transform posHand;
+
+    [Header("Mouse Setting")]
     [Range(0.0f, 2f)]
     public float sensitivity = 0.5f;
 
     [Range(0.0f, 0.3f)]
     public float RotationSmoothTime = 0.12f;
     public float SpeedChangeRate = 10.0f;
-
-    public AudioClip LandingAudioClip;
-
-
 
     [Header("Cinemachine")]
     public bool useCamera;
@@ -92,7 +96,7 @@ public class PlayerController : MonoBehaviour
 
 
         AssignAnimationIDs();
-
+        isInteractingBox = true;
     }
 
     private void Update()
@@ -197,7 +201,10 @@ public class PlayerController : MonoBehaviour
             float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, _targetRotation, ref _rotationVelocity,
                 RotationSmoothTime);
 
-            transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
+           if(isInteractingBox)
+            {
+                transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
+            }
         }
 
         Vector3 targetDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward;

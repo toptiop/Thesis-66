@@ -53,7 +53,7 @@ Material:
     m_Floats:
     - _AdditionalLightCutoffPoint: 0.8
     - _ExtraBandThickness: 0.3
-    - _Opacity: 1
+    - _Opacity: 0.85
     - _OpacityBase: 5
     - _PaintbrushStrokesAngle: 40
     - _PaintbrushStrokesSize: 1

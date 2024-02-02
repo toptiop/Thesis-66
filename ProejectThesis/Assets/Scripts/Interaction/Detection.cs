@@ -30,7 +30,7 @@ public class Detection : MonoBehaviour
 
         foreach(Collider col in hitColliders)
         {
-            Debug.Log("Detected: " + col.gameObject.name);//Debug
+            //Debug.Log("Detected: " + col.gameObject.name);//Debug
 
             IInteractable interactableObject = col.gameObject.GetComponent<IInteractable>();
             if(interactableObject != null)
@@ -54,7 +54,7 @@ public class Detection : MonoBehaviour
             else
             {
                 StartCoroutine(DelayFalse());
-                Debug.Log("Not Detected");
+                //Debug.Log("Not Detected");
             }
         }
 

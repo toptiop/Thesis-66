@@ -11,7 +11,7 @@ public class InputManager : MonoBehaviour
     public bool jump;
     public bool sprint;
     public bool inventory;
-    public bool shop;
+    public bool swap;
     public bool interaction;
     public bool oneSlot;
     public bool twoSlot;
@@ -69,9 +69,9 @@ public class InputManager : MonoBehaviour
         InventoryInput(value.isPressed);
     }
 
-    public void OnShop(InputValue value)
+    public void OnSwap(InputValue value)
     {
-        ShopInput(value.isPressed);
+        SwapInput(value.isPressed);
     }
 
     public void OnInteraction(InputValue value)
@@ -159,9 +159,9 @@ public class InputManager : MonoBehaviour
         inventory = newInventoryState;
     }
 
-    public void ShopInput(bool newShopState)
+    public void SwapInput(bool newSwapState)
     {
-        shop = newShopState;
+        swap = newSwapState;
     }
 
     public void InteractionInput(bool newInteractionState)

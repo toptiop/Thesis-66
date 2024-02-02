@@ -16,6 +16,12 @@ public class switchcharacters : MonoBehaviour
     public RobotDetection robotDetec;
     public CinemachineVirtualCamera camRobot;
 
+
+    [Header("Input")]
+    public InputManager playerInput;
+    public InputRobotManager robotInput;
+
+    [Space(20)]
     public bool isSwitch;
     void Start()
     {
@@ -25,9 +31,15 @@ public class switchcharacters : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (playerInput.swap || robotInput.swap)
+        {
+            ChangeCharactor();
+            playerInput.swap = false;
+            robotInput.swap = false;
+        }
         SwitchControl();
     }
-
+    #region SwitchCharacter
     void SwitchControl()
     {
         if (isSwitch)
@@ -42,7 +54,7 @@ public class switchcharacters : MonoBehaviour
         }
     }
 
-
+  
     void EnableControlPlayer()
     {
         player.enabled = true;
@@ -69,4 +81,11 @@ public class switchcharacters : MonoBehaviour
         robotDetec.enabled = false;
         camRobot.gameObject.SetActive(false);
     }
+    #endregion
+
+    void ChangeCharactor()
+    {
+        isSwitch = !isSwitch;
+    }
+
 }

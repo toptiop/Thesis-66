@@ -10,7 +10,7 @@ public class InputRobotManager : MonoBehaviour
     public bool jump;
     public bool sprint;
     public bool inventory;
-    public bool shop;
+    public bool swap;
     public bool interaction;
     public bool oneSlot;
     public bool twoSlot;
@@ -25,6 +25,7 @@ public class InputRobotManager : MonoBehaviour
     public bool scrollDecrease;
     public bool book;
     public bool mouseHold;
+    public bool down;
 
 
     [Header("Movement Settings")]
@@ -68,9 +69,9 @@ public class InputRobotManager : MonoBehaviour
         InventoryInput(value.isPressed);
     }
 
-    public void OnShop(InputValue value)
+    public void OnSwap(InputValue value)
     {
-        ShopInput(value.isPressed);
+        SwapInput(value.isPressed);
     }
 
     public void OnInteraction(InputValue value)
@@ -129,6 +130,11 @@ public class InputRobotManager : MonoBehaviour
     {
         MouseHoldInput(value.isPressed);
     }
+    public void OnDown(InputValue value)
+    {
+        DownInput(value.isPressed);
+    }
+
     //
 
 
@@ -158,9 +164,9 @@ public class InputRobotManager : MonoBehaviour
         inventory = newInventoryState;
     }
 
-    public void ShopInput(bool newShopState)
+    public void SwapInput(bool newSwapState)
     {
-        shop = newShopState;
+        swap = newSwapState;
     }
 
     public void InteractionInput(bool newInteractionState)
@@ -218,5 +224,9 @@ public class InputRobotManager : MonoBehaviour
     public void MouseHoldInput(bool newMouseHoldState)
     {
         mouseHold = newMouseHoldState;
+    }
+    public void DownInput(bool newDownState)
+    {
+        down = newDownState;
     }
 }
