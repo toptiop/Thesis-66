@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class PushBox : MonoBehaviour, IInteractable
 {
-    
+
     public Vector3 setRotation;
     public GameObject box;
     public bool setParent;
+    public Rigidbody rb;
 
     private PlayerController player;
     private RobotController robot;
@@ -15,11 +16,11 @@ public class PushBox : MonoBehaviour, IInteractable
 
     private void Update()
     {
-        if(setParent)
+        if (setParent)
         {
             retureString = "Push Box";
         }
-      
+
     }
     public string GetInteractionText()
     {
@@ -43,16 +44,17 @@ public class PushBox : MonoBehaviour, IInteractable
     private void MoveBox(Transform mover)
     {
         setParent = !setParent;
-        if(!setParent)
+        if (!setParent)
         {
             mover.transform.position = transform.position;
             mover.transform.rotation = Quaternion.Euler(setRotation);
             box.transform.parent = mover;
-            if(player != null)
+            rb.isKinematic = true;
+            if (player != null)
             {
                 player.isInteractingBox = false;
             }
-            else if(robot != null)
+            else if (robot != null)
             {
                 robot.isInteractingBox = false;
             }
@@ -61,7 +63,7 @@ public class PushBox : MonoBehaviour, IInteractable
         else
         {
             box.transform.parent = null;
-
+            rb.isKinematic = false;
             if (player != null)
             {
                 player.isInteractingBox = true;
