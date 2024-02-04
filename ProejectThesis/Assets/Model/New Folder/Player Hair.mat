@@ -122,7 +122,7 @@ Material:
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Opacity: 1
-    - _OpacityBase: 1
+    - _OpacityBase: 2.5
     - _PaintbrushStrokesAngle: 40
     - _PaintbrushStrokesSize: 1
     - _Parallax: 0.005
