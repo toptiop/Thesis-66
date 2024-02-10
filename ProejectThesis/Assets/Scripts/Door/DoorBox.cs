@@ -9,6 +9,36 @@ public class DoorBox : MonoBehaviour
     public AudioSource source;
 
     public CheckBox correctBox;
+    public bool isOpen;
+    public Renderer doorMat;
+    public Material matClose;
+    public Material matUnlock;
+    private void Update()
+    {
+        if (correctBox != null)
+        {
+            isOpen = correctBox.correct;
+            if (doorMat != null && doorMat.materials.Length >= 2)
+            {
+                if (correctBox.correct)
+                {
+                    Material[] materials = doorMat.materials;
+                    materials[1] = matClose;
+                    doorMat.materials = materials;
+                }
+                else
+                {
+                    Material[] materials = doorMat.materials;
+                    materials[1] = matUnlock;
+                    doorMat.materials = materials;
+                }
+            }
+            else
+            {
+                Debug.LogError("Door material or materials array not properly set.");
+            }
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {

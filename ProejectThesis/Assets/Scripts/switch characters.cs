@@ -23,19 +23,28 @@ public class switchcharacters : MonoBehaviour
 
     [Space(20)]
     public bool isSwitch;
+    public bool activeSwitch;
     void Start()
     {
         Invoke("SwitchControl",1.0f);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (playerInput.swap || robotInput.swap)
+
+        if (!activeSwitch)
         {
-            ChangeCharactor();
             playerInput.swap = false;
             robotInput.swap = false;
+        }
+        if (activeSwitch)
+        {
+            if (playerInput.swap || robotInput.swap)
+            {
+                ChangeCharactor();
+                playerInput.swap = false;
+                robotInput.swap = false;
+            }
         }
         SwitchControl();
     }

@@ -13,6 +13,7 @@ public class RobotController : MonoBehaviour
     public float Gravity = 9.81f;
 
     [Header("FLY Setting")]
+    public bool useFlying;
     public bool isFly;
     public bool canFly;
     public float upSpeed = 1;
@@ -120,7 +121,10 @@ public class RobotController : MonoBehaviour
         if (!canMove)
         {
             Move();
-            Flying();
+            if (useFlying)
+            {
+                Flying();
+            }
             CheckGround();
             GroundedCheck();
         }
