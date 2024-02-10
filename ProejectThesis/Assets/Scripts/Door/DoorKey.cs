@@ -9,6 +9,36 @@ public class DoorKey : MonoBehaviour
     public AudioSource source;
 
     public KeyPad keyPad;
+    public bool isOpen;
+    public Renderer doorMat;
+    public Material matClose;
+    public Material matUnlock;
+    private void Update()
+    {
+        if (keyPad != null)
+        {
+            isOpen = keyPad.isUnlock;
+            if (doorMat != null && doorMat.materials.Length >= 2)
+            {
+                if (keyPad.isUnlock)
+                {
+                    Material[] materials = doorMat.materials;
+                    materials[1] = matClose;
+                    doorMat.materials = materials;
+                }
+                else
+                {
+                    Material[] materials = doorMat.materials;
+                    materials[1] = matUnlock;
+                    doorMat.materials = materials;
+                }
+            }
+            else
+            {
+                Debug.LogError("Door material or materials array not properly set.");
+            }
+        }
+    }
     void Start()
     {
         anim = GetComponent<Animator>();
