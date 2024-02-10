@@ -309,6 +309,10 @@ MonoBehaviour:
   close: {fileID: 8300000, guid: a6ca394e5d79f5748b5698e6970c7085, type: 3}
   source: {fileID: 6270629550956073966}
   correctBox: {fileID: 0}
+  isOpen: 0
+  doorMat: {fileID: 5919505644006492696}
+  matClose: {fileID: 2100000, guid: f4f0875d6f9f05f41a50c835daf755ac, type: 2}
+  matUnlock: {fileID: 2100000, guid: 9698be0268a63cd45a32c49ac0df306f, type: 2}
 --- !u!65 &6697693692226625320
 BoxCollider:
   m_ObjectHideFlags: 0
