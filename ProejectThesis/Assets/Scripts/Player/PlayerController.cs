@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     public float MoveSpeed = 2.0f;
     public float SprintSpeed = 5.335f;
     public float Gravity = 9.81f;
-
+    private Vector3 _moveDirection;
     [Header("Interacting")]
     public bool isInteractingBox;
 
@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviour
         }
     }
     #endregion
-
+    public Transform boxPos;
     public bool canMove;
     private void Awake()
     {
@@ -152,8 +152,14 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
+        float targetSpeed = MoveSpeed; // Default to MoveSpeed
 
-        float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
+        if (isInteractingBox)
+        {
+            targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed; // Update targetSpeed based on sprint input
+        }
+
+
 
 
         if (!_controller.isGrounded)

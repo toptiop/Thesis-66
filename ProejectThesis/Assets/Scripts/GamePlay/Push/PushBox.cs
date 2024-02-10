@@ -48,15 +48,18 @@ public class PushBox : MonoBehaviour, IInteractable
         {
             mover.transform.position = transform.position;
             mover.transform.rotation = Quaternion.Euler(setRotation);
-            box.transform.parent = mover;
+
             rb.isKinematic = true;
             if (player != null)
             {
                 player.isInteractingBox = false;
+                box.transform.position = player.boxPos.position;
+                box.transform.parent = player.boxPos;
             }
             else if (robot != null)
             {
                 robot.isInteractingBox = false;
+                box.transform.parent = mover;
             }
             retureString = "Cancel Push Pox";
         }

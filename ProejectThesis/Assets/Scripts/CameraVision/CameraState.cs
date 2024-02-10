@@ -2,12 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(EnemyFieldOfView))]
 public class CameraState : MonoBehaviour
 {
-    public enum State { Search, LockOn};
+    [Header("Camera Type")]
+    public CameraType type;
+
+    [Header("State Camera")]
     public State currentState;
+    public enum State { Search, LockOn };
 
     #region rotation;
+    [Space]
     [Header("Setting Rotation")]
     public bool useRotation;
     public float minRotation;
@@ -18,17 +24,30 @@ public class CameraState : MonoBehaviour
     public float rotationSpeed = 5f;
     #endregion
 
+    [Header("Timer")]
     [SerializeField] float timer;
-    [SerializeField] float timeDel = 1f;
+    [SerializeField] float timeToSubtract = 1f;
     public float timeAlert = 5.0f;
     public float resetAlert = 3.0f;
 
     [SerializeField]
     private EnemyFieldOfView view;
 
+    private void Awake()
+    {
+        view = GetComponent<EnemyFieldOfView>();
+
+        if (neck == null)
+        {
+            neck = transform.Find("neck").gameObject;
+        }
+        CallType();
+    }
+
     private void Update()
     {
-         UpdateState();
+        CallType();
+        UpdateState();
         //LookPlayer();
     }
     void EnterState(State state)
@@ -57,7 +76,7 @@ public class CameraState : MonoBehaviour
                     timer += Time.deltaTime;
                     if (timer >= timeAlert)
                     {
-                        EnterState(State.LockOn);                        
+                        EnterState(State.LockOn);
                     }
                 }
                 else
@@ -123,14 +142,42 @@ public class CameraState : MonoBehaviour
 
     void LookPlayer()
     {
-        Debug.Log("Rotation");
-        Vector3 targetDirection = view.playerRef.transform.position - neck.transform.position;
-        targetDirection.y = 0f; // ไม่ต้องสนใจแกน Y ในการหมุน
+        if (useRotation && neck != null)
+        {
+            Debug.Log("Rotation");
+            Vector3 targetDirection = view.playerRef.transform.position - neck.transform.position;
+            targetDirection.y = 0f; // ไม่ต้องสนใจแกน Y ในการหมุน
 
-        // หาค่าการหมุนของคอที่ต้องหันไปที่ตำแหน่งของผู้เล่น
-        Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
+            // หาค่าการหมุนของคอที่ต้องหันไปที่ตำแหน่งของผู้เล่น
+            Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
 
-        // ทำการหมุนคอ
-        neck.transform.rotation = Quaternion.Slerp(neck.transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+            // ทำการหมุนคอ
+            neck.transform.rotation = Quaternion.Slerp(neck.transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+        }
+
     }
+
+    void CallType()
+    {
+        radiusSetting.TryGetValue(type, out view.radius);
+        angleSetting.TryGetValue(type, out view.angle);
+    }
+
+    private Dictionary<CameraType, float> radiusSetting = new Dictionary<CameraType, float>()
+    {
+        {CameraType.Camera01, 5 },
+        {CameraType.Camera02, 10 },
+        {CameraType.Camera03, 15}
+    };
+    private Dictionary<CameraType, float> angleSetting = new Dictionary<CameraType, float>()
+    {
+        {CameraType.Camera01, 45 },
+        {CameraType.Camera02, 360 },
+        {CameraType.Camera03, 90 }
+    };
+
+    public enum CameraType { Camera01, Camera02, Camera03 }
 }
+
+
+

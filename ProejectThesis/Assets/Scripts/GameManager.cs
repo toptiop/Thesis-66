@@ -36,13 +36,16 @@ public class GameManager : MonoBehaviour
 
     public void ControlActionUI()
     {
-        if (!InteractUI)
+       if(Singleton.Instance != null)
         {
-            Singleton.Instance.actionUI.gameObject.SetActive(true);
-        }
-        else
-        {
-            Singleton.Instance.actionUI.gameObject.SetActive(false);
+            if (!InteractUI)
+            {
+                Singleton.Instance.actionUI.gameObject.SetActive(true);
+            }
+            else
+            {
+                Singleton.Instance.actionUI.gameObject.SetActive(false);
+            }
         }
     }
 
