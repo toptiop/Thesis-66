@@ -2947,6 +2947,21 @@ PrefabInstance:
       propertyPath: keyPad
       value: 
       objectReference: {fileID: 29675250}
+    - target: {fileID: 8672946792998911441, guid: 06e8ba409f42ae34cb0d7abde8bf29ab,
+        type: 3}
+      propertyPath: doorMat
+      value: 
+      objectReference: {fileID: 486675162}
+    - target: {fileID: 8672946792998911441, guid: 06e8ba409f42ae34cb0d7abde8bf29ab,
+        type: 3}
+      propertyPath: matClose
+      value: 
+      objectReference: {fileID: 2100000, guid: f4f0875d6f9f05f41a50c835daf755ac, type: 2}
+    - target: {fileID: 8672946792998911441, guid: 06e8ba409f42ae34cb0d7abde8bf29ab,
+        type: 3}
+      propertyPath: matUnlock
+      value: 
+      objectReference: {fileID: 2100000, guid: 9698be0268a63cd45a32c49ac0df306f, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19294,6 +19309,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 484568175}
   m_PrefabAsset: {fileID: 0}
+--- !u!23 &486675162 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 6514675052857759155, guid: 06e8ba409f42ae34cb0d7abde8bf29ab,
+    type: 3}
+  m_PrefabInstance: {fileID: 88599825}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &488783120
 GameObject:
   m_ObjectHideFlags: 0
@@ -35421,6 +35442,10 @@ MonoBehaviour:
   close: {fileID: 0}
   source: {fileID: 0}
   keyPad: {fileID: 2073066544}
+  isOpen: 0
+  doorMat: {fileID: 0}
+  matClose: {fileID: 0}
+  matUnlock: {fileID: 0}
 --- !u!1 &984954840
 GameObject:
   m_ObjectHideFlags: 0
@@ -38643,6 +38668,10 @@ MonoBehaviour:
   close: {fileID: 8300000, guid: a6ca394e5d79f5748b5698e6970c7085, type: 3}
   source: {fileID: 1081749460}
   keyPad: {fileID: 2073066544}
+  isOpen: 0
+  doorMat: {fileID: 0}
+  matClose: {fileID: 0}
+  matUnlock: {fileID: 0}
 --- !u!82 &1081749460
 AudioSource:
   m_ObjectHideFlags: 0
@@ -53194,6 +53223,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1508666668}
   m_CullTransparentMesh: 1
+--- !u!23 &1510902090 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 6514675052857759155, guid: 06e8ba409f42ae34cb0d7abde8bf29ab,
+    type: 3}
+  m_PrefabInstance: {fileID: 1780477542}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1511308105
 GameObject:
   m_ObjectHideFlags: 0
@@ -62176,6 +62211,21 @@ PrefabInstance:
       propertyPath: keyPad
       value: 
       objectReference: {fileID: 294804518}
+    - target: {fileID: 8672946792998911441, guid: 06e8ba409f42ae34cb0d7abde8bf29ab,
+        type: 3}
+      propertyPath: doorMat
+      value: 
+      objectReference: {fileID: 1510902090}
+    - target: {fileID: 8672946792998911441, guid: 06e8ba409f42ae34cb0d7abde8bf29ab,
+        type: 3}
+      propertyPath: matClose
+      value: 
+      objectReference: {fileID: 2100000, guid: f4f0875d6f9f05f41a50c835daf755ac, type: 2}
+    - target: {fileID: 8672946792998911441, guid: 06e8ba409f42ae34cb0d7abde8bf29ab,
+        type: 3}
+      propertyPath: matUnlock
+      value: 
+      objectReference: {fileID: 2100000, guid: 9698be0268a63cd45a32c49ac0df306f, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -69529,12 +69579,12 @@ PrefabInstance:
         type: 3}
       propertyPath: matClose
       value: 
-      objectReference: {fileID: 2100000, guid: 9698be0268a63cd45a32c49ac0df306f, type: 2}
+      objectReference: {fileID: 2100000, guid: f4f0875d6f9f05f41a50c835daf755ac, type: 2}
     - target: {fileID: 5889502238126686260, guid: 66701b4b836ad7e4d8ef0c9f2f9976c0,
         type: 3}
       propertyPath: matUnlock
       value: 
-      objectReference: {fileID: 2100000, guid: f4f0875d6f9f05f41a50c835daf755ac, type: 2}
+      objectReference: {fileID: 2100000, guid: 9698be0268a63cd45a32c49ac0df306f, type: 2}
     - target: {fileID: 5889502238126686260, guid: 66701b4b836ad7e4d8ef0c9f2f9976c0,
         type: 3}
       propertyPath: correctBox
