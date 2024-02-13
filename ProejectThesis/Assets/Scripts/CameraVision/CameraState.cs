@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(EnemyFieldOfView))]
+
 public class CameraState : MonoBehaviour
 {
     [Header("Camera Type")]
@@ -35,8 +35,7 @@ public class CameraState : MonoBehaviour
 
     private void Awake()
     {
-        view = GetComponent<EnemyFieldOfView>();
-
+        
         if (neck == null)
         {
             neck = transform.Find("neck").gameObject;
@@ -136,7 +135,7 @@ public class CameraState : MonoBehaviour
             }
 
             // หมุนออบเจคตามแกน Y
-            neck.transform.rotation = Quaternion.Euler(0f, currentRotation, 0f);
+            neck.transform.localEulerAngles = new Vector3(0f, currentRotation, 0f);
         }
     }
 
