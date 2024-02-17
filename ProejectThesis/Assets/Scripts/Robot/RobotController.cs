@@ -32,7 +32,7 @@ public class RobotController : MonoBehaviour
     public LayerMask GroundLayers;
 
     [Header("Interacting")]
-    public bool isInteractingBox;
+    public RobotState state;
 
     [Header("Mouse Sensitivity")]
     [Range(0.0f, 2f)]
@@ -105,14 +105,14 @@ public class RobotController : MonoBehaviour
     private void Start()
     {
         _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
-      
+
         _controller = GetComponent<CharacterController>();
         _input = GetComponent<InputRobotManager>();
         _playerInput = GetComponent<PlayerInput>();
 
 
         AssignAnimationIDs();
-        isInteractingBox = true;
+        state.isInteractingBox = true;
     }
 
     private void Update()
@@ -133,7 +133,7 @@ public class RobotController : MonoBehaviour
             _animator.SetFloat(_animIDSpeed, 0);
         }
 
-        
+
     }
 
     private void LateUpdate()
@@ -203,14 +203,14 @@ public class RobotController : MonoBehaviour
 
         Vector3 inputDirection = new Vector3(_input.move.x, 0.0f, _input.move.y).normalized;
 
-        if (_input.move != Vector2.zero )
+        if (_input.move != Vector2.zero)
         {
             _targetRotation = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg +
                               _mainCamera.transform.eulerAngles.y;
             float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, _targetRotation, ref _rotationVelocity,
                 RotationSmoothTime);
 
-            if(isInteractingBox)
+            if (state.isInteractingBox)
             {
                 transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
             }
@@ -221,7 +221,7 @@ public class RobotController : MonoBehaviour
         _controller.Move(targetDirection.normalized * (_speed * Time.deltaTime) +
                          new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
 
-       if(_animator != null)
+        if (_animator != null)
         {
             _animator.SetFloat(_animIDSpeed, _animationBlend);
             _animator.SetFloat(_animIDMotionSpeed, inputMagnitude);
@@ -262,11 +262,11 @@ public class RobotController : MonoBehaviour
             if (hit.collider)
             {
                 Debug.Log(hit.distance);
-                if(hit.distance >= heightDistance)
+                if (hit.distance >= heightDistance)
                 {
                     canFly = true;
                 }
-                else if(hit.distance < lowDistance)
+                else if (hit.distance < lowDistance)
                 {
                     isFly = false;
                     canFly = false;
@@ -312,5 +312,5 @@ public class RobotController : MonoBehaviour
         Grounded = Physics.CheckBox(boxCenter, new Vector3(GroundedRadius.x, GroundedRadius.y, GroundedRadius.z), Quaternion.identity, GroundLayers, QueryTriggerInteraction.Ignore);
     }
 
-    
+
 }

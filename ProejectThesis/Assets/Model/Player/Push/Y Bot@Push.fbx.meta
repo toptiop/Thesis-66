@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 63053a15c0565f9428626a72bb869e38
+guid: 990330fa2344feb429f6d50e04b538c2
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -51,7 +51,7 @@ ModelImporter:
       loopBlendPositionXZ: 1
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 1
+      keepOriginalPositionXZ: 0
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
@@ -60,7 +60,7 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+      additiveReferencePoseFrame: 4.25
     isReadable: 0
   meshes:
     lODScreenPercentages: []

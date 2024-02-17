@@ -13,20 +13,34 @@ public class DialogueManager : MonoBehaviour
     private int currentEntryIndex = 0;
     [SerializeField]
     private Dialogue currentDialogue;
+    [SerializeField]
+    private InputManager playerInput;
+    [SerializeField]
+    private InputRobotManager robotInput;
 
     private void Start()
     {
+        playerInput = FindAnyObjectByType<InputManager>();
+        robotInput = FindAnyObjectByType<InputRobotManager>();
+
         textPanel.SetActive(false);
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (playerInput != null && robotInput != null && currentDialogue != null)
         {
-            DisplayNextEntry();
-        }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            DisplayPreviousEntry();
+            if (playerInput.next || robotInput.next)
+            {
+                DisplayNextEntry();
+                playerInput.next = false;
+                robotInput.next = false;
+            }
+            else if (playerInput.back || robotInput.back)
+            {
+                DisplayPreviousEntry();
+                playerInput.back = false;
+                robotInput.back = false;
+            }
         }
     }
 

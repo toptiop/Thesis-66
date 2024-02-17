@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4274851922131240351}
   - component: {fileID: 2165574535757272646}
   - component: {fileID: 3105915938617552214}
+  - component: {fileID: 5524284718683512912}
   m_Layer: 0
   m_Name: SM_LongBox
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6926458091510741033}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -105,3 +106,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 4.4071555, y: 2.112533, z: 2.1125329}
   m_Center: {x: 0, y: 1.0014527, z: 0}
+--- !u!208 &5524284718683512912
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6926458091510741033}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 2.204, y: 1.056, z: 1.056}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 1.001, z: 0}
+  m_TimeToStationary: 0.5

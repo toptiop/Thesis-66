@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2322449805507942803
 Transform:
   m_ObjectHideFlags: 0
@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Lens:
     FieldOfView: 40
     OrthographicSize: 5
-    NearClipPlane: 0.2
+    NearClipPlane: 0.01
     FarClipPlane: 500
     Dutch: 0
     ModeOverride: 0
@@ -108,7 +108,7 @@ MonoBehaviour:
   m_TransparentLayers:
     serializedVersion: 2
     m_Bits: 8
-  m_MinimumDistanceFromTarget: 1
+  m_MinimumDistanceFromTarget: 1.25
   m_AvoidObstacles: 1
   m_DistanceLimit: 0
   m_MinimumOcclusionTime: 0
@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 5689647767891654920}
   - component: {fileID: 7700067682044545876}
   - component: {fileID: 301065954432085684}
+  - component: {fileID: 5736383078003593512}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -178,15 +179,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damping: {x: 0.1, y: 2, z: 0.3}
-  ShoulderOffset: {x: 1, y: 0.11, z: -1}
+  ShoulderOffset: {x: 1, y: 0.35, z: -1}
   VerticalArmLength: 0.4
   CameraSide: 0.6
-  CameraDistance: 3
+  CameraDistance: 5
   CameraCollisionFilter:
     serializedVersion: 2
     m_Bits: 1
   IgnoreTag: Player
-  CameraRadius: 0.15
+  CameraRadius: 0.05
   DampingIntoCollision: 0
   DampingFromCollision: 0
 --- !u!114 &301065954432085684
@@ -206,3 +207,27 @@ MonoBehaviour:
   m_AmplitudeGain: 0.5
   m_FrequencyGain: 0.3
   mNoiseOffsets: {x: 0, y: 0, z: 0}
+--- !u!114 &5736383078003593512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5715246593625955234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd6043bde05a7fc4cba197d06915c1e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damping: {x: 0.1, y: 0.5, z: 0.3}
+  ShoulderOffset: {x: 0.5, y: -0.4, z: 0}
+  VerticalArmLength: 0.4
+  CameraSide: 1
+  CameraDistance: 2
+  CameraCollisionFilter:
+    serializedVersion: 2
+    m_Bits: 0
+  IgnoreTag: 
+  CameraRadius: 0.2
+  DampingIntoCollision: 0
+  DampingFromCollision: 2

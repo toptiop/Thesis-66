@@ -52,13 +52,13 @@ public class PushBox : MonoBehaviour, IInteractable
             rb.isKinematic = true;
             if (player != null)
             {
-                player.isInteractingBox = false;
+                player.state.AnimationInteractingBox(true);
                 box.transform.position = player.boxPos.position;
                 box.transform.parent = player.boxPos;
             }
             else if (robot != null)
             {
-                robot.isInteractingBox = false;
+                robot.state.AnimationInteractingBox(true);
                 box.transform.parent = mover;
             }
             retureString = "Cancel Push Pox";
@@ -69,11 +69,11 @@ public class PushBox : MonoBehaviour, IInteractable
             rb.isKinematic = false;
             if (player != null)
             {
-                player.isInteractingBox = true;
+                player.state.AnimationInteractingBox(false);
             }
             else if (robot != null)
             {
-                robot.isInteractingBox = true;
+                robot.state.AnimationInteractingBox(false);
             }
         }
     }
