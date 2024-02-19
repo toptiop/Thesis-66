@@ -26,6 +26,8 @@ public class InputManager : MonoBehaviour
     public bool scrollDecrease;
     public bool book;
     public bool mouseHold;
+    public bool next;
+    public bool back;
 
 
     [Header("Movement Settings")]
@@ -43,15 +45,15 @@ public class InputManager : MonoBehaviour
 
     public void OnLook(InputValue value)
     {
-       
-         if (GameManager.Instance.cameraMove)
-         {
-             look = Vector2.zero;
-         }
-         else
-         {
+
+        if (GameManager.Instance.cameraMove)
+        {
+            look = Vector2.zero;
+        }
+        else
+        {
             LookInput(value.Get<Vector2>());
-         }
+        }
     }
 
     public void OnJump(InputValue value)
@@ -121,7 +123,7 @@ public class InputManager : MonoBehaviour
     public void OnScrollDecrease(InputValue value)
     {
         ScrollDecreaseInput(value.isPressed);
-    }   
+    }
     public void OnBook(InputValue value)
     {
         BookInput(value.isPressed);
@@ -130,6 +132,15 @@ public class InputManager : MonoBehaviour
     {
         MouseHoldInput(value.isPressed);
     }
+    public void OnNextDialogue(InputValue value)
+    {
+        NextDialogueInput(value.isPressed);
+    }
+    public void OnBackDialogue(InputValue value)
+    {
+        BackDialogueInput(value.isPressed);
+    }
+
     //
 
 
@@ -203,15 +214,15 @@ public class InputManager : MonoBehaviour
     public void Mouse1Input(bool newMouse1State)
     {
         mouse1 = newMouse1State;
-    }    
+    }
     public void ScrollIncreaseInput(bool newScrollIncreaseState)
     {
         scrollIncrease = newScrollIncreaseState;
-    }    
+    }
     public void ScrollDecreaseInput(bool newScrollDecreaseState)
     {
         scrollDecrease = newScrollDecreaseState;
-    }    
+    }
     public void BookInput(bool newBookState)
     {
         book = newBookState;
@@ -219,5 +230,13 @@ public class InputManager : MonoBehaviour
     public void MouseHoldInput(bool newMouseHoldState)
     {
         mouseHold = newMouseHoldState;
+    }
+    public void NextDialogueInput(bool newNextDialogueState)
+    {
+        next = newNextDialogueState;
+    }
+    public void BackDialogueInput(bool newBackDialogueState)
+    {
+        back = newBackDialogueState;
     }
 }

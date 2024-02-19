@@ -5,7 +5,7 @@ public class AirVent : MonoBehaviour, IInteractable
 {
     public Transform warpPoint;
     public Transform playerTransform;
-    public PlayerController controller;
+    public RobotController controller;
     public string GetInteractionText()
     {
         return "Enter the air vent.";
@@ -31,16 +31,16 @@ public class AirVent : MonoBehaviour, IInteractable
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Robot"))
         {
             playerTransform = other.transform;
-            controller = other.GetComponent<PlayerController>();
+            controller = other.GetComponent<RobotController>();
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Robot"))
         {
             StartCoroutine(DelayNull());
         }

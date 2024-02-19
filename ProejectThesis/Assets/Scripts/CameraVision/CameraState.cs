@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
+[RequireComponent(typeof(EnemyFieldOfView))]
 public class CameraState : MonoBehaviour
 {
     [Header("Camera Type")]
@@ -35,7 +35,8 @@ public class CameraState : MonoBehaviour
 
     private void Awake()
     {
-        
+        view = GetComponent<EnemyFieldOfView>();
+
         if (neck == null)
         {
             neck = transform.Find("neck").gameObject;

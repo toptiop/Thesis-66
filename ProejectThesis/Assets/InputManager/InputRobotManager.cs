@@ -26,6 +26,8 @@ public class InputRobotManager : MonoBehaviour
     public bool book;
     public bool mouseHold;
     public bool down;
+    public bool next;
+    public bool back;
 
 
     [Header("Movement Settings")]
@@ -134,6 +136,14 @@ public class InputRobotManager : MonoBehaviour
     {
         DownInput(value.isPressed);
     }
+    public void OnNextDialogue(InputValue value)
+    {
+        NextDialogueInput(value.isPressed);
+    }
+    public void OnBackDialogue(InputValue value)
+    {
+        BackDialogueInput(value.isPressed);
+    }
 
     //
 
@@ -228,5 +238,13 @@ public class InputRobotManager : MonoBehaviour
     public void DownInput(bool newDownState)
     {
         down = newDownState;
+    }
+    public void NextDialogueInput(bool newNextDialogueState)
+    {
+        next = newNextDialogueState;
+    }
+    public void BackDialogueInput(bool newBackDialogueState)
+    {
+        back = newBackDialogueState;
     }
 }

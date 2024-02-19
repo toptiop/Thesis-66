@@ -451,6 +451,7 @@ GameObject:
   - component: {fileID: 8135069361289245402}
   - component: {fileID: 8693695241910455980}
   - component: {fileID: 4303662711970398752}
+  - component: {fileID: 5205668704902033076}
   m_Layer: 0
   m_Name: SM_Security_Camera_3
   m_TagString: Untagged
@@ -522,3 +523,19 @@ MonoBehaviour:
   timeAlert: 5
   resetAlert: 3
   view: {fileID: 8693695241910455980}
+--- !u!208 &5205668704902033076
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8958022261292216052}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5

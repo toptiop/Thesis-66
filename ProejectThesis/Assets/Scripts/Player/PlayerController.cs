@@ -10,9 +10,9 @@ public class PlayerController : MonoBehaviour
     public float MoveSpeed = 2.0f;
     public float SprintSpeed = 5.335f;
     public float Gravity = 9.81f;
-    private Vector3 _moveDirection;
+    private Vector3 _moveDirection; 
     [Header("Interacting")]
-    public bool isInteractingBox;
+    public PlayerState state;
 
     [Header("Pickup Position")]
     public bool pickupOnHand;
@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
 
     public Animator _animator;
     [HideInInspector] public CharacterController _controller;
-    private InputManager _input;
+    [SerializeField] public InputManager _input;
     private GameObject _mainCamera;
 
     private const float _threshold = 0.01f;
@@ -89,19 +89,19 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
-
+        state  = GetComponent<PlayerState>();
         _controller = GetComponent<CharacterController>();
         _input = GetComponent<InputManager>();
         _playerInput = GetComponent<PlayerInput>();
 
 
         AssignAnimationIDs();
-        isInteractingBox = true;
+        state.isInteractingBox = true;
     }
 
     private void Update()
     {
-        
+
         if (!canMove)
         {
             Move();
@@ -110,14 +110,15 @@ public class PlayerController : MonoBehaviour
         {
             _animator.SetFloat(_animIDSpeed, 0);
         }
+
     }
 
     private void LateUpdate()
     {
-        if(useCamera)
+        if (useCamera)
         {
             CameraRotation();
-        }       
+        }
     }
 
     private void AssignAnimationIDs()
@@ -154,12 +155,12 @@ public class PlayerController : MonoBehaviour
     {
         float targetSpeed = MoveSpeed; // Default to MoveSpeed
 
-        if (isInteractingBox)
+        if (state.isInteractingBox)
         {
             targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed; // Update targetSpeed based on sprint input
         }
 
-
+        _moveDirection = new Vector3(_input.move.x, 0f, _input.move.y);
 
 
         if (!_controller.isGrounded)
@@ -202,15 +203,22 @@ public class PlayerController : MonoBehaviour
 
         if (_input.move != Vector2.zero)
         {
-            _targetRotation = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg +
-                              _mainCamera.transform.eulerAngles.y;
+            
             float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, _targetRotation, ref _rotationVelocity,
                 RotationSmoothTime);
 
-           if(isInteractingBox)
+            if (state.isInteractingBox)
             {
+                _targetRotation = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg +
+                             _mainCamera.transform.eulerAngles.y;
                 transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
             }
+            else
+            {
+                
+                _targetRotation = Mathf.Atan2(0f, _input.move.y) * Mathf.Rad2Deg + transform.eulerAngles.y;
+            }
+
         }
 
         Vector3 targetDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward;

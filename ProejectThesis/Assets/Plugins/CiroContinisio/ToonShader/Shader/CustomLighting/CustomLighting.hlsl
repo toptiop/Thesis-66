@@ -1,4 +1,4 @@
-#ifndef CUSTOM_LIGHTING_INCLUDED
+﻿#ifndef CUSTOM_LIGHTING_INCLUDED
 #define CUSTOM_LIGHTING_INCLUDED
 
 // @Cyanilux | https://github.com/Cyanilux/URP_ShaderGraphCustomLighting
@@ -14,17 +14,18 @@
 - (DistanceAtten is either 0 or 1 for directional light, depending if the light is in the culling mask or not)
 - If you want shadow attenutation, see MainLightShadows_float, or use MainLightFull_float instead
 */
-void MainLight_float (out float3 Direction, out float3 Color, out float DistanceAtten){
-	#ifdef SHADERGRAPH_PREVIEW
+void MainLight_float(out float3 Direction, out float3 Color, out float DistanceAtten)
+{
+#ifdef SHADERGRAPH_PREVIEW
 		Direction = normalize(float3(1,1,-0.4));
 		Color = float4(1,1,1,1);
 		DistanceAtten = 1;
-	#else
-		Light mainLight = GetMainLight();
-		Direction = mainLight.direction;
-		Color = mainLight.color;
-		DistanceAtten = mainLight.distanceAttenuation;
-	#endif
+#else
+    Light mainLight = GetMainLight();
+    Direction = mainLight.direction;
+    Color = mainLight.color;
+    DistanceAtten = mainLight.distanceAttenuation;
+#endif
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -32,15 +33,16 @@ void MainLight_float (out float3 Direction, out float3 Color, out float Distance
 //------------------------------------------------------------------------------------------------------
 
 #ifndef SHADERGRAPH_PREVIEW
-	#if UNITY_VERSION < 202220
+#if UNITY_VERSION < 202220
 	/*
 	GetMeshRenderingLayer() is only available in 2022.2+
 	Previous versions need to use GetMeshRenderingLightLayer()
 	*/
-	uint GetMeshRenderingLayer(){
-		return GetMeshRenderingLightLayer();
-	}
-	#endif
+uint GetMeshRenderingLayer()
+{
+    return GetMeshRenderingLightLayer();
+}
+#endif
 #endif
 		
 /*
@@ -49,19 +51,20 @@ void MainLight_float (out float3 Direction, out float3 Color, out float Distance
 - To work in an Unlit Graph, requires keywords :
 	- Boolean Keyword, Global Multi-Compile "_LIGHT_LAYERS"
 */
-void MainLightLayer_float(float3 Shading, out float3 Out){
-	#ifdef SHADERGRAPH_PREVIEW
+void MainLightLayer_float(float3 Shading, out float3 Out)
+{
+#ifdef SHADERGRAPH_PREVIEW
 		Out = Shading;
-	#else
-		Out = 0;
-		uint meshRenderingLayers = GetMeshRenderingLayer();
+#else
+    Out = 0;
+    uint meshRenderingLayers = GetMeshRenderingLayer();
 		#ifdef _LIGHT_LAYERS
 			if (IsMatchingLightLayer(GetMainLight().layerMask, meshRenderingLayers))
 		#endif
 		{
-			Out = Shading;
-		}
-	#endif
+        Out = Shading;
+    }
+#endif
 }
 
 /*
@@ -70,11 +73,12 @@ void MainLightLayer_float(float3 Shading, out float3 Out){
 - To work in an Unlit Graph, requires keywords :
 	- Boolean Keyword, Global Multi-Compile "_LIGHT_COOKIES"
 */
-void MainLightCookie_float(float3 WorldPos, out float3 Cookie){
-	Cookie = 1;
-	#if defined(_LIGHT_COOKIES)
+void MainLightCookie_float(float3 WorldPos, out float3 Cookie)
+{
+    Cookie = 1;
+#if defined(_LIGHT_COOKIES)
         Cookie = SampleMainLightCookie(WorldPos);
-    #endif
+#endif
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -87,10 +91,10 @@ void MainLightCookie_float(float3 WorldPos, out float3 Cookie){
 - It's not required for the PBR/Lit graph, so I'm using the SHADERPASS_FORWARD to ignore it for that pass
 */
 #ifndef SHADERGRAPH_PREVIEW
-	#include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/ShaderPass.hlsl"
-	#if (SHADERPASS != SHADERPASS_FORWARD)
-		#undef REQUIRES_VERTEX_SHADOW_COORD_INTERPOLATOR
-	#endif
+#include "Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/ShaderPass.hlsl"
+#if (SHADERPASS != SHADERPASS_FORWARD)
+#undef REQUIRES_VERTEX_SHADOW_COORD_INTERPOLATOR
+#endif
 #endif
 
 /*
@@ -103,21 +107,23 @@ void MainLightCookie_float(float3 WorldPos, out float3 Cookie){
 	- Boolean Keyword, Global Multi-Compile "_SHADOWS_SOFT"
 - For a PBR/Lit Graph, these keywords are already handled for you.
 */
-void MainLightShadows_float (float3 WorldPos, half4 Shadowmask, out float ShadowAtten){
-	#ifdef SHADERGRAPH_PREVIEW
+void MainLightShadows_float(float3 WorldPos, half4 Shadowmask, out float ShadowAtten)
+{
+#ifdef SHADERGRAPH_PREVIEW
 		ShadowAtten = 1;
-	#else
-		#if defined(_MAIN_LIGHT_SHADOWS_SCREEN) && !defined(_SURFACE_TYPE_TRANSPARENT)
+#else
+#if defined(_MAIN_LIGHT_SHADOWS_SCREEN) && !defined(_SURFACE_TYPE_TRANSPARENT)
 		float4 shadowCoord = ComputeScreenPos(TransformWorldToHClip(WorldPos));
-		#else
-		float4 shadowCoord = TransformWorldToShadowCoord(WorldPos);
-		#endif
-		ShadowAtten = MainLightShadow(shadowCoord, WorldPos, Shadowmask, _MainLightOcclusionProbes);
-	#endif
+#else
+    float4 shadowCoord = TransformWorldToShadowCoord(WorldPos);
+#endif
+    ShadowAtten = MainLightShadow(shadowCoord, WorldPos, Shadowmask, _MainLightOcclusionProbes);
+#endif
 }
 
-void MainLightShadows_float (float3 WorldPos, out float ShadowAtten){
-	MainLightShadows_float(WorldPos, half4(1,1,1,1), ShadowAtten);
+void MainLightShadows_float(float3 WorldPos, out float ShadowAtten)
+{
+    MainLightShadows_float(WorldPos, half4(1, 1, 1, 1), ShadowAtten);
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -132,13 +138,14 @@ void MainLightShadows_float (float3 WorldPos, out float ShadowAtten){
 	- Boolean Keyword, Global Multi-Compile "LIGHTMAP_SHADOW_MIXING"
 	- (also LIGHTMAP_ON, but I believe Shader Graph is already defining this one)
 */
-void Shadowmask_half (float2 lightmapUV, out half4 Shadowmask){
-	#ifdef SHADERGRAPH_PREVIEW
+void Shadowmask_half(float2 lightmapUV, out half4 Shadowmask)
+{
+#ifdef SHADERGRAPH_PREVIEW
 		Shadowmask = half4(1,1,1,1);
-	#else
-		OUTPUT_LIGHTMAP_UV(lightmapUV, unity_LightmapST, lightmapUV);
-		Shadowmask = SAMPLE_SHADOWMASK(lightmapUV);
-	#endif
+#else
+    OUTPUT_LIGHTMAP_UV(lightmapUV, unity_LightmapST, lightmapUV);
+    Shadowmask = SAMPLE_SHADOWMASK(lightmapUV);
+#endif
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -151,12 +158,13 @@ void Shadowmask_half (float2 lightmapUV, out half4 Shadowmask){
 - Alternatively could use the Baked GI node, as it'll also handle this for you.
 - Could also use the Ambient node, would be cheaper but the result won't automatically adapt based on the Environmental Lighting Source (Lighting tab).
 */
-void AmbientSampleSH_float (float3 WorldNormal, out float3 Ambient){
-	#ifdef SHADERGRAPH_PREVIEW
+void AmbientSampleSH_float(float3 WorldNormal, out float3 Ambient)
+{
+#ifdef SHADERGRAPH_PREVIEW
 		Ambient = float3(0.1, 0.1, 0.1); // Default ambient colour for previews
-	#else
-		Ambient = SampleSH(WorldNormal);
-	#endif
+#else
+    Ambient = SampleSH(WorldNormal);
+#endif
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -168,15 +176,16 @@ void AmbientSampleSH_float (float3 WorldNormal, out float3 Ambient){
 	- Boolean Keyword, Global Multi-Compile "LIGHTMAP_SHADOW_MIXING"
 	- (also LIGHTMAP_ON, but I believe Shader Graph is already defining this one)
 */
-void SubtractiveGI_float (float ShadowAtten, float3 normalWS, float3 bakedGI, out half3 result){
-	#ifdef SHADERGRAPH_PREVIEW
+void SubtractiveGI_float(float ShadowAtten, float3 normalWS, float3 bakedGI, out half3 result)
+{
+#ifdef SHADERGRAPH_PREVIEW
 		result = half3(1,1,1);
-	#else
-		Light mainLight = GetMainLight();
-		mainLight.shadowAttenuation = ShadowAtten;
-		MixRealtimeAndBakedGI(mainLight, normalWS, bakedGI);
-		result = bakedGI;
-	#endif
+#else
+    Light mainLight = GetMainLight();
+    mainLight.shadowAttenuation = ShadowAtten;
+    MixRealtimeAndBakedGI(mainLight, normalWS, bakedGI);
+    result = bakedGI;
+#endif
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -187,12 +196,13 @@ void SubtractiveGI_float (float ShadowAtten, float3 normalWS, float3 bakedGI, ou
 - Adds fog to the colour, based on the Fog settings in the Lighting tab.
 - Note : Not required for v12, can use Lerp instead. See "Mix Fog" SubGraph
 */
-void MixFog_float (float3 Colour, float Fog, out float3 Out){
-	#ifdef SHADERGRAPH_PREVIEW
+void MixFog_float(float3 Colour, float Fog, out float3 Out)
+{
+#ifdef SHADERGRAPH_PREVIEW
 		Out = Colour;
-	#else
-		Out = MixFog(Colour, Fog);
-	#endif
+#else
+    Out = MixFog(Colour, Fog);
+#endif
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -209,21 +219,22 @@ void MixFog_float (float3 Colour, float Fog, out float3 Out){
 	- Boolean Keyword, Global Multi-Compile "_FORWARD_PLUS" (2022.2+)
 */
 void AdditionalLights_float(float3 SpecColor, float Smoothness, float3 WorldPosition, float3 WorldNormal, float3 WorldView, half4 Shadowmask,
-							out float3 Diffuse, out float3 Specular) {
-	float3 diffuseColor = 0;
-	float3 specularColor = 0;
+							out float3 Diffuse, out float3 Specular)
+{
+    float3 diffuseColor = 0;
+    float3 specularColor = 0;
 #ifndef SHADERGRAPH_PREVIEW
-	Smoothness = exp2(10 * Smoothness + 1);
-	uint pixelLightCount = GetAdditionalLightsCount();
-	uint meshRenderingLayers = GetMeshRenderingLayer();
+    Smoothness = exp2(10 * Smoothness + 1);
+    uint pixelLightCount = GetAdditionalLightsCount();
+    uint meshRenderingLayers = GetMeshRenderingLayer();
 
-	#if USE_FORWARD_PLUS
+#if USE_FORWARD_PLUS
 	for (uint lightIndex = 0; lightIndex < min(URP_FP_DIRECTIONAL_LIGHTS_COUNT, MAX_VISIBLE_LIGHTS); lightIndex++) {
 		FORWARD_PLUS_SUBTRACTIVE_LIGHT_CHECK
 		Light light = GetAdditionalLight(lightIndex, WorldPosition, Shadowmask);
-	#ifdef _LIGHT_LAYERS
+#ifdef _LIGHT_LAYERS
 		if (IsMatchingLightLayer(light.layerMask, meshRenderingLayers))
-	#endif
+#endif
 		{
 			// Blinn-Phong
 			float3 attenuatedLightColor = light.color * (light.distanceAttenuation * light.shadowAttenuation);
@@ -231,36 +242,38 @@ void AdditionalLights_float(float3 SpecColor, float Smoothness, float3 WorldPosi
 			specularColor += LightingSpecular(attenuatedLightColor, light.direction, WorldNormal, WorldView, float4(SpecColor, 0), Smoothness);
 		}
 	}
-	#endif
+#endif
 
 	// For Foward+ the LIGHT_LOOP_BEGIN macro will use inputData.normalizedScreenSpaceUV, inputData.positionWS, so create that:
-	InputData inputData = (InputData)0;
-	float4 screenPos = ComputeScreenPos(TransformWorldToHClip(WorldPosition));
-	inputData.normalizedScreenSpaceUV = screenPos.xy / screenPos.w;
-	inputData.positionWS = WorldPosition;
+    InputData inputData = (InputData) 0;
+    float4 screenPos = ComputeScreenPos(TransformWorldToHClip(WorldPosition));
+    inputData.normalizedScreenSpaceUV = screenPos.xy / screenPos.w;
+    inputData.positionWS = WorldPosition;
 
-	LIGHT_LOOP_BEGIN(pixelLightCount)
-		Light light = GetAdditionalLight(lightIndex, WorldPosition, Shadowmask);
+    LIGHT_LOOP_BEGIN(pixelLightCount)
+
+    Light light = GetAdditionalLight(lightIndex, WorldPosition, Shadowmask);
 	#ifdef _LIGHT_LAYERS
 		if (IsMatchingLightLayer(light.layerMask, meshRenderingLayers))
 	#endif
 		{
 			// Blinn-Phong
-			float3 attenuatedLightColor = light.color * (light.distanceAttenuation * light.shadowAttenuation);
-			diffuseColor += LightingLambert(attenuatedLightColor, light.direction, WorldNormal);
-			specularColor += LightingSpecular(attenuatedLightColor, light.direction, WorldNormal, WorldView, float4(SpecColor, 0), Smoothness);
-		}
-	LIGHT_LOOP_END
+        float3 attenuatedLightColor = light.color * (light.distanceAttenuation * light.shadowAttenuation);
+        diffuseColor += LightingLambert(attenuatedLightColor, light.direction, WorldNormal);
+        specularColor += LightingSpecular(attenuatedLightColor, light.direction, WorldNormal, WorldView, float4(SpecColor, 0), Smoothness);
+    }
+    LIGHT_LOOP_END
 #endif
 
 	Diffuse = diffuseColor;
-	Specular = specularColor;
+    Specular = specularColor;
 }
 
 // For backwards compatibility (before Shadowmask was introduced)
-void AdditionalLights_float(float3 SpecColor, float Smoothness, float3 WorldPosition, float3 WorldNormal, float3 WorldView, 
-							out float3 Diffuse, out float3 Specular) {
-AdditionalLights_float(SpecColor, Smoothness, WorldPosition, WorldNormal, WorldView, half4(1,1,1,1), Diffuse, Specular);
+void AdditionalLights_float(float3 SpecColor, float Smoothness, float3 WorldPosition, float3 WorldNormal, float3 WorldView,
+							out float3 Diffuse, out float3 Specular)
+{
+    AdditionalLights_float(SpecColor, Smoothness, WorldPosition, WorldNormal, WorldView, half4(1, 1, 1, 1), Diffuse, Specular);
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -271,36 +284,37 @@ AdditionalLights_float(SpecColor, Smoothness, WorldPosition, WorldNormal, WorldV
 - Calculates light attenuation values to produce multiple bands for a toon effect. See AdditionalLightsToon function below
 */
 #ifndef SHADERGRAPH_PREVIEW
-float ToonAttenuation(int lightIndex, float3 positionWS, float pointBands, float spotBands){
-	#if !USE_FORWARD_PLUS
-		lightIndex = GetPerObjectLightIndex(lightIndex);
-	#endif
-	#if USE_STRUCTURED_BUFFER_FOR_LIGHT_DATA
+float ToonAttenuation(int lightIndex, float3 positionWS, float pointBands, float spotBands)
+{
+#if !USE_FORWARD_PLUS
+    lightIndex = GetPerObjectLightIndex(lightIndex);
+#endif
+#if USE_STRUCTURED_BUFFER_FOR_LIGHT_DATA
 		float4 lightPositionWS = _AdditionalLightsBuffer[lightIndex].position;
 		half4 spotDirection = _AdditionalLightsBuffer[lightIndex].spotDirection;
 		half4 distanceAndSpotAttenuation = _AdditionalLightsBuffer[lightIndex].attenuation;
-	#else
-		float4 lightPositionWS = _AdditionalLightsPosition[lightIndex];
-		half4 spotDirection = _AdditionalLightsSpotDir[lightIndex];
-		half4 distanceAndSpotAttenuation = _AdditionalLightsAttenuation[lightIndex];
-	#endif
+#else
+    float4 lightPositionWS = _AdditionalLightsPosition[lightIndex];
+    half4 spotDirection = _AdditionalLightsSpotDir[lightIndex];
+    half4 distanceAndSpotAttenuation = _AdditionalLightsAttenuation[lightIndex];
+#endif
 
 	// Point
-	float3 lightVector = lightPositionWS.xyz - positionWS * lightPositionWS.w;
-	float distanceSqr = max(dot(lightVector, lightVector), HALF_MIN);
-	float range = rsqrt(distanceAndSpotAttenuation.x);
-	float dist = sqrt(distanceSqr) / range;
+    float3 lightVector = lightPositionWS.xyz - positionWS * lightPositionWS.w;
+    float distanceSqr = max(dot(lightVector, lightVector), HALF_MIN);
+    float range = rsqrt(distanceAndSpotAttenuation.x);
+    float dist = sqrt(distanceSqr) / range;
 
 	// Spot
-	half3 lightDirection = half3(lightVector * rsqrt(distanceSqr));
-	half SdotL = dot(spotDirection.xyz, lightDirection);
-	half spotAtten = saturate(SdotL * distanceAndSpotAttenuation.z + distanceAndSpotAttenuation.w);
-	spotAtten *= spotAtten;
-	float maskSpotToRange = step(dist, 1);
+    half3 lightDirection = half3(lightVector * rsqrt(distanceSqr));
+    half SdotL = dot(spotDirection.xyz, lightDirection);
+    half spotAtten = saturate(SdotL * distanceAndSpotAttenuation.z + distanceAndSpotAttenuation.w);
+    spotAtten *= spotAtten;
+    float maskSpotToRange = step(dist, 1);
 
 	// Atten
-	bool isSpot = (distanceAndSpotAttenuation.z > 0);
-	return isSpot ? 
+    bool isSpot = (distanceAndSpotAttenuation.z > 0);
+    return isSpot ?
 		//step(0.01, spotAtten) :		// cheaper if you just want "1" band for spot lights
 		(floor(spotAtten * spotBands) / spotBands) * maskSpotToRange :
 		saturate(1.0 - floor(dist * pointBands) / pointBands);
@@ -316,22 +330,23 @@ float ToonAttenuation(int lightIndex, float3 positionWS, float pointBands, float
 */
 void AdditionalLightsToon_float(float3 SpecColor, float Smoothness, float3 WorldPosition, float3 WorldNormal, float3 WorldView, half4 Shadowmask,
 						float PointLightBands, float SpotLightBands,
-						out float3 Diffuse, out float3 Specular) {
-	float3 diffuseColor = 0;
-	float3 specularColor = 0;
+						out float3 Diffuse, out float3 Specular)
+{
+    float3 diffuseColor = 0;
+    float3 specularColor = 0;
 
 #ifndef SHADERGRAPH_PREVIEW
-	Smoothness = exp2(10 * Smoothness + 1);
-	uint pixelLightCount = GetAdditionalLightsCount();
-	uint meshRenderingLayers = GetMeshRenderingLayer();
+    Smoothness = exp2(10 * Smoothness + 1);
+    uint pixelLightCount = GetAdditionalLightsCount();
+    uint meshRenderingLayers = GetMeshRenderingLayer();
 
-	#if USE_FORWARD_PLUS
+#if USE_FORWARD_PLUS
 	for (uint lightIndex = 0; lightIndex < min(URP_FP_DIRECTIONAL_LIGHTS_COUNT, MAX_VISIBLE_LIGHTS); lightIndex++) {
 		FORWARD_PLUS_SUBTRACTIVE_LIGHT_CHECK
 		Light light = GetAdditionalLight(lightIndex, WorldPosition, Shadowmask);
-	#ifdef _LIGHT_LAYERS
+#ifdef _LIGHT_LAYERS
 		if (IsMatchingLightLayer(light.layerMask, meshRenderingLayers))
-	#endif
+#endif
 		{
 			if (PointLightBands <= 1 && SpotLightBands <= 1){
 				// Solid colour lights
@@ -342,29 +357,33 @@ void AdditionalLightsToon_float(float3 SpecColor, float Smoothness, float3 World
 			}
 		}
 	}
-	#endif
+#endif
 
 	// For Foward+ the LIGHT_LOOP_BEGIN macro will use inputData.normalizedScreenSpaceUV, inputData.positionWS, so create that:
-	InputData inputData = (InputData)0;
-	float4 screenPos = ComputeScreenPos(TransformWorldToHClip(WorldPosition));
-	inputData.normalizedScreenSpaceUV = screenPos.xy / screenPos.w;
-	inputData.positionWS = WorldPosition;
+    InputData inputData = (InputData) 0;
+    float4 screenPos = ComputeScreenPos(TransformWorldToHClip(WorldPosition));
+    inputData.normalizedScreenSpaceUV = screenPos.xy / screenPos.w;
+    inputData.positionWS = WorldPosition;
 
-	LIGHT_LOOP_BEGIN(pixelLightCount)
-		Light light = GetAdditionalLight(lightIndex, WorldPosition, Shadowmask);
+    LIGHT_LOOP_BEGIN(pixelLightCount)
+
+    Light light = GetAdditionalLight(lightIndex, WorldPosition, Shadowmask);
 	#ifdef _LIGHT_LAYERS
 		if (IsMatchingLightLayer(light.layerMask, meshRenderingLayers))
 	#endif
 		{
-			if (PointLightBands <= 1 && SpotLightBands <= 1){
+        if (PointLightBands <= 1 && SpotLightBands <= 1)
+        {
 				// Solid colour lights
-				diffuseColor += light.color * step(0.0001, light.distanceAttenuation * light.shadowAttenuation);
-			}else{
+            diffuseColor += light.color * step(0.0001, light.distanceAttenuation * light.shadowAttenuation);
+        }
+        else
+        {
 				// Multiple bands
-				diffuseColor += light.color * light.shadowAttenuation * ToonAttenuation(lightIndex, WorldPosition, PointLightBands, SpotLightBands);
-			}
-		}
-	LIGHT_LOOP_END
+            diffuseColor += light.color * light.shadowAttenuation * ToonAttenuation(lightIndex, WorldPosition, PointLightBands, SpotLightBands);
+        }
+    }
+    LIGHT_LOOP_END
 #endif
 
 /*
@@ -389,16 +408,17 @@ void AdditionalLightsToon_float(float3 SpecColor, float Smoothness, float3 World
 */
 
 	Diffuse = diffuseColor;
-	Specular = specularColor;
+    Specular = specularColor;
 	// Didn't really like the look of specular lighting in the toon shader here, so just keeping it at 0
 }
 
 // For backwards compatibility (before Shadowmask was introduced)
 void AdditionalLightsToon_float(float3 SpecColor, float Smoothness, float3 WorldPosition, float3 WorldNormal, float3 WorldView,
 						float PointLightBands, float SpotLightBands,
-						out float3 Diffuse, out float3 Specular) {
-AdditionalLightsToon_float(SpecColor, Smoothness, WorldPosition, WorldNormal, WorldView, half4(1,1,1,1),
-	PointLightBands, SpotLightBands,Diffuse, Specular);
+						out float3 Diffuse, out float3 Specular)
+{
+    AdditionalLightsToon_float(SpecColor, Smoothness, WorldPosition, WorldNormal, WorldView, half4(1, 1, 1, 1),
+	PointLightBands, SpotLightBands, Diffuse, Specular);
 }
 
 
@@ -409,40 +429,22 @@ AdditionalLightsToon_float(SpecColor, Smoothness, WorldPosition, WorldNormal, Wo
 //------------------------------------------------------------------------------------------------------
 
 void AdditionaLightZelda_float(float3 WorldPosition, float3 WorldNormal, float3 WorldView, half4 Shadowmask, float LightStep,
-						out float LightMask, out float3 LightColor, out float3 Specular) {
+						out float LightMask, out float3 LightColor, out float3 Specular)
+{
 
-	float lightMask = 0;
-	float3 lightColor = 0;
-	float3 specularColor = 0;
+    float lightMask = 0;
+    float3 lightColor = 0;
+    float3 specularColor = 0;
 
 #ifndef SHADERGRAPH_PREVIEW
-	uint pixelLightCount = GetAdditionalLightsCount();
-	uint meshRenderingLayers = GetMeshRenderingLayer();
+    uint pixelLightCount = GetAdditionalLightsCount();
+    uint meshRenderingLayers = GetMeshRenderingLayer();
 
 	//TODO: Fix the Forward Plus block
 	
-	#if USE_FORWARD_PLUS
+#if USE_FORWARD_PLUS
 	for (uint lightIndex = 0; lightIndex < min(URP_FP_DIRECTIONAL_LIGHTS_COUNT, MAX_VISIBLE_LIGHTS); lightIndex++) {
 		FORWARD_PLUS_SUBTRACTIVE_LIGHT_CHECK
-		Light light = GetAdditionalLight(0, WorldPosition, Shadowmask);
-	#ifdef _LIGHT_LAYERS
-		if (IsMatchingLightLayer(light.layerMask, meshRenderingLayers))
-			#endif
-		{
-			float adjustedContribution = step(LightStep, dot(light.direction, WorldNormal));
-			lightMask = step(0.001, light.distanceAttenuation) * adjustedContribution; //this distance-based step function makes the light full brightness within its range/gizmo
-			lightColor = light.color;
-		}
-	}
-	#endif
-
-	// For Foward+ the LIGHT_LOOP_BEGIN macro will use inputData.normalizedScreenSpaceUV, inputData.positionWS, so create that:
-	InputData inputData = (InputData)0;
-	float4 screenPos = ComputeScreenPos(TransformWorldToHClip(WorldPosition));
-	inputData.normalizedScreenSpaceUV = screenPos.xy / screenPos.w;
-	inputData.positionWS = WorldPosition;
-
-	LIGHT_LOOP_BEGIN(min(1, pixelLightCount))
 		Light light = GetAdditionalLight(0, WorldPosition, Shadowmask);
 #ifdef _LIGHT_LAYERS
 		if (IsMatchingLightLayer(light.layerMask, meshRenderingLayers))
@@ -452,19 +454,39 @@ void AdditionaLightZelda_float(float3 WorldPosition, float3 WorldNormal, float3 
 			lightMask = step(0.001, light.distanceAttenuation) * adjustedContribution; //this distance-based step function makes the light full brightness within its range/gizmo
 			lightColor = light.color;
 		}
-	LIGHT_LOOP_END
+	}
+#endif
+
+	// For Foward+ the LIGHT_LOOP_BEGIN macro will use inputData.normalizedScreenSpaceUV, inputData.positionWS, so create that:
+    InputData inputData = (InputData) 0;
+    float4 screenPos = ComputeScreenPos(TransformWorldToHClip(WorldPosition));
+    inputData.normalizedScreenSpaceUV = screenPos.xy / screenPos.w;
+    inputData.positionWS = WorldPosition;
+
+    LIGHT_LOOP_BEGIN(min(1, pixelLightCount))
+
+    Light light = GetAdditionalLight(0, WorldPosition, Shadowmask);
+#ifdef _LIGHT_LAYERS
+		if (IsMatchingLightLayer(light.layerMask, meshRenderingLayers))
+#endif
+		{
+        float adjustedContribution = step(LightStep, dot(light.direction, WorldNormal));
+        lightMask = step(0.001, light.distanceAttenuation) * adjustedContribution; //this distance-based step function makes the light full brightness within its range/gizmo
+        lightColor = light.color;
+    }
+    LIGHT_LOOP_END
 #endif
 
 	LightColor = lightColor;
-	LightMask = lightMask;
-	Specular = specularColor;
+    LightMask = lightMask;
+    Specular = specularColor;
 }
 
 // For backwards compatibility (before Shadowmask was introduced)
 void AdditionaLightZelda_float(float3 WorldPosition, float3 WorldNormal, float3 WorldView, float LightStep,
 						out float LightMask, out float3 LightColor, out float3 Specular)
 {
-	AdditionaLightZelda_float(WorldPosition, WorldNormal, WorldView, half4(1,1,1,1), LightStep,
+    AdditionaLightZelda_float(WorldPosition, WorldNormal, WorldView, half4(1, 1, 1, 1), LightStep,
 		LightMask, LightColor, Specular);
 }
 

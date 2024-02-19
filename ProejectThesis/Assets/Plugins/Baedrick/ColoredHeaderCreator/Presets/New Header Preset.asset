@@ -41,6 +41,13 @@ MonoBehaviour:
     fontSize: 12
     fontColor: {r: 1, g: 1, b: 1, a: 1}
     dropShadow: 1
+  - headerText: Robot
+    headerColor: {r: 0.050183393, g: 0.4716981, b: 0.0022249965, a: 0}
+    textAlignmentOptions: 0
+    fontStyleOptions: 0
+    fontSize: 12
+    fontColor: {r: 1, g: 1, b: 1, a: 1}
+    dropShadow: 1
   - headerText: System
     headerColor: {r: 1, g: 0.8135679, b: 0, a: 0}
     textAlignmentOptions: 0
