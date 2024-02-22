@@ -6,22 +6,79 @@ using UnityEngine.AI;
 public class AutoPilotRobot : MonoBehaviour
 {
     public float speed = 2f;
-    public Transform player; 
+    public Transform player;
     public float followDistance = 5f;
     [SerializeField] private float timer = 1;
     public Animator animator;
     public NavMeshAgent navMeshAgent;
     public RobotController robotController;
-
+    public Transform targetPos;
+    public bool isOrder;
     void Start()
     {
+
         navMeshAgent = GetComponent<NavMeshAgent>();
-        robotController = GetComponent<RobotController>();        
+        robotController = GetComponent<RobotController>();
     }
 
     void Update()
     {
-        if (Vector3.Distance(transform.position, player.position) >= followDistance && robotController.state.isInteractingBox)
+        Auto();
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            ReturnToPlayer();
+        }
+
+        float speed = navMeshAgent.velocity.magnitude;
+        animator.SetFloat("Speed", speed);
+    }
+
+
+    public void SetPositionRobot(Quaternion rot)
+    {
+        transform.rotation = rot;
+    }
+    void Auto()
+    {
+        if (!isOrder)
+        {
+            if (Vector3.Distance(transform.position, player.position) >= followDistance)///&& robotController.state.isInteractingBox
+            {
+                timer -= Time.deltaTime;
+                if (timer <= 0)
+                    DelayMove();
+            }
+            else
+            {
+                timer = 1f;
+                navMeshAgent.SetDestination(transform.position);
+                animator.SetFloat("Speed", 0f);
+            }
+        }
+    }
+
+
+    public void MoveToPosition(Vector3 pos)
+    {
+        if (Vector3.Distance(transform.position, pos) >= 0)
+        {
+            isOrder = true;
+            navMeshAgent.SetDestination(pos);
+            float speed = navMeshAgent.velocity.magnitude;
+            animator.SetFloat("Speed", speed);
+        }
+        else
+        {
+            timer = 1f;
+            navMeshAgent.SetDestination(transform.position);
+            animator.SetFloat("Speed", 0f);
+        }
+    }
+    public void ReturnToPlayer()
+    {
+        isOrder = false;
+        if (Vector3.Distance(transform.position, player.position) >= followDistance)///&& robotController.state.isInteractingBox
         {
             timer -= Time.deltaTime;
             if (timer <= 0)
@@ -33,12 +90,11 @@ public class AutoPilotRobot : MonoBehaviour
             navMeshAgent.SetDestination(transform.position);
             animator.SetFloat("Speed", 0f);
         }
-
-
     }
 
+
     void DelayMove()
-    {        
+    {
         navMeshAgent.SetDestination(player.position);
         float speed = navMeshAgent.velocity.magnitude;
         animator.SetFloat("Speed", speed);
