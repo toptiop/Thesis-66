@@ -19,7 +19,7 @@ public class DoorActive : MonoBehaviour
     {
         isDelaying = false;
         source.PlayOneShot(clip);
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.2f);
         anim.SetBool("isOpen", newOpen);
     }
 }
