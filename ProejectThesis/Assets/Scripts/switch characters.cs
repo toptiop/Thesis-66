@@ -49,11 +49,12 @@ public class switchcharacters : MonoBehaviour
             if (playerInput.swap || robotInput.swap)
             {
                 ChangeCharactor();
+                SwitchControl();
                 playerInput.swap = false;
                 robotInput.swap = false;
             }
         }
-        SwitchControl();
+       
     }
     #region SwitchCharacter
     void SwitchControl()

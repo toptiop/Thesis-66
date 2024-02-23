@@ -46,6 +46,8 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
+        GameManager.Instance.InteractUI = true;
+        Singleton.controller.canMove = true;
         textPanel.SetActive(true);
         currentDialogue = dialogue;
         currentEntryIndex = 0;
@@ -86,6 +88,8 @@ public class DialogueManager : MonoBehaviour
         // You can implement additional logic here if needed
         textPanel.SetActive(false);
         Debug.Log("End of dialogue");
+        GameManager.Instance.InteractUI = false;
+        Singleton.controller.canMove = false;
     }
 
 

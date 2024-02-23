@@ -6,7 +6,7 @@ public class Singleton : MonoBehaviour
 {
     public static Singleton Instance { get; private set; }
 
-    public PlayerController controller;
+    public static PlayerController controller;
     public InputManager inputManager;
     public Inventory inventory;
     public CameraFollow cameraFollow;

@@ -4,8 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
 
-
-public class Inventory : MonoBehaviour
+public class InventoryNote : MonoBehaviour
 {
     [Header("Inventory")]
     public SO_Item EMPTY_ITEM;
@@ -15,25 +14,24 @@ public class Inventory : MonoBehaviour
 
     [Header("Mini Canvas")]
     public RectTransform miniCanvas;
-    [SerializeField] protected InventorySlot rightClickSlot;
+    [SerializeField] protected InventorySlotNote rightClickSlot;
 
     [Space(5)]
     public int SlotAmount = 30;
     public int slotMat = 10;
-    public InventorySlot[] inventorySlots;
-    
+    public InventorySlotNote[] inventorySlots;
+
     void Start()
     {
         gridLayoutGroup = inventoryPanel.GetComponent<GridLayoutGroup>();
         CreateInventorySlolt();
-        //CreateInventorySloltMat();
     }
 
     #region Inventory Methods
     public void AddItem(SO_Item item, int amount)
     {
-        InventorySlot slot = IsEmptySlotLeft(item);
-        if(slot == null )
+        InventorySlotNote slot = IsEmptySlotLeft(item);
+        if (slot == null)
         {
             //Full
             DropItem(item, amount);
@@ -61,7 +59,7 @@ public class Inventory : MonoBehaviour
         rightClickSlot.SetThisSlot(EMPTY_ITEM, 0);
         OnFinishMiniCanvas();
     }//OnClick Event
-    public void RemoveItem(InventorySlot slot)
+    public void RemoveItem(InventorySlotNote slot)
     {
         slot.SetThisSlot(EMPTY_ITEM, 0);
     }
@@ -69,10 +67,10 @@ public class Inventory : MonoBehaviour
     {
         //Sorting Item
         SetLayoutControlChild(true);
-        List<InventorySlot> slotHaveItem = new List<InventorySlot>();
-        foreach (InventorySlot slot in inventorySlots)
+        List<InventorySlotNote> slotHaveItem = new List<InventorySlotNote>();
+        foreach (InventorySlotNote slot in inventorySlots)
         {
-            if(slot.item != EMPTY_ITEM) 
+            if (slot.item != EMPTY_ITEM)
                 slotHaveItem.Add(slot);
         }
 
@@ -80,14 +78,14 @@ public class Inventory : MonoBehaviour
             slotHaveItem.OrderBy(Slot => Slot.item.id).ToArray() :
             slotHaveItem.OrderByDescending(Slot => Slot.item.id).ToArray();
 
-        foreach (InventorySlot slot in inventorySlots)
+        foreach (InventorySlotNote slot in inventorySlots)
         {
             Destroy(slot.gameObject);
         }
 
         CreateInventorySlolt();
 
-        foreach(InventorySlot slot in sortArray)
+        foreach (InventorySlotNote slot in sortArray)
         {
             AddItem(slot.item, slot.stack);
         }
@@ -95,11 +93,11 @@ public class Inventory : MonoBehaviour
     }
     public void CreateInventorySlolt()
     {
-        inventorySlots = new InventorySlot[SlotAmount];
-        for(int i = 0; i < SlotAmount; i++)
+        inventorySlots = new InventorySlotNote[SlotAmount];
+        for (int i = 0; i < SlotAmount; i++)
         {
             Transform slot = Instantiate(slotPrefab, inventoryPanel);
-            InventorySlot invSlot = slot.GetComponent<InventorySlot>();
+            InventorySlotNote invSlot = slot.GetComponent<InventorySlotNote>();
 
             inventorySlots[i] = invSlot;
             invSlot.inventory = this;
@@ -107,23 +105,23 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public InventorySlot IsEmptySlotLeft(SO_Item itemCheck = null, InventorySlot itemSlot = null)
+    public InventorySlotNote IsEmptySlotLeft(SO_Item itemCheck = null, InventorySlotNote itemSlot = null)
     {
-        InventorySlot firstEmptySlot = null;
-        foreach(InventorySlot slot in inventorySlots)
+        InventorySlotNote firstEmptySlot = null;
+        foreach (InventorySlotNote slot in inventorySlots)
         {
-            if(slot == itemSlot)
+            if (slot == itemSlot)
             {
                 continue;
             }
-            if(slot.item == itemCheck)
+            if (slot.item == itemCheck)
             {
-                if(slot.stack < slot.item.maxStack)
+                if (slot.stack < slot.item.maxStack)
                 {
                     return slot;
                 }
             }
-            else if(slot.item == EMPTY_ITEM && firstEmptySlot == null)
+            else if (slot.item == EMPTY_ITEM && firstEmptySlot == null)
                 firstEmptySlot = slot;
         }
         return firstEmptySlot;
@@ -135,7 +133,7 @@ public class Inventory : MonoBehaviour
     #endregion
 
     #region Mini Canvas
-    public void SetRightClickSlot(InventorySlot slot)
+    public void SetRightClickSlot(InventorySlotNote slot)
     {
         rightClickSlot = slot;
     }
@@ -157,7 +155,7 @@ public class Inventory : MonoBehaviour
     {
         int totalAmountInInventory = 0;
 
-        foreach (InventorySlot slot in inventorySlots)
+        foreach (InventorySlotNote slot in inventorySlots)
         {
             if (slot.item == item)
             {

@@ -16,6 +16,6 @@ public class SO_Item : ScriptableObject
     [Header("In Game Object")]
     public GameObject gamePrefab;
 
-    public enum Type { Material, Food, Quest}
+    public enum Type { Material, Note}
 
 }
