@@ -74,7 +74,6 @@ public class Command : MonoBehaviour
             {
                 if (coll.gameObject.CompareTag("Robot"))
                 {
-                    Debug.Log("GG");
                     ReceiveCommand(typeCommand);
                 }
             }
@@ -141,7 +140,7 @@ public class Command : MonoBehaviour
     {
        if(isRobot)
         {
-            Debug.Log("Open Door");
+           // Debug.Log("Open Door");
             door.isDelaying = true;
         
             if(!isPlaySound)

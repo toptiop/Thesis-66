@@ -1,96 +1,152 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.Events;
 using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
-    public GameObject textPanel;
-    public TMP_Text speakerText;
-    public TMP_Text messageText;
+    [SerializeField] private GameObject dialogueParent;
+    [SerializeField] private TMP_Text dialogueText;
+    [SerializeField] private Button option1Button;
+    [SerializeField] private Button option2Button;
 
-    [SerializeField]
-    private int currentEntryIndex = 0;
-    [SerializeField]
-    private Dialogue currentDialogue;
-    [SerializeField]
-    private InputManager playerInput;
-    [SerializeField]
-    private InputRobotManager robotInput;
+    [SerializeField] private float typingSpeed = 0.05f;
+    [SerializeField] private float turnSpeed = 2f;
+
+    private List<dialogueString> dialogueList;
+
+    [Header("Player")]
+    [SerializeField] private PlayerController controller;
+    private Transform playerCamera;
+
+    private int currentDialogueIndex = 0;
 
     private void Start()
     {
-        playerInput = FindAnyObjectByType<InputManager>();
-        robotInput = FindAnyObjectByType<InputRobotManager>();
-
-        textPanel.SetActive(false);
+        dialogueParent.SetActive(false);
+        playerCamera = Camera.main.transform;
     }
-    private void Update()
+
+    public void DialogueStart(List<dialogueString> textToPrint, Transform NPC)
     {
-        if (playerInput != null && robotInput != null && currentDialogue != null)
+        dialogueParent.SetActive(true);
+        controller.enabled = false;
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+        StartCoroutine(TurnCameraTowardsNPC(NPC));
+
+        dialogueList = textToPrint;
+        currentDialogueIndex = 0;
+
+        DisableButtons();
+
+        StartCoroutine(PrintDialogue());
+    }
+
+    private void DisableButtons()
+    {
+        option1Button.interactable = false;
+        option2Button.interactable = false;
+
+        option1Button.GetComponentInChildren<TMP_Text>().text = "No Option";
+        option2Button.GetComponentInChildren<TMP_Text>().text = "No Option";
+    }
+
+    private IEnumerator TurnCameraTowardsNPC(Transform NPC)
+    {
+        Quaternion startRotation = playerCamera.transform.rotation;
+        Quaternion targetRotation = Quaternion.LookRotation(NPC.position - playerCamera.position);
+
+        float elapsedTime = 0f;
+        while (elapsedTime < 1f)
         {
-            if (playerInput.next || robotInput.next)
+            playerCamera.rotation = Quaternion.Slerp(startRotation, targetRotation, elapsedTime);   
+            elapsedTime += Time.deltaTime * turnSpeed;
+            yield return null;
+        }
+
+        playerCamera.rotation = targetRotation;
+    }
+
+    private bool optionSelected = false;
+
+    private IEnumerator PrintDialogue()
+    {
+        while (currentDialogueIndex < dialogueList.Count)
+        {
+            dialogueString line = dialogueList[currentDialogueIndex];
+
+            line.startDialogueEvent?.Invoke();
+
+            if(line.isQuestion)
             {
-                DisplayNextEntry();
-                playerInput.next = false;
-                robotInput.next = false;
+                yield return StartCoroutine(TypeText(line.text));
+
+                option1Button.interactable = true;
+                option2Button.interactable = true;
+
+                option1Button.GetComponentInChildren<TMP_Text>().text = line.answeroption1;
+                option2Button.GetComponentInChildren<TMP_Text>().text = line.answeroption2;
+
+                option1Button.onClick.AddListener(() => HandleOptionSelected(line.option1Indexjump));
+                option2Button.onClick.AddListener(() => HandleOptionSelected(line.option2Indexjump));
+
+                yield return new WaitUntil(() => optionSelected);
             }
-            else if (playerInput.back || robotInput.back)
+            else
             {
-                DisplayPreviousEntry();
-                playerInput.back = false;
-                robotInput.back = false;
+                yield return StartCoroutine(TypeText(line.text));
             }
+
+            line.endDialogueEvent?.Invoke();
+
+            optionSelected = false;
         }
+
+        DialogueStop();
+    }
+    
+    private void HandleOptionSelected(int indexJump) 
+    {
+        optionSelected = true;
+        DisableButtons();
+
+        currentDialogueIndex = indexJump;
     }
 
-    public void StartDialogue(Dialogue dialogue)
+    private IEnumerator TypeText(string text)
     {
-        GameManager.Instance.InteractUI = true;
-        Singleton.controller.canMove = true;
-        textPanel.SetActive(true);
-        currentDialogue = dialogue;
-        currentEntryIndex = 0;
-        DisplayCurrentEntry();
-    }
-
-    public void DisplayNextEntry()
-    {
-        if (currentEntryIndex < currentDialogue.dialogueEntries.Length - 1)
+        dialogueText.text = "";
+        foreach(char letter in text.ToCharArray())
         {
-            currentEntryIndex++;
-            DisplayCurrentEntry();
+            dialogueText.text += letter;
+            yield return new WaitForSeconds(typingSpeed);
         }
-        else
+
+        if (!dialogueList[currentDialogueIndex].isQuestion)
         {
-            EndDialogue();
+            yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
         }
+
+        if (dialogueList[currentDialogueIndex].isEnd)
+            DialogueStop();
+
+        currentDialogueIndex++;
     }
 
-    public void DisplayPreviousEntry()
+    private void DialogueStop()
     {
-        if (currentEntryIndex > 0)
-        {
-            currentEntryIndex--;
-            DisplayCurrentEntry();
-        }
+        StopAllCoroutines();
+        dialogueText.text = "";
+        dialogueParent.SetActive(false);
+
+        controller.enabled = true;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
-
-    private void DisplayCurrentEntry()
-    {
-        Dialogue.DialogueEntry entry = currentDialogue.dialogueEntries[currentEntryIndex];
-        speakerText.text = entry.speaker;
-        messageText.text = entry.message;
-    }
-
-    public void EndDialogue()
-    {
-        // You can implement additional logic here if needed
-        textPanel.SetActive(false);
-        Debug.Log("End of dialogue");
-        GameManager.Instance.InteractUI = false;
-        Singleton.controller.canMove = false;
-    }
-
-
 }

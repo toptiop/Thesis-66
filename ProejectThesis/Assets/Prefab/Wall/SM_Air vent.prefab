@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2478148495654291467
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 154789544700425878}
+  m_Layer: 8
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &154789544700425878
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2478148495654291467}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.77, y: 2.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4677344390500404693}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4073171650252622880
 GameObject:
   m_ObjectHideFlags: 0
@@ -12,12 +43,14 @@ GameObject:
   - component: {fileID: 682809616447508601}
   - component: {fileID: 8642164630493152828}
   - component: {fileID: 4422164139085619664}
-  m_Layer: 0
+  - component: {fileID: 4989078241856133282}
+  - component: {fileID: 1619190814357471208}
+  m_Layer: 8
   m_Name: SM_Air vent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4677344390500404693
 Transform:
@@ -27,11 +60,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4073171650252622880}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 154789544700425878}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &682809616447508601
@@ -103,5 +137,56 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.08318835, y: 1.0067296, z: 1.0067298}
-  m_Center: {x: -0.037314203, y: 0.50872195, z: 0}
+  m_Size: {x: 0.7033523, y: 1.0067296, z: 1.0067298}
+  m_Center: {x: -0.23899037, y: 0.50872195, z: -1.1026594e-14}
+--- !u!114 &4989078241856133282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4073171650252622880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3b51c3b580bd7245a1820866bb15d4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  typeCommand: 0
+  setPos: {x: 38.33, y: 0, z: -9}
+  setRotation: {x: 0, y: 0, z: 0, w: 0}
+  GroundedOffset: {x: 0, y: 1.2, z: 1.02}
+  GroundedRadius: {x: 1, y: 1, z: 1}
+  isRobot: 0
+  layerRobot:
+    serializedVersion: 2
+    m_Bits: 128
+  robot: {fileID: 0}
+  door: {fileID: 0}
+  doorHacking: {fileID: 0}
+  timeToHacking: 2
+  isHacking: 0
+  activeObject: {fileID: 0}
+  isActiveObj: 0
+  sharePowerToObj: {fileID: 0}
+  isShare: 0
+  timeToActive: 0
+  imgActive: {fileID: 0}
+  col: []
+--- !u!114 &1619190814357471208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4073171650252622880}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 3
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 8.77
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []

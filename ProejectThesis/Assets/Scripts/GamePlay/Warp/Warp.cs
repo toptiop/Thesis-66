@@ -5,18 +5,18 @@ using UnityEngine;
 public class Warp : MonoBehaviour, IInteractable
 {
     public PlayerController player;
-    public RobotController robot;
+   // public RobotController robot;
     public GameObject fadeScreen;
     private Animator anim;
     public Transform warpPos;
-    public Transform robotWarp;
+    //public Transform robotWarp;
 
     public BoxCollider col;
 
     private void Awake()
     {
         player = FindObjectOfType<PlayerController>();
-        robot = FindObjectOfType<RobotController>();
+        //robot = FindObjectOfType<RobotController>();
 
         anim = fadeScreen.GetComponent<Animator>();
         col = GetComponent<BoxCollider>();
@@ -36,7 +36,7 @@ public class Warp : MonoBehaviour, IInteractable
     {
         col.enabled = false;
         player.enabled = false;
-        robot.enabled = false;
+        //robot.enabled = false;
 
         fadeScreen.SetActive(true);
         anim.Play("Fade In");
@@ -45,7 +45,7 @@ public class Warp : MonoBehaviour, IInteractable
 
         
         player.transform.position = warpPos.position;
-        robot.transform.position = robotWarp.position;
+        //robot.transform.position = robotWarp.position;
         yield return new WaitForSeconds(1);
         anim.Play("Fade out");
 
@@ -54,6 +54,6 @@ public class Warp : MonoBehaviour, IInteractable
 
         col.enabled = true;
         player.enabled = true;
-        robot.enabled = true;
+        //robot.enabled = true;
     }
 }

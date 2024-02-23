@@ -32,7 +32,7 @@ public class StateCommand : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, distance) && !IsInLayerMask(hit.collider.gameObject.layer, obstructionMask))
         {
-            Debug.Log("Hit Name: " + hit.collider.name);
+           // Debug.Log("Hit Name: " + hit.collider.name);
             if (hit.collider != null)
             {
                 this.targetPosition = hit.point;
@@ -46,11 +46,11 @@ public class StateCommand : MonoBehaviour
 
             }
 
-            //Debug.DrawLine(ray.origin, hit.point, Color.red, distance);
+            Debug.DrawLine(ray.origin, hit.point, Color.red, distance);
         }
         else
         {
-            //Debug.DrawRay(ray.origin, ray.direction * distance, Color.green, distance);
+            Debug.DrawRay(ray.origin, ray.direction * distance, Color.green, distance);
             if (outlineScript != null )
             {
                 outlineScript.enabled = false;

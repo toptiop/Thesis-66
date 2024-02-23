@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Locker : MonoBehaviour, IInteractable
+public class Lockers : MonoBehaviour,IInteractable
 {
     public bool isOpen;
     public Animator anim;
@@ -10,22 +10,22 @@ public class Locker : MonoBehaviour, IInteractable
 
     public string GetInteractionText()
     {
-        throw new System.NotImplementedException();
+        return "Open Locker";
     }
 
     public void Interact()
     {
-        throw new System.NotImplementedException();
+        Open();
     }
 
     void Open()
     {
         isOpen = !isOpen;
 
-        if(isOpen)
+        if (isOpen)
         {
             StartCoroutine(DisableCollider());
-            anim.SetBool("isOpen", isOpen);            
+            anim.SetBool("isOpen", isOpen);
         }
         else
         {
@@ -38,7 +38,7 @@ public class Locker : MonoBehaviour, IInteractable
     {
         door.enabled = false;
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(3.5f);
 
         door.enabled = true;
     }

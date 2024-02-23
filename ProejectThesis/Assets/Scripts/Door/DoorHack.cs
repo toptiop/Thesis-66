@@ -29,7 +29,6 @@ public class DoorHack : MonoBehaviour
     {
         if(!activeDoor)
         {
-            Debug.Log("Open");
             source.PlayOneShot(open);
             anim.SetBool("isOpen", true);
             activeDoor = true;

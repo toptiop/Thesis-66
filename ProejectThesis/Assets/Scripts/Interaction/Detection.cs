@@ -40,7 +40,7 @@ public class Detection : MonoBehaviour
                 if (actionUI != null)
                 {
                     actionUI.ShowInteractionUI(interactionText);
-                    Debug.Log("Action != Null");
+
                 }
 
                 if (_input.interaction)

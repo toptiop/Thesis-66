@@ -101,7 +101,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1666419011781355211
 RectTransform:
   m_ObjectHideFlags: 0
@@ -390,7 +390,6 @@ MonoBehaviour:
   actionText: 
   item: {fileID: 11400000, guid: 70c2b23816ab06a4182cf6f9f8cc3457, type: 2}
   amont: 1
-  amountText: {fileID: 3471752845212851260}
   inventory: {fileID: 0}
 --- !u!1 &8865208662772216636
 GameObject:
