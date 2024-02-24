@@ -4,21 +4,32 @@ using UnityEngine;
 
 public class CutsceneEnter : MonoBehaviour
 {
-    public GameObject thePlayer;
+    public GameObject player;
     public GameObject cutsceneCam;
+    BoxCollider col;
+    [SerializeField] float timer;
+    PlayerController _controller;
+    private void Awake()
+    {
+        col = GetComponent<BoxCollider>();
+        _controller = player.GetComponent<PlayerController>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        this.gameObject.GetComponent<BoxCollider>().enabled = false;
-        cutsceneCam.SetActive(true);
-        thePlayer.SetActive(false);
-        StartCoroutine(FinishCut());
+        if (other.gameObject.CompareTag("Player"))
+        {
+            col.enabled = false;
+            cutsceneCam.SetActive(true);
+            _controller.canMove = true;
+            StartCoroutine(FinishCut());
+        }
     }
 
     IEnumerator FinishCut()
     {
-        yield return new WaitForSeconds(30.5f);
-        thePlayer.SetActive(true) ;
+        yield return new WaitForSeconds(timer);
+        _controller.canMove = false;
         cutsceneCam.SetActive(false);
         Destroy( gameObject );
     }

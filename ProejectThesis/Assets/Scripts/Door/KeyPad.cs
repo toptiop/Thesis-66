@@ -11,6 +11,7 @@ public class KeyPad : MonoBehaviour
 
     public Image image;
     public TMP_Text mP_Text;
+    public GameObject uiCanvas;
     public bool isUnlock;
 
     public Color current, correct, incorrect;
@@ -43,6 +44,7 @@ public class KeyPad : MonoBehaviour
             Debug.Log("Correct password! Door unlocked.");
             isUnlock = true;
             image.color = correct;
+            
             // Add your code to unlock the door or perform any other action here
         }
         else
