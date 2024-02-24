@@ -32,10 +32,14 @@ public class DialogueManager : MonoBehaviour
     public void DialogueStart(List<dialogueString> textToPrint, Transform NPC)
     {
         dialogueParent.SetActive(true);
-        controller.enabled = false;
+        controller.canMove = true; 
+        //controller.enabled = false;
+       
 
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        GameManager.Instance.InteractUI = true;
+
+        //Cursor.lockState = CursorLockMode.None;
+        //Cursor.visible = true;
 
         StartCoroutine(TurnCameraTowardsNPC(NPC));
 
@@ -143,10 +147,12 @@ public class DialogueManager : MonoBehaviour
         StopAllCoroutines();
         dialogueText.text = "";
         dialogueParent.SetActive(false);
+        controller.canMove = false;
+        //controller.enabled = true;
 
-        controller.enabled = true;
+        GameManager.Instance.InteractUI = false;
 
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
     }
 }
