@@ -52,8 +52,8 @@ public class switchcharacters : MonoBehaviour
             {
                 //ChangeCharactor();
                 //SwitchControl();
-                playerInput.swap = false;
-                robotInput.swap = false;
+                //playerInput.swap = false;
+                //robotInput.swap = false;
             }
         }
 

@@ -6074,7 +6074,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &119490592
 RectTransform:
@@ -44707,7 +44707,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &810636328
 RectTransform:
   m_ObjectHideFlags: 0
@@ -51323,7 +51323,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &931541640
 Transform:
   m_ObjectHideFlags: 0
@@ -69198,7 +69198,7 @@ MonoBehaviour:
     endDialogueEvent:
       m_PersistentCalls:
         m_Calls: []
-  - text: "15 \u0E20\u0E32\u0E22\u0E43\u0E19\u0E28\u0E39\u0E19\u0E22\u0E4C\u0E27\u0E31\u0E22\u0E19\u0E35\u0E49\u0E01\u0E47\u0E21\u0E35\u0E01\u0E32\u0E23\u0E1B\u0E49\u0E2D\u0E07\u0E01\u0E31\u0E19\u0E23\u0E31\u0E07\u0E2A\u0E35\u0E2D\u0E22\u0E39\u0E48\u0E40\u0E40\u0E15\u0E48\u0E27\u0E48\u0E32\u0E1E\u0E25\u0E31\u0E07\u0E07\u0E32\u0E19\u0E21\u0E31\u0E19\u0E44\u0E21\u0E48\u0E44\u0E14\u0E49\u0E16\u0E39\u0E01\u0E40\u0E1B\u0E25\u0E35\u0E48\u0E22\u0E19\u0E21\u0E32\u0E19\u0E32\u0E19\u0E40\u0E40\u0E25\u0E49\u0E27"
+  - text: "15 \u0E20\u0E32\u0E22\u0E43\u0E19\u0E28\u0E39\u0E19\u0E27\u0E34\u0E08\u0E31\u0E22\u0E19\u0E35\u0E49\u0E01\u0E47\u0E21\u0E35\u0E01\u0E32\u0E23\u0E1B\u0E49\u0E2D\u0E07\u0E01\u0E31\u0E19\u0E23\u0E31\u0E07\u0E2A\u0E35\u0E2D\u0E22\u0E39\u0E48\u0E40\u0E40\u0E15\u0E48\u0E27\u0E48\u0E32\u0E1E\u0E25\u0E31\u0E07\u0E07\u0E32\u0E19\u0E21\u0E31\u0E19\u0E44\u0E21\u0E48\u0E44\u0E14\u0E49\u0E16\u0E39\u0E01\u0E40\u0E1B\u0E25\u0E35\u0E48\u0E22\u0E19\u0E21\u0E32\u0E19\u0E32\u0E19\u0E40\u0E40\u0E25\u0E49\u0E27"
     isEnd: 0
     isQuestion: 0
     answeroption1: 
@@ -102597,7 +102597,7 @@ PlayableDirector:
   - key: {fileID: 2564396957244155917, guid: c9045f5504111f043a8931bbed565d7a, type: 2}
     value: {fileID: 1740274737}
   - key: {fileID: 9165948368736752563, guid: c9045f5504111f043a8931bbed565d7a, type: 2}
-    value: {fileID: 0}
+    value: {fileID: 931541639}
   - key: {fileID: 120191988440126458, guid: c9045f5504111f043a8931bbed565d7a, type: 2}
     value: {fileID: 611851968}
   - key: {fileID: 100623370333302005, guid: c9045f5504111f043a8931bbed565d7a, type: 2}
@@ -118991,6 +118991,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: QuestCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7888379602006118300, guid: 27c0b5f04a0838244a7771ae82333e96,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -119204,6 +119209,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: QuestManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703193885198199897, guid: 99ffe1f69c6f683489e3b7f134f3bafb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7281783587424641394, guid: 99ffe1f69c6f683489e3b7f134f3bafb,
         type: 3}
