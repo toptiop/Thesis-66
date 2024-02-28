@@ -61,7 +61,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &5312861069231467547
 MonoBehaviour:
@@ -119,6 +119,7 @@ MonoBehaviour:
   enteredPassword: 
   image: {fileID: 5770455066205936007}
   mP_Text: {fileID: 4483538068790653704}
+  uiCanvas: {fileID: 0}
   isUnlock: 0
   current: {r: 1, g: 1, b: 1, a: 1}
   correct: {r: 0.19709802, g: 1, b: 0, a: 1}
