@@ -119,7 +119,7 @@ MonoBehaviour:
   enteredPassword: 
   image: {fileID: 5770455066205936007}
   mP_Text: {fileID: 4483538068790653704}
-  uiCanvas: {fileID: 0}
+  uiCanvas: {fileID: 15334239334308423}
   isUnlock: 0
   current: {r: 1, g: 1, b: 1, a: 1}
   correct: {r: 0.19709802, g: 1, b: 0, a: 1}

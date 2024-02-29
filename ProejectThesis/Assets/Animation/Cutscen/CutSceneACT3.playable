@@ -2388,7 +2388,7 @@ MonoBehaviour:
   - {fileID: 619018679470709271}
   - {fileID: 2564396957244155917}
   - {fileID: 9165948368736752563}
-  m_FixedDuration: 30.55
+  m_FixedDuration: 31.133333333333333
   m_EditorSettings:
     m_Framerate: 60
     m_ScenePreview: 1
