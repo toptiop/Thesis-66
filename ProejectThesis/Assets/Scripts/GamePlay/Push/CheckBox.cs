@@ -6,6 +6,8 @@ public class CheckBox : MonoBehaviour
 {
     public int passBox;
     public bool correct;
+    public AudioClip unlock;
+    public DoorBox door;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Box"))
@@ -16,6 +18,11 @@ public class CheckBox : MonoBehaviour
                 if(pbox.pass == passBox)
                 {
                     correct = true;
+
+                    if (door != null && unlock != null)
+                        door.source.PlayOneShot(unlock);
+                    else
+                        Debug.LogWarning("Null references in" + this);
                 }
             }
         }

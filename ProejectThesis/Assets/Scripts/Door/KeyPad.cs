@@ -44,7 +44,8 @@ public class KeyPad : MonoBehaviour
             Debug.Log("Correct password! Door unlocked.");
             isUnlock = true;
             image.color = correct;
-            
+            uiCanvas.SetActive(false);
+            GameManager.Instance.ChangeStateInteractUI(false);
             // Add your code to unlock the door or perform any other action here
         }
         else

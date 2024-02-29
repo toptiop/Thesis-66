@@ -10,6 +10,7 @@ public class Door : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+        
     }
 
     private void OnTriggerEnter(Collider other)

@@ -64,4 +64,9 @@ public class GameManager : MonoBehaviour
             cameraMove = true;
         }
     }
+
+    public void ChangeStateInteractUI(bool newState)
+    {
+        InteractUI = newState;
+    }
 }
