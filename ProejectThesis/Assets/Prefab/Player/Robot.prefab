@@ -120,6 +120,8 @@ MonoBehaviour:
   animator: {fileID: 4022953995281624449}
   navMeshAgent: {fileID: 9194612261271462863}
   robotController: {fileID: 7852387928708503038}
+  targetPos: {fileID: 0}
+  isOrder: 0
 --- !u!114 &7852387928708503038
 MonoBehaviour:
   m_ObjectHideFlags: 0
