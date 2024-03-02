@@ -8,17 +8,17 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: M_Fa
-    second: {fileID: 2100000, guid: a8d1e45046cfb5f4e92547bdd72e561a, type: 2}
+    second: {fileID: 2100000, guid: a7c17d142b85c70439db5c013496106e, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: M_Robot
-    second: {fileID: 2100000, guid: aafeea0ae916d2a4eb023ef0279dddcc, type: 2}
+    second: {fileID: 2100000, guid: 1bef3bca2cf0ab44ea9bc1055c8ca6c0, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: M_Robot1
-    second: {fileID: 2100000, guid: aafeea0ae916d2a4eb023ef0279dddcc, type: 2}
+    second: {fileID: 2100000, guid: 1bef3bca2cf0ab44ea9bc1055c8ca6c0, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

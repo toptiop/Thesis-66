@@ -261,7 +261,7 @@ namespace DialogueEditor
             // ตรวจสอบว่าสนทนากำลังเล่นอยู่หรือไม่
             if (m_state == eState.ScrollingText)
             {
-                ScrollSpeed = .1f;
+                ScrollSpeed = .01f;
             }
         }
 
@@ -585,11 +585,14 @@ namespace DialogueEditor
         {
             m_selectedOption = null;
             SetState(eState.TransitioningOptionsOff);
+            Invoke("DelayMove", 1f);
+        }
+
+        void DelayMove()
+        {
             GameManager.Instance.ChangeStateInteractUI(false);
             Singleton.controller.SignalCanMoveDisabled();
         }
-
-
 
 
         //--------------------------------------
