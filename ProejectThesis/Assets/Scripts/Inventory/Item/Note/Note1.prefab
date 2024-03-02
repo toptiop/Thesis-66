@@ -16,7 +16,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!224 &7632409658566650675
 RectTransform:
@@ -93,7 +93,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!224 &7396681379079125331
 RectTransform:
@@ -111,7 +111,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -30.5, y: 423.25}
+  m_AnchoredPosition: {x: -30.5, y: 367}
   m_SizeDelta: {x: -1720, y: -1030}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2874761833237239791
@@ -142,10 +142,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: "\u0E40\u0E2D\u0E01\u0E2A\u0E32\u0E23\u0E14\u0E39\u0E40\u0E40\u0E25\u0E1A\u0E33\u0E23\u0E38\u0E07\u0E2A\u0E16\u0E32\u0E19\u0E17\u0E35\u0E48\n\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8fdfa15b42463ec4080958cf170a9aa4, type: 2}
+  m_sharedMaterial: {fileID: 301806433186615003, guid: 8fdfa15b42463ec4080958cf170a9aa4,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -225,7 +226,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &188698060857643515
 Transform:
@@ -260,7 +261,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 0
 --- !u!224 &3898503521313355302
 RectTransform:
@@ -361,7 +362,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!224 &1269857787523542285
 RectTransform:
@@ -410,10 +411,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: "\u0E08\u0E32\u0E01\u0E01\u0E32\u0E23\u0E14\u0E39\u0E40\u0E40\u0E25\u0E1A\u0E33\u0E23\u0E38\u0E07\u0E04\u0E23\u0E31\u0E49\u0E07\u0E17\u0E35\u0E48
+    2 \u0E1E\u0E1A\u0E27\u0E48\u0E32\u0E40\u0E25\u0E40\u0E0B\u0E2D\u0E23\u0E4C\u0E2A\u0E33\u0E2B\u0E23\u0E31\u0E1A\u0E44\u0E1B\u0E0A\u0E31\u0E49\u0E192
+    \u0E16\u0E39\u0E01\u0E40\u0E1B\u0E34\u0E14\u0E43\u0E0A\u0E49\u0E07\u0E32\u0E19\u0E04\u0E32\u0E14\u0E27\u0E48\u0E32\u0E19\u0E48\u0E32\u0E08\u0E30\u0E21\u0E35\u0E01\u0E32\u0E23\u0E1A\u0E38\u0E01\u0E23\u0E38\u0E01\u0E43\u0E19\u0E2A\u0E16\u0E32\u0E19\u0E27\u0E34\u0E08\u0E31\u0E22\u0E40\u0E40\u0E2B\u0E48\u0E07\u0E19\u0E35\u0E49\u0E01\u0E47\u0E40\u0E1B\u0E47\u0E19\u0E44\u0E14\u0E49
+    \u0E0B\u0E36\u0E48\u0E07\u0E17\u0E32\u0E07\u0E40\u0E23\u0E32\u0E08\u0E30\u0E15\u0E23\u0E27\u0E08\u0E40\u0E0A\u0E47\u0E04\u0E04\u0E27\u0E32\u0E21\u0E40\u0E23\u0E35\u0E22\u0E1A\u0E23\u0E49\u0E2D\u0E22\u0E43\u0E2B\u0E49\u0E25\u0E30\u0E40\u0E2D\u0E35\u0E22\u0E14\u0E40\u0E40\u0E25\u0E49\u0E27\u0E08\u0E30\u0E40\u0E40\u0E08\u0E49\u0E07\u0E44\u0E1B\u0E17\u0E35\u0E48\u0E28\u0E38\u0E19\u0E22\u0E4C\u0E43\u0E2B\u0E0D\u0E4C\u0E2D\u0E35\u0E01\u0E04\u0E23\u0E31\u0E49\u0E07\u0E43\u0E19\u0E20\u0E32\u0E22\u0E20\u0E32\u0E04\u0E2B\u0E19\u0E49\u0E32\n\n\n\n                                                                                                             
+    \u0E08\u0E32\u0E01 \u0E2B\u0E31\u0E27\u0E2B\u0E19\u0E49\u0E32\u0E01\u0E32\u0E23\u0E14\u0E39\u0E40\u0E40\u0E25\u0E1A\u0E33\u0E23\u0E38\u0E07\u0E2A\u0E16\u0E32\u0E19\u0E17\u0E35\u0E48\u0E43\u0E19\u0E40\u0E02\u0E15\u0E2D\u0E31\u0E19\u0E15\u0E23\u0E32\u0E22"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8fdfa15b42463ec4080958cf170a9aa4, type: 2}
+  m_sharedMaterial: {fileID: 301806433186615003, guid: 8fdfa15b42463ec4080958cf170a9aa4,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -497,7 +503,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1800790612180055156
 Transform:
@@ -666,12 +672,12 @@ PrefabInstance:
     - target: {fileID: 2117110938603689075, guid: b86f220a9f23a5f448b39bd4b13d1d47,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4452422104775039336, guid: b86f220a9f23a5f448b39bd4b13d1d47,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6203803240806488347, guid: b86f220a9f23a5f448b39bd4b13d1d47,
         type: 3}
@@ -696,7 +702,7 @@ PrefabInstance:
     - target: {fileID: 6603823129062613990, guid: b86f220a9f23a5f448b39bd4b13d1d47,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

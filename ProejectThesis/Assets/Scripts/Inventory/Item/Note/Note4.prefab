@@ -58,6 +58,48 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1616143927444072815, guid: 2b0cdb8ad970cfd46bb30ba852028bf4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2205918373221530322, guid: 2b0cdb8ad970cfd46bb30ba852028bf4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4022646578450470366, guid: 2b0cdb8ad970cfd46bb30ba852028bf4,
+        type: 3}
+      propertyPath: m_text
+      value: "\u0E40\u0E23\u0E35\u0E22\u0E19 \u0E28\u0E32\u0E2A\u0E15\u0E23\u0E32\u0E08\u0E32\u0E23\u0E4C\u0E2D\u0E31\u0E25\u0E40\u0E1A\u0E23\u0E19"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5240558926944843051, guid: 2b0cdb8ad970cfd46bb30ba852028bf4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372474757447275804, guid: 2b0cdb8ad970cfd46bb30ba852028bf4,
+        type: 3}
+      propertyPath: m_text
+      value: "\u0E17\u0E32\u0E07\u0E40\u0E23\u0E32\u0E40\u0E2B\u0E47\u0E19\u0E16\u0E36\u0E07\u0E04\u0E27\u0E32\u0E21\u0E40\u0E2A\u0E35\u0E48\u0E22\u0E07\u0E02\u0E2D\u0E07\u0E2B\u0E38\u0E48\u0E19\u0E22\u0E19\u0E15\u0E4C
+        \u0E23\u0E2B\u0E31\u0E2A <b><#4FC3F7>0099</color></b> \u0E2B\u0E23\u0E37\u0E2D
+        MIKE (\u0E44\u0E21\u0E04\u0E4C) \u0E17\u0E35\u0E48\u0E21\u0E35\u0E2A\u0E15\u0E34\u0E2A\u0E21\u0E31\u0E1B\u0E31\u0E0A\u0E0D\u0E30\u0E17\u0E35\u0E48\u0E40\u0E01\u0E34\u0E19\u0E01\u0E27\u0E48\u0E32\u0E08\u0E30\u0E40\u0E1B\u0E47\u0E19\u0E2B\u0E38\u0E48\u0E19\u0E22\u0E19\u0E15\u0E4C
+        \u0E1C\u0E21\u0E44\u0E21\u0E48\u0E23\u0E39\u0E49\u0E04\u0E38\u0E13\u0E04\u0E34\u0E14\u0E22\u0E31\u0E07\u0E44\u0E07\u0E16\u0E36\u0E07\u0E2A\u0E23\u0E49\u0E32\u0E07\u0E40\u0E08\u0E49\u0E32\u0E15\u0E31\u0E27\u0E1E\u0E23\u0E23\u0E04\u0E4C\u0E19\u0E35\u0E49\u0E02\u0E36\u0E49\u0E19\u0E21\u0E32
+        \u0E04\u0E38\u0E13\u0E2D\u0E32\u0E08\u0E08\u0E30\u0E44\u0E21\u0E48\u0E44\u0E14\u0E49\u0E04\u0E34\u0E14\u0E2D\u0E30\u0E44\u0E23\u0E21\u0E32\u0E01\u0E40\u0E1E\u0E23\u0E32\u0E30\u0E04\u0E38\u0E13\u0E21\u0E35\u0E21\u0E31\u0E19\u0E2A\u0E21\u0E2D\u0E07\u0E2D\u0E31\u0E19\u0E0A\u0E32\u0E0D\u0E09\u0E25\u0E32\u0E14\u0E2D\u0E22\u0E39\u0E48\u0E40\u0E40\u0E25\u0E49\u0E27\u0E40\u0E40\u0E25\u0E30\u0E2D\u0E32\u0E08\u0E08\u0E30\u0E44\u0E21\u0E48\u0E23\u0E39\u0E49\u0E27\u0E48\u0E32\u0E44\u0E21\u0E48\u0E21\u0E35\u0E21\u0E19\u0E38\u0E29\u0E22\u0E4C\u0E04\u0E19\u0E44\u0E2B\u0E19\u0E0A\u0E2D\u0E1A\u0E17\u0E35\u0E48\u0E21\u0E35\u0E2B\u0E38\u0E48\u0E19\u0E01\u0E23\u0E30\u0E1B\u0E4B\u0E2D\u0E07\u0E2D\u0E30\u0E44\u0E23\u0E44\u0E21\u0E48\u0E23\u0E39\u0E49\u0E21\u0E32\u0E17\u0E33\u0E15\u0E31\u0E27\u0E2D\u0E27\u0E14\u0E09\u0E25\u0E32\u0E14\u0E43\u0E2A\u0E48\u0E2B\u0E23\u0E2D\u0E01\u0E19\u0E30
+        \u0E01\u0E47\u0E40\u0E2B\u0E21\u0E37\u0E2D\u0E19\u0E01\u0E31\u0E1A\u0E2B\u0E38\u0E48\u0E19\u0E02\u0E2D\u0E07\u0E04\u0E38\u0E13\u0E17\u0E35\u0E48\u0E21\u0E31\u0E19\u0E1E\u0E22\u0E32\u0E22\u0E32\u0E21\u0E17\u0E35\u0E48\u0E08\u0E30\u0E2D\u0E27\u0E14\u0E09\u0E25\u0E32\u0E14\u0E40\u0E25\u0E22\u0E17\u0E33\u0E43\u0E2B\u0E49\u0E1C\u0E21\u0E04\u0E34\u0E14\u0E27\u0E48\u0E32\u0E2B\u0E38\u0E48\u0E19\u0E15\u0E31\u0E27\u0E19\u0E35\u0E49\u0E16\u0E49\u0E32\u0E2D\u0E2D\u0E01\u0E44\u0E1B\u0E2A\u0E39\u0E48\u0E42\u0E25\u0E01\u0E20\u0E32\u0E22\u0E19\u0E2D\u0E01\u0E01\u0E47\u0E04\u0E07\u0E21\u0E35\u0E1C\u0E39\u0E49\u0E04\u0E19\u0E04\u0E34\u0E14\u0E44\u0E21\u0E48\u0E15\u0E48\u0E32\u0E07\u0E08\u0E32\u0E01\u0E1C\u0E21 
+        \u0E40\u0E2D\u0E32\u0E40\u0E1B\u0E47\u0E19\u0E27\u0E48\u0E32\u0E16\u0E49\u0E32\u0E22\u0E31\u0E07\u0E2D\u0E22\u0E48\u0E32\u0E07\u0E43\u0E2B\u0E49\u0E42\u0E1B\u0E23\u0E40\u0E08\u0E04\u0E2D\u0E37\u0E48\u0E19\u0E46\u0E02\u0E2D\u0E07\u0E04\u0E38\u0E13\u0E22\u0E31\u0E07\u0E44\u0E1B\u0E15\u0E48\u0E2D\u0E44\u0E1B\u0E01\u0E47\u0E44\u0E1B\u0E40\u0E2D\u0E32\u0E04\u0E27\u0E32\u0E21\n\u0E2A\u0E32\u0E21\u0E32\u0E23\u0E16\u0E17\u0E35\u0E48\u0E2B\u0E38\u0E48\u0E19\u0E21\u0E31\u0E19\u0E15\u0E48\u0E2D\u0E25\u0E49\u0E2D\u0E15\u0E48\u0E2D\u0E40\u0E16\u0E35\u0E22\u0E07\u0E19\u0E31\u0E49\u0E19\u0E2D\u0E2D\u0E01\u0E44\u0E1B\u0E0B\u0E30\u0E40\u0E40\u0E25\u0E49\u0E27\u0E1C\u0E21\u0E2D\u0E32\u0E08\u0E08\u0E30\u0E1E\u0E34\u0E08\u0E32\u0E23\u0E13\u0E32\u0E43\u0E2B\u0E21\u0E48\u0E2D\u0E35\u0E01\u0E17\u0E35\n\n\n\n\n                                                                                                                                         
+        \u0E08\u0E32\u0E01 \u0E14\u0E4A\u0E2D\u0E01\u0E40\u0E15\u0E2D\u0E23\u0E4C\u0E44\u0E19\u0E19\u0E4C\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5812371811113721594, guid: 2b0cdb8ad970cfd46bb30ba852028bf4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111658916659126501, guid: 2b0cdb8ad970cfd46bb30ba852028bf4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6787639188182059665, guid: 2b0cdb8ad970cfd46bb30ba852028bf4,
         type: 3}
       propertyPath: itemNote
@@ -68,6 +110,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Note4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7211595837489929041, guid: 2b0cdb8ad970cfd46bb30ba852028bf4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7717095267990505568, guid: 2b0cdb8ad970cfd46bb30ba852028bf4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8071262122476753889, guid: 2b0cdb8ad970cfd46bb30ba852028bf4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9101859752348172566, guid: 2b0cdb8ad970cfd46bb30ba852028bf4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9101859752348172566, guid: 2b0cdb8ad970cfd46bb30ba852028bf4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
