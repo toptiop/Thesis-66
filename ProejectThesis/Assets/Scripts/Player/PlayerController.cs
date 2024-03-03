@@ -76,6 +76,7 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
     public Transform boxPos;
+    public Transform robotPos;
     public bool canMove;
     private void Awake()
     {
@@ -107,8 +108,9 @@ public class PlayerController : MonoBehaviour
             Move();
         }
         else
-        {
+        {          
             _animator.SetFloat(_animIDSpeed, 0);
+            return;
         }
 
     }
@@ -238,7 +240,15 @@ public class PlayerController : MonoBehaviour
         return Mathf.Clamp(lfAngle, lfMin, lfMax);
     }
 
+    public void SignalCanMoveEnabled()
+    {
+        canMove = true;
+    }
 
+    public void SignalCanMoveDisabled()
+    {
+        canMove = false;
+    }
 
 
 

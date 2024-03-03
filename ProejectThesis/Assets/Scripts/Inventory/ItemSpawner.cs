@@ -48,7 +48,7 @@ public class ItemSpawner : MonoBehaviour
 
     }
 
-    private void OnGUI()
+    /*private void OnGUI()
     {
         if(GUILayout.Button("Spawn A Random Item"))
         {
@@ -64,6 +64,6 @@ public class ItemSpawner : MonoBehaviour
         {
             SpawnItemByGUI(20);
         }
-    }
+    }*/
 
 }

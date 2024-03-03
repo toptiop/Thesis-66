@@ -43,17 +43,20 @@ public class switchcharacters : MonoBehaviour
         {
             playerInput.swap = false;
             robotInput.swap = false;
+            aiFollow.enabled = false;
         }
         if (activeSwitch)
         {
+            aiFollow.enabled = true;
             if (playerInput.swap || robotInput.swap)
             {
-                ChangeCharactor();
-                playerInput.swap = false;
-                robotInput.swap = false;
+                //ChangeCharactor();
+                //SwitchControl();
+                //playerInput.swap = false;
+                //robotInput.swap = false;
             }
         }
-        SwitchControl();
+
     }
     #region SwitchCharacter
     void SwitchControl()

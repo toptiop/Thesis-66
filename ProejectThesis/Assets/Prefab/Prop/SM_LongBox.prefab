@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4274851922131240351}
   - component: {fileID: 2165574535757272646}
   - component: {fileID: 3105915938617552214}
-  - component: {fileID: 5524284718683512912}
+  - component: {fileID: 2977324752341905578}
   m_Layer: 0
   m_Name: SM_LongBox
   m_TagString: Untagged
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 4874126678125670354, guid: c040f8b09b3568b4e8339916055ffba1, type: 3}
+  - {fileID: 2100000, guid: 350cade61f126dc488a1fe1b47f09344, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -106,7 +106,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 4.4071555, y: 2.112533, z: 2.1125329}
   m_Center: {x: 0, y: 1.0014527, z: 0}
---- !u!208 &5524284718683512912
+--- !u!208 &2977324752341905578
 NavMeshObstacle:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

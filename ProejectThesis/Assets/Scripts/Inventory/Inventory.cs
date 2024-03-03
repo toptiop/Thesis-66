@@ -19,12 +19,14 @@ public class Inventory : MonoBehaviour
 
     [Space(5)]
     public int SlotAmount = 30;
+    public int slotMat = 10;
     public InventorySlot[] inventorySlots;
     
     void Start()
     {
         gridLayoutGroup = inventoryPanel.GetComponent<GridLayoutGroup>();
         CreateInventorySlolt();
+        //CreateInventorySloltMat();
     }
 
     #region Inventory Methods
@@ -104,6 +106,7 @@ public class Inventory : MonoBehaviour
             invSlot.SetThisSlot(EMPTY_ITEM, 0);
         }
     }
+
     public InventorySlot IsEmptySlotLeft(SO_Item itemCheck = null, InventorySlot itemSlot = null)
     {
         InventorySlot firstEmptySlot = null;

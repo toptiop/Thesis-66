@@ -37,12 +37,12 @@ public class InteracObject : MonoBehaviour, IInteractable
         if(isOpen)
         {
             interactable.SetActive(true);
-            GameManager.Instance.InteractUI = true;
+            GameManager.Instance.ChangeStateInteractUI(true);
         }
         else
         {
             interactable.SetActive(false);
-            GameManager.Instance.InteractUI = false;
+            GameManager.Instance.ChangeStateInteractUI(false);
         }
     }
 

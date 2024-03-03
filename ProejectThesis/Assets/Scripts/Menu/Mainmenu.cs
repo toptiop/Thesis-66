@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -20,5 +20,11 @@ public class Mainmenu : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene(1);
+    }
+
+    public void QuitGame()
+    {
+        // โค้ดออกเกม
+        Application.Quit(); // ใช้สำหรับการออกเกมบนแพลตฟอร์มที่รองรับ
     }
 }

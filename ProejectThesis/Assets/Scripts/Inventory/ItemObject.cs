@@ -12,7 +12,7 @@ public class ItemObject : MonoBehaviour, IInteractable
     [Header("Item Detail")]
     public SO_Item item;
     public int amont = 1;
-    public TMP_Text amountText;
+    //public TMP_Text amountText;
     [SerializeField]
     private Inventory inventory;
 
@@ -23,12 +23,12 @@ public class ItemObject : MonoBehaviour, IInteractable
     public void SetAmout(int newAmont)
     {
         amont = newAmont;
-        amountText.text = amont.ToString();
+        //amountText.text = amont.ToString();
     }    
     public void RandomAmout()
     {
         amont = Random.Range(1, item.maxStack + 1);
-        amountText.text = amont.ToString();
+        //amountText.text = amont.ToString();
     }
 
     private void OnTriggerEnter(Collider other)

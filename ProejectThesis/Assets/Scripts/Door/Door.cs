@@ -10,6 +10,7 @@ public class Door : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -40,7 +41,7 @@ public class Door : MonoBehaviour
 
     IEnumerator DelayDoor(bool newOpen)
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.2f);
         anim.SetBool("isOpen", newOpen);
     }
 }

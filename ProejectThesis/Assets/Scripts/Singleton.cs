@@ -6,11 +6,10 @@ public class Singleton : MonoBehaviour
 {
     public static Singleton Instance { get; private set; }
 
-    public PlayerController controller;
+    public static PlayerController controller;
     public InputManager inputManager;
     public Inventory inventory;
     public CameraFollow cameraFollow;
-    public DialogueManager dialogueManager;
     public Detection detection;
     public QuestManager quest;
     public ActionUI actionUI;
@@ -32,7 +31,6 @@ public class Singleton : MonoBehaviour
         inputManager = FindAnyObjectByType<InputManager>();
         inventory = FindAnyObjectByType<Inventory>();
         cameraFollow = FindAnyObjectByType<CameraFollow>();
-        dialogueManager = FindAnyObjectByType<DialogueManager>();
         detection = FindAnyObjectByType<Detection>();
         quest = FindAnyObjectByType<QuestManager>();
         actionUI = FindAnyObjectByType<ActionUI>();

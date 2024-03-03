@@ -195,6 +195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b573d53707e9aa4db8efb2105fef51d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Type: 1
   inventory: {fileID: 0}
   item: {fileID: 0}
   stack: 0
