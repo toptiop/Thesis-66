@@ -7,6 +7,7 @@ public class QuestManager : MonoBehaviour
 {
     public static QuestManager instance;
     public SO_Quest.QuestType currentQuestType;
+    public SO_Quest addQuest;
     public List<SO_Quest> quests = new List<SO_Quest>();
     public GameObject questPanel;
 
@@ -36,9 +37,13 @@ public class QuestManager : MonoBehaviour
 
     private void Start()
     {
+        AddQuest(addQuest);
+
         questPanel.SetActive(true);
+
         InitializeQuests();
         UpdateUIWithCurrentQuest();
+
         DebugCurrentQuest();
     }
     private void Update()
@@ -46,56 +51,43 @@ public class QuestManager : MonoBehaviour
         CheckQuestStatus();
     }
 
+    public void AddQuest(SO_Quest quest)
+    {
+        quests.Add(quest);
+    }
     void InitializeQuests()
     {
         if (quests.Count > 0)
         {
             currentQuestType = quests[0].type;
         }
-        StartCurrentQuest();
     }
-
-    void StartCurrentQuest()
-    {
-        if (quests.Count > 0)
-        {
-            SO_Quest currentQuest = quests[0];
-            Debug.Log("Starting Quest: " + currentQuest.title);
-
-            // Optionally, you might want to handle other quest-related logic here
-
-            // Check if the quest has a NextQuest defined
-            if (currentQuest.NextQuest != null)
-            {
-                // Optionally, you might want to handle transitions or triggers for quest sequences
-                Debug.Log("Next Quest: " + currentQuest.NextQuest.title);
-            }
-        }
-    }
+   
     void CheckQuestStatus()
     {
-       // List<SO_Quest> questsCopy = new List<SO_Quest>(quests);
-        foreach (SO_Quest quest in quests)
+        if (quests != null)
         {
-            if (quest.type == currentQuestType)
+            for (int i = 0; i < quests.Count; i++)
             {
-                switch (quest.type)
-                {              
-                    case SO_Quest.QuestType.Collect:
-                        CollectQuest(quest);
-                        break;
+                SO_Quest quest = quests[0];
+                if (quest.type == currentQuestType && quest != null)
+                {
+                    switch (quest.type)
+                    {
+                        case SO_Quest.QuestType.Collect:
+                            CollectQuest(quest);
+                            break;
 
-                    case SO_Quest.QuestType.GO_Find:
-                        GoFindQuest(quest);                        
-                        break;
+                        case SO_Quest.QuestType.GO_Find:
+                            GoFindQuest(quest);
+                            break;
+                    }
                 }
             }
+            
         }
     }
-    void SpeakQuest(SO_Quest quest)
-    {
 
-    }
 
     void CollectQuest(SO_Quest quest)
     {
@@ -134,8 +126,6 @@ public class QuestManager : MonoBehaviour
         }
     }
 
-
-
     void GoFindQuest(SO_Quest quest)
     {
         waypoint.SetPoint(quest.destination);
@@ -156,7 +146,7 @@ public class QuestManager : MonoBehaviour
         {
             // Optionally, you might want to handle transitions or triggers for quest sequences
             Debug.Log("Next Quest: " + quest.NextQuest.title);
-            quests.Add(quest.NextQuest);
+            AddQuest(quest.NextQuest);
         }
 
         if (questIndex != -1)

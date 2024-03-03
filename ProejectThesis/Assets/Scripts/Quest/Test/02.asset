@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e1ecf2d8ac1bde45bc8bfed6b8debde, type: 3}
   m_Name: 02
   m_EditorClassIdentifier: 
-  type: 0
+  type: 1
   title: 
   description: 
   icon: {fileID: 0}
@@ -23,5 +23,5 @@ MonoBehaviour:
   - currentItemCount: 0
     requiredItemCount: 0
     collectItem: {fileID: 0}
-  activeWaypoint: 0
-  destination: {x: 0, y: 0, z: 0}
+  activeWaypoint: 1
+  destination: {x: 1, y: 0, z: 0}
