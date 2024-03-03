@@ -1,8 +1,10 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
+using TMPro;
+using System.IO;
 
 public class InventoryNote : MonoBehaviour
 {
@@ -15,16 +17,28 @@ public class InventoryNote : MonoBehaviour
     [Header("Mini Canvas")]
     public RectTransform miniCanvas;
     [SerializeField] protected InventorySlotNote rightClickSlot;
+    [SerializeField] protected InventorySlotNote leftClickSlot;
 
     [Space(5)]
     public int SlotAmount = 30;
-    public int slotMat = 10;
     public InventorySlotNote[] inventorySlots;
+
+    [Header("InventoryUI")]
+    public GameObject inventoryUI;
+    public GameObject panelButton;
+    public Button openNote;
+
+    [Header("Note")]
+    public GameObject panelNote;
+    public TMP_Text title;
+    public TMP_Text description;
+
 
     void Start()
     {
         gridLayoutGroup = inventoryPanel.GetComponent<GridLayoutGroup>();
         CreateInventorySlolt();
+
     }
 
     #region Inventory Methods
@@ -42,8 +56,8 @@ public class InventoryNote : MonoBehaviour
     }
     public void UseItem() //OnClick Event
     {
-        rightClickSlot.UseItem();
-        OnFinishMiniCanvas();
+        //rightClickSlot.UseItem();
+        //OnFinishMiniCanvas();
     }
     public void DropItem() //OnClick Event
     {
@@ -105,6 +119,8 @@ public class InventoryNote : MonoBehaviour
         }
     }
 
+ 
+
     public InventorySlotNote IsEmptySlotLeft(SO_Item itemCheck = null, InventorySlotNote itemSlot = null)
     {
         InventorySlotNote firstEmptySlot = null;
@@ -142,10 +158,14 @@ public class InventoryNote : MonoBehaviour
         miniCanvas.position = clickPosition;
         miniCanvas.gameObject.SetActive(true);
     }
-
+    public void SetLeftClickSlot(InventorySlotNote slot)
+    {
+        leftClickSlot = slot;
+    }
     public void OnFinishMiniCanvas()
     {
         rightClickSlot = null;
+        leftClickSlot = null;
         miniCanvas.gameObject.SetActive(false);
     }
 
@@ -172,4 +192,88 @@ public class InventoryNote : MonoBehaviour
         // If you reach this point, required items were not found in the inventory
         return false;
     }
+
+    #region Read Note
+
+    public void ActivePanelNOte()
+    {
+        panelNote.SetActive(true);
+        inventoryUI.SetActive(false);
+        panelButton.SetActive(false);
+        SetTextNote(leftClickSlot.item);
+    }
+
+    public void SetTextNote(SO_Item item)
+    {
+        title.text = item.noteTitle;
+        description.text = item.noteDescription;
+    }
+
+    #endregion
+
+   
+    #region Save
+
+    public void SaveInventory()
+    {
+        SaveData saveData = new SaveData();
+        saveData.inventorySlotsData = new List<InventorySlotData>();
+
+        foreach(InventorySlotNote slot in inventorySlots)
+        {
+            InventorySlotData slotData = new InventorySlotData();
+            slotData.stack = slot.stack;
+            slotData.item = slot.item;
+
+            saveData.inventorySlotsData.Add(slotData);
+        }
+
+        string json = JsonUtility.ToJson(saveData);
+        File.WriteAllText(Application.persistentDataPath + "/inventoryNoteSave.json", json);
+    }
+
+    public void LoadInventory()
+    {
+        string filePath = Application.persistentDataPath + "/inventoryNoteSave.json";
+
+        if (File.Exists(filePath))
+        {
+            string json = File.ReadAllText(filePath);
+            SaveData saveData = JsonUtility.FromJson<SaveData>(json);
+
+            SetLayoutControlChild(true);
+            foreach (InventorySlotNote slot in inventorySlots)
+            {               
+                Destroy(slot.gameObject);
+            }
+            CreateInventorySlolt();
+
+           for (int i = 0; i < inventorySlots.Length; i++)
+            {
+                inventorySlots[i].item = saveData.inventorySlotsData[i].item;
+                inventorySlots[i].stack = saveData.inventorySlotsData[i].stack;
+            }
+
+            foreach (InventorySlotNote slot in inventorySlots)
+            {
+                slot.CheckShowText();
+                slot.RefreshIcon(slot.item);
+            }
+        }
+    }
+
+    #endregion
+}
+
+[System.Serializable]
+public class SaveData
+{
+    public List<InventorySlotData> inventorySlotsData;
+}
+
+[System.Serializable]
+public class InventorySlotData
+{
+    public int stack;
+    public SO_Item item;
 }

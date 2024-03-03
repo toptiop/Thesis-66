@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
-
+using System.IO;
 
 public class Inventory : MonoBehaviour
 {
@@ -19,7 +19,6 @@ public class Inventory : MonoBehaviour
 
     [Space(5)]
     public int SlotAmount = 30;
-    public int slotMat = 10;
     public InventorySlot[] inventorySlots;
     
     void Start()
@@ -139,6 +138,7 @@ public class Inventory : MonoBehaviour
     {
         rightClickSlot = slot;
     }
+    
     public void OpenMiniCanvas(Vector2 clickPosition)
     {
         miniCanvas.position = clickPosition;
@@ -174,4 +174,56 @@ public class Inventory : MonoBehaviour
         // If you reach this point, required items were not found in the inventory
         return false;
     }
+
+    #region Save
+
+    public void SaveInventory()
+    {
+        SaveData saveData = new SaveData();
+        saveData.inventorySlotsData = new List<InventorySlotData>();
+
+        foreach (InventorySlot slot in inventorySlots)
+        {
+            InventorySlotData slotData = new InventorySlotData();
+            slotData.stack = slot.stack;
+            slotData.item = slot.item;
+
+            saveData.inventorySlotsData.Add(slotData);
+        }
+
+        string json = JsonUtility.ToJson(saveData);
+        File.WriteAllText(Application.persistentDataPath + "/inventorySave.json", json);
+    }
+
+    public void LoadInventory()
+    {
+        string filePath = Application.persistentDataPath + "/inventorySave.json";
+
+        if (File.Exists(filePath))
+        {
+            string json = File.ReadAllText(filePath);
+            SaveData saveData = JsonUtility.FromJson<SaveData>(json);
+
+            SetLayoutControlChild(true);
+            foreach(InventorySlot slot in inventorySlots)
+            {
+                Destroy(slot.gameObject);
+            }
+            CreateInventorySlolt();
+
+            for (int i = 0; i < inventorySlots.Length; i++)
+            {
+                inventorySlots[i].item = saveData.inventorySlotsData[i].item;
+                inventorySlots[i].stack = saveData.inventorySlotsData[i].stack;
+            }
+
+            foreach (InventorySlot slot in inventorySlots)
+            {
+                slot.CheckShowText();
+                slot.RefreshIcon(slot.item);
+            }
+        }
+    }
+
+    #endregion
 }

@@ -61,11 +61,11 @@ public class StateCommand : MonoBehaviour
                 //sendCommand = null;
             }
         }
-        if (input.swap)
+        if (input.command)
         {
            robot.MoveToPosition(hit.point);
             Debug.DrawLine(ray.origin, hit.point, Color.red, distance);
-            input.swap = false;
+            input.command = false;
         }
 
 

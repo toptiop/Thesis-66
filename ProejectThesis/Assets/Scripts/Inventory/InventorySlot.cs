@@ -235,5 +235,8 @@ public class InventorySlot : MonoBehaviour, IDropHandler, IDragHandler, IBeginDr
             icon.color = itemColor;
         
     }
-
+    public void RefreshIcon(SO_Item item)
+    {
+        icon.sprite = item.icon;
+    }
 }

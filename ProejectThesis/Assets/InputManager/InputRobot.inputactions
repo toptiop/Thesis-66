@@ -2,7 +2,7 @@
     "name": "InputRobot",
     "maps": [
         {
-            "name": "Player",
+            "name": "Robot",
             "id": "f62a4b92-ef5e-4175-8f4c-c9075429d32c",
             "actions": [
                 {
@@ -69,60 +69,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "OneSlot",
-                    "type": "Button",
-                    "id": "351abb41-296b-4d2a-843e-fa15b969fe6a",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "TwoSlot",
-                    "type": "Button",
-                    "id": "18af6d1c-871f-4d81-874b-df11a9682ae0",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "ThreeSlot",
-                    "type": "Button",
-                    "id": "15c193ea-b7ed-418c-a89d-8bb682047c65",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "FourSlot",
-                    "type": "Button",
-                    "id": "cad0b82f-81fc-4716-ad61-050c33a00242",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "FiveSlot",
-                    "type": "Button",
-                    "id": "e22d5978-cc99-4668-97ea-6debaf86838d",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "SixSlot",
-                    "type": "Button",
-                    "id": "ad546aac-41d5-4a99-97a4-4cd585520b7e",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "ESC",
                     "type": "Button",
                     "id": "a21ce053-a306-422b-a90d-cba8438ee514",
@@ -144,42 +90,6 @@
                     "name": "Mouse1",
                     "type": "Button",
                     "id": "6d92213c-1092-4c14-935f-b2b5ded6bffd",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "ScrollIncrease",
-                    "type": "PassThrough",
-                    "id": "14e4dba2-96d3-4ce3-82a0-fb4ac562c6b8",
-                    "expectedControlType": "Axis",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "ScrollDecrease",
-                    "type": "PassThrough",
-                    "id": "a4e095ac-58f2-4d13-8b67-22147dd29b11",
-                    "expectedControlType": "Axis",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Book",
-                    "type": "Button",
-                    "id": "cafd91ab-6ebe-4274-bd39-be7144899d01",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "MouseHold",
-                    "type": "PassThrough",
-                    "id": "760f0e0a-5ce6-40d3-988d-cb6a3cb309df",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -338,7 +248,7 @@
                 {
                     "name": "",
                     "id": "c8fcd86e-dcfd-4f88-8e93-b638cdbf3320",
-                    "path": "<Gamepad>/leftTrigger",
+                    "path": "<Gamepad>/leftStickPress",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
@@ -349,7 +259,7 @@
                 {
                     "name": "",
                     "id": "2e537057-a3f2-446a-8067-1bdb047c6f68",
-                    "path": "<Keyboard>/tab",
+                    "path": "<Keyboard>/i",
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyboardMouse",
@@ -359,11 +269,33 @@
                 },
                 {
                     "name": "",
+                    "id": "6be58a8e-972c-445b-b63d-0c1212028148",
+                    "path": "<Gamepad>/dpad/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Inventory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "2563c2dd-7069-4bcc-841b-3e41b9425dce",
-                    "path": "<Keyboard>/q",
+                    "path": "<Keyboard>/tab",
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyboardMouse",
+                    "action": "Swap",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "446f360b-ca36-4fc7-a6c0-345fb5ab760c",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
                     "action": "Swap",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -381,67 +313,12 @@
                 },
                 {
                     "name": "",
-                    "id": "e409a04b-245c-4421-9128-270b58a7ffc1",
-                    "path": "<Keyboard>/1",
+                    "id": "2b8d3ed5-3ba0-49ab-891b-6bad23e57c02",
+                    "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "OneSlot",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a1326c94-89de-414f-988c-2432d872c80a",
-                    "path": "<Keyboard>/2",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "TwoSlot",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "4943b2f4-d064-435a-a336-66f7502bdf7e",
-                    "path": "<Keyboard>/3",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "ThreeSlot",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "96b72309-72b3-46c3-be74-1f7686135c43",
-                    "path": "<Keyboard>/4",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "FourSlot",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "801278c0-256e-48e4-9353-babfd15b7446",
-                    "path": "<Keyboard>/5",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "FiveSlot",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "3d51075c-6576-43a7-9c5c-b78cc67d9ad1",
-                    "path": "<Keyboard>/6",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "SixSlot",
+                    "groups": "",
+                    "action": "Interaction",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -452,6 +329,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyboardMouse",
+                    "action": "ESC",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "42a2ee68-9551-4e51-8cf0-9015f31c7686",
+                    "path": "<Gamepad>/select",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
                     "action": "ESC",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -480,52 +368,19 @@
                 },
                 {
                     "name": "",
-                    "id": "fca2e1d2-752e-4732-b596-74fb5584e5eb",
-                    "path": "<Mouse>/scroll/up",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ScrollIncrease",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "04808142-523c-4f87-ab39-bb9451cace3a",
-                    "path": "<Mouse>/scroll/down",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ScrollDecrease",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "eb02cdec-9d82-48b1-b4a8-4a16c85d72e4",
-                    "path": "<Keyboard>/b",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Book",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "93a3cef6-f26d-418e-983d-cb70810c76fc",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MouseHold",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "ca9d8110-012a-4baa-91fd-c65c08a7878e",
                     "path": "<Keyboard>/ctrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Down",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2871e563-3c18-40dc-b4aa-01110bf91567",
+                    "path": "<Gamepad>/leftTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

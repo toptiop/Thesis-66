@@ -14,20 +14,24 @@ public class AutoPilotRobot : MonoBehaviour
     public RobotController robotController;
     public Transform targetPos;
     public bool isOrder;
+    private InputManager input;
     void Start()
     {
 
         navMeshAgent = GetComponent<NavMeshAgent>();
         robotController = GetComponent<RobotController>();
+
+        input = FindAnyObjectByType<InputManager>();
     }
 
     void Update()
     {
         Auto();
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (input.returnPlayer)
         {
             ReturnToPlayer();
+            input.returnPlayer = false;
         }
 
         float speed = navMeshAgent.velocity.magnitude;

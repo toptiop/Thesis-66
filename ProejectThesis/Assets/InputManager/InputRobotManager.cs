@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class InputRobotManager : MonoBehaviour
 {
-    [Header("Character Input Values")]
+    [Header("Robot Input Values")]
     public Vector2 move;
     public Vector2 look;
     public bool jump;
@@ -12,20 +12,14 @@ public class InputRobotManager : MonoBehaviour
     public bool inventory;
     public bool swap;
     public bool interaction;
-    public bool oneSlot;
-    public bool twoSlot;
-    public bool threeSlot;
-    public bool fourSlot;
-    public bool fiveSlot;
-    public bool sixSlot;
+    
     public bool esc;
     public bool mouse0;
     public bool mouse1;
-    public bool scrollIncrease;
-    public bool scrollDecrease;
-    public bool book;
-    public bool mouseHold;
+
+
     public bool down;
+
     public bool next;
     public bool back;
 
@@ -40,20 +34,34 @@ public class InputRobotManager : MonoBehaviour
 
     public void OnMove(InputValue value)
     {
-        MoveInput(value.Get<Vector2>());
+        if (Singleton.Instance != null)
+        {
+            if (Singleton.controller.canMove)
+            {
+                MoveInput(value.Get<Vector2>());
+            }
+            else
+            {
+                move = Vector2.zero;
+            }
+        }
+        else
+        {
+            MoveInput(value.Get<Vector2>());
+        }
     }
 
     public void OnLook(InputValue value)
     {
-        LookInput(value.Get<Vector2>());
-        /* if (Singletons.Instance.invUI.cameraMove)
-         {
-             look = Vector2.zero;
-         }
-         else
-         {
 
-         }*/
+        if (GameManager.Instance.cameraMove)
+        {
+            look = Vector2.zero;
+        }
+        else
+        {
+            LookInput(value.Get<Vector2>());
+        }
     }
 
     public void OnJump(InputValue value)
@@ -80,30 +88,6 @@ public class InputRobotManager : MonoBehaviour
     {
         InteractionInput(value.isPressed);
     }
-    public void OnOneSlot(InputValue value)
-    {
-        OneSlotInput(value.isPressed);
-    }
-    public void OnTwoSlot(InputValue value)
-    {
-        TwoSlowInput(value.isPressed);
-    }
-    public void OnThreeSlot(InputValue value)
-    {
-        ThreeSlotInput(value.isPressed);
-    }
-    public void OnFourSlot(InputValue value)
-    {
-        FourSlotInput(value.isPressed);
-    }
-    public void OnFiveSlot(InputValue value)
-    {
-        FiveSlotInput(value.isPressed);
-    }
-    public void OnSixSlot(InputValue value)
-    {
-        SixSlotInput(value.isPressed);
-    }
     public void OnESC(InputValue value)
     {
         ESCInput(value.isPressed);
@@ -115,22 +99,6 @@ public class InputRobotManager : MonoBehaviour
     public void OnMouse1(InputValue value)
     {
         Mouse1Input(value.isPressed);
-    }
-    public void OnScrollIncrease(InputValue value)
-    {
-        ScrollIncreaseInput(value.isPressed);
-    }
-    public void OnScrollDecrease(InputValue value)
-    {
-        ScrollDecreaseInput(value.isPressed);
-    }
-    public void OnBook(InputValue value)
-    {
-        BookInput(value.isPressed);
-    }
-    public void OnMouseHold(InputValue value)
-    {
-        MouseHoldInput(value.isPressed);
     }
     public void OnDown(InputValue value)
     {
@@ -183,30 +151,6 @@ public class InputRobotManager : MonoBehaviour
     {
         interaction = newInteractionState;
     }
-    public void OneSlotInput(bool newOneSlotState)
-    {
-        oneSlot = newOneSlotState;
-    }
-    public void TwoSlowInput(bool newTwoSlowState)
-    {
-        twoSlot = newTwoSlowState;
-    }
-    public void ThreeSlotInput(bool newThreeSlotState)
-    {
-        threeSlot = newThreeSlotState;
-    }
-    public void FourSlotInput(bool newFourSlotState)
-    {
-        fourSlot = newFourSlotState;
-    }
-    public void FiveSlotInput(bool newFiveSlotState)
-    {
-        fiveSlot = newFiveSlotState;
-    }
-    public void SixSlotInput(bool newSixSlotState)
-    {
-        sixSlot = newSixSlotState;
-    }
     public void ESCInput(bool newESCState)
     {
         esc = newESCState;
@@ -218,22 +162,6 @@ public class InputRobotManager : MonoBehaviour
     public void Mouse1Input(bool newMouse1State)
     {
         mouse1 = newMouse1State;
-    }
-    public void ScrollIncreaseInput(bool newScrollIncreaseState)
-    {
-        scrollIncrease = newScrollIncreaseState;
-    }
-    public void ScrollDecreaseInput(bool newScrollDecreaseState)
-    {
-        scrollDecrease = newScrollDecreaseState;
-    }
-    public void BookInput(bool newBookState)
-    {
-        book = newBookState;
-    }
-    public void MouseHoldInput(bool newMouseHoldState)
-    {
-        mouseHold = newMouseHoldState;
     }
     public void DownInput(bool newDownState)
     {

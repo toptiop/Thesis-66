@@ -38,11 +38,13 @@ public class InteracObject : MonoBehaviour, IInteractable
         {
             interactable.SetActive(true);
             GameManager.Instance.ChangeStateInteractUI(true);
+            Singleton.controller.SignalCanMoveEnabled();
         }
         else
         {
             interactable.SetActive(false);
             GameManager.Instance.ChangeStateInteractUI(false);
+            Singleton.controller.SignalCanMoveDisabled();
         }
     }
 
