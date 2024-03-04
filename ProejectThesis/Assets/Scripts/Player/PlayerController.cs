@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using System.IO;
 public class PlayerController : MonoBehaviour
 {
     #region PlayerController
@@ -251,6 +251,43 @@ public class PlayerController : MonoBehaviour
     }
 
 
+    #region save
 
+    public void Save()
+    {
+        PlayerData playerData = new PlayerData
+        {
+            position = transform.position,
+            rotation = transform.rotation
+        };
+
+        string dataPath = Application.persistentDataPath + "/PlayerData.json";
+        string jsonData = JsonUtility.ToJson(playerData);
+        File.WriteAllText(dataPath, jsonData);
+    }
+
+    public void Load()
+    {
+        string dataPath = Application.persistentDataPath + "/PlayerData.json";
+
+        if (File.Exists(dataPath))
+        {
+            string jsonData = File.ReadAllText(dataPath);
+            PlayerData playerData = JsonUtility.FromJson<PlayerData>(jsonData);
+
+            transform.position = playerData.position;
+            transform.rotation = playerData.rotation;
+        }
+    }
+
+    #endregion
+}
+
+
+[System.Serializable]
+public class PlayerData
+{
+    public Vector3 position;
+    public Quaternion rotation;
 }
 
