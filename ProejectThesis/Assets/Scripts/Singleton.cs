@@ -7,6 +7,7 @@ public class Singleton : MonoBehaviour
     public static Singleton Instance { get; private set; }
 
     public static PlayerController controller;
+    public static AutoPilotRobot ai;
     public InputManager inputManager;
     public Inventory inventory;
     public InventoryNote inventoryNote;
@@ -29,6 +30,7 @@ public class Singleton : MonoBehaviour
 
         #region FindScript
         controller = FindAnyObjectByType<PlayerController>();
+        ai = FindAnyObjectByType<AutoPilotRobot>();
         inputManager = FindAnyObjectByType<InputManager>();
         inventory = FindAnyObjectByType<Inventory>();
         inventoryNote = FindAnyObjectByType<InventoryNote>();

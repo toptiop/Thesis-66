@@ -10,7 +10,7 @@ public class AutoPilotRobot : MonoBehaviour
     public float followDistance = 5f;
     [SerializeField] private float timer = 1;
     public Animator animator;
-    public NavMeshAgent navMeshAgent;
+    public NavMeshAgent agent;
     public RobotController robotController;
     public Transform targetPos;
     public bool isOrder;
@@ -18,7 +18,7 @@ public class AutoPilotRobot : MonoBehaviour
     void Start()
     {
 
-        navMeshAgent = GetComponent<NavMeshAgent>();
+        agent = GetComponent<NavMeshAgent>();
         robotController = GetComponent<RobotController>();
 
         input = FindAnyObjectByType<InputManager>();
@@ -34,12 +34,15 @@ public class AutoPilotRobot : MonoBehaviour
             input.returnPlayer = false;
         }
 
-        float speed = navMeshAgent.velocity.magnitude;
+        float speed = agent.velocity.magnitude;
         animator.SetFloat("Speed", speed);
     }
 
-
-    public void SetPositionRobot(Quaternion rot)
+    public void SetPositionRobot(Vector3 pos)
+    {
+        agent.SetDestination(pos);
+    }
+    public void SetRotationRobot(Quaternion rot)
     {
         transform.rotation = rot;
     }
@@ -56,7 +59,7 @@ public class AutoPilotRobot : MonoBehaviour
             else
             {
                 timer = 1f;
-                navMeshAgent.SetDestination(transform.position);
+                agent.SetDestination(transform.position);
                 animator.SetFloat("Speed", 0f);
             }
         }
@@ -68,14 +71,14 @@ public class AutoPilotRobot : MonoBehaviour
         if (Vector3.Distance(transform.position, pos) >= 0)
         {
             isOrder = true;
-            navMeshAgent.SetDestination(pos);
-            float speed = navMeshAgent.velocity.magnitude;
+            agent.SetDestination(pos);
+            float speed = agent.velocity.magnitude;
             animator.SetFloat("Speed", speed);
         }
         else
         {
             timer = 1f;
-            navMeshAgent.SetDestination(transform.position);
+            agent.SetDestination(transform.position);
             animator.SetFloat("Speed", 0f);
         }
     }
@@ -91,7 +94,7 @@ public class AutoPilotRobot : MonoBehaviour
         else
         {
             timer = 1f;
-            navMeshAgent.SetDestination(transform.position);
+            agent.SetDestination(transform.position);
             animator.SetFloat("Speed", 0f);
         }
     }
@@ -99,8 +102,13 @@ public class AutoPilotRobot : MonoBehaviour
 
     void DelayMove()
     {
-        navMeshAgent.SetDestination(player.position);
-        float speed = navMeshAgent.velocity.magnitude;
+        agent.SetDestination(player.position);
+        float speed = agent.velocity.magnitude;
         animator.SetFloat("Speed", speed);
+    }
+
+    public void Order(bool order)
+    {
+        isOrder = order;
     }
 }

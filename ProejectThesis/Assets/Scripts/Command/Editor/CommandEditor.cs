@@ -32,15 +32,12 @@ public class CommandEditor : Editor
     {
         commandTypeProperty = serializedObject.FindProperty("typeCommand");
 
-        //Door
-        doorTyperProperty = serializedObject.FindProperty("door");
-
         //Door Hacking
         doorHackingTypeProperty = serializedObject.FindProperty("doorHacking");
         hackingTypeProperty = serializedObject.FindProperty("isHacking");
 
         //Active Switch
-        activeSwitchTypeProperty = serializedObject.FindProperty("activeObject");
+        activeSwitchTypeProperty = serializedObject.FindProperty("door");
         switchTypeProperty = serializedObject.FindProperty("isActiveObj");
 
         //Share Power
@@ -64,43 +61,36 @@ public class CommandEditor : Editor
 
 
         EditorGUILayout.Space();
-        Command.Commander commandType = (Command.Commander)commandTypeProperty.enumValueIndex;
+        
+         Commander commandType = (Commander)commandTypeProperty.enumValueIndex;
 
-        if(commandType == Command.Commander.OpenDoor)
-        {
-            EditorGUILayout.PropertyField(doorTyperProperty, new GUIContent("Door"));
-        }
-        else if(commandType == Command.Commander.HackDoor)
+        if(commandType == Commander.HackDoor)
         {
             EditorGUILayout.PropertyField(doorHackingTypeProperty, new GUIContent("Door Hacking"));
             EditorGUILayout.PropertyField(hackingTypeProperty, new GUIContent("Is Hacking"));
         }
-        else if(commandType == Command.Commander.ActiveSwitch)
+        else if(commandType == Commander.ActiveSwitch)
         {
             EditorGUILayout.PropertyField(activeSwitchTypeProperty, new GUIContent("Active"));
             EditorGUILayout.PropertyField(switchTypeProperty, new GUIContent("Is Active"));
         }
-        else if(commandType == Command.Commander.SharePower)
+        else if(commandType == Commander.SharePower)
         {
             EditorGUILayout.PropertyField(sharePowerTypeProperty, new GUIContent("Share Power"));
             EditorGUILayout.PropertyField(shareTypeProperty, new GUIContent("Is Share"));
         }
 
         //Set null;
-        if (commandType != Command.Commander.OpenDoor)
-        {
-            doorTyperProperty.objectReferenceValue = null;
-        }
-        else if (commandType != Command.Commander.HackDoor)
+         if (commandType != Commander.HackDoor)
         {
             doorHackingTypeProperty.objectReferenceValue = null;
             hackingTypeProperty.boolValue = false;
         }
-        else if (commandType != Command.Commander.ActiveSwitch)
+        else if (commandType != Commander.ActiveSwitch)
         {
             activeSwitchTypeProperty.objectReferenceValue = null;
         }
-        else if (commandType != Command.Commander.SharePower)
+        else if (commandType != Commander.SharePower)
         {
             sharePowerTypeProperty.objectReferenceValue = null;
         }

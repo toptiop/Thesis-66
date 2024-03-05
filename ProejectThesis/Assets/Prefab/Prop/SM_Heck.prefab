@@ -10,7 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3394989137175594287}
   - component: {fileID: 1594425485347504767}
-  m_Layer: 0
+  - component: {fileID: 5103640014388647515}
+  - component: {fileID: 4156343942165686031}
+  m_Layer: 8
   m_Name: SM_Heck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,15 +27,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2704530882100292939}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.75374854, z: -0, w: 0.65716296}
-  m_LocalPosition: {x: 40.916, y: 3.73, z: 44.965}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7464768970689846837}
   - {fileID: 145425544138807921}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -97.832, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1594425485347504767
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -55,6 +57,56 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1.233206, z: 0.73969126}
   m_Center: {x: 0.0000000054356732, y: -0.021842122, z: 0.38382027}
+--- !u!114 &5103640014388647515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2704530882100292939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3b51c3b580bd7245a1820866bb15d4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  typeCommand: 0
+  setPos: {x: 0, y: 0, z: 0}
+  setRotation: {x: 0, y: 0, z: 0, w: 0}
+  GroundedOffset: {x: 0, y: 0.5, z: 0}
+  GroundedRadius: {x: 1, y: 1, z: 1}
+  isRobot: 0
+  layerRobot:
+    serializedVersion: 2
+    m_Bits: 128
+  robot: {fileID: 0}
+  doorHacking: {fileID: 0}
+  timeToHacking: 2
+  isHacking: 0
+  door: {fileID: 0}
+  isActiveObj: 0
+  sharePowerToObj: {fileID: 0}
+  isShare: 0
+  timeToActive: 0
+  imgActive: {fileID: 0}
+  col: []
+--- !u!114 &4156343942165686031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2704530882100292939}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 10
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &2881362726394672854
 GameObject:
   m_ObjectHideFlags: 0
@@ -66,7 +118,7 @@ GameObject:
   - component: {fileID: 145425544138807921}
   - component: {fileID: 5284515245856958948}
   - component: {fileID: 3489496372524515544}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +201,7 @@ GameObject:
   - component: {fileID: 7464768970689846837}
   - component: {fileID: 6171728840297801787}
   - component: {fileID: 8195297463048405419}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}

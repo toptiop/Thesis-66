@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UI;
 
 public class Command : MonoBehaviour
 {
-    public enum Commander { OpenDoor,HackDoor,ActiveSwitch, SharePower}
-
     public Commander typeCommand;
 
     public Vector3 setPos;
@@ -28,10 +27,6 @@ public class Command : MonoBehaviour
     [SerializeField] private AutoPilotRobot robot;
 
     #region Setting
-    [Space]
-    [Header("OpenDoor")]//OpenDoor
-    [Tooltip("Add Component DoorActive")]
-    [SerializeField] DoorActive door;
 
     [Space]
     [Header("HackDoor")]
@@ -42,7 +37,7 @@ public class Command : MonoBehaviour
 
     [Space]
     [Header("ActiveSwitch")]
-    [SerializeField] GameObject activeObject;
+    [SerializeField] DoorActive door;
     [SerializeField] bool isActiveObj;
 
     [Space]
@@ -60,83 +55,25 @@ public class Command : MonoBehaviour
     [Header("Colliders")]
     [SerializeField] Collider[] col;
     Outline outline;
+  
     private void Awake()
     {
         outline = GetComponent<Outline>();
     }
+
     private void Update()
     {
         CheckRobot();
-
-        if(col.Length > 0)
-        {
-           foreach(Collider coll in col)
-            {
-                if (coll.gameObject.CompareTag("Robot"))
-                {
-                    ReceiveCommand(typeCommand);
-                }
-            }
-        }
-
-        switch (typeCommand)
-        {
-            case Commander.OpenDoor:
-                if(imgActive != null)
-                    imgActive.fillAmount = timeToActive / 0f;
-                break;
-            case Commander.HackDoor:
-                if (imgActive != null)
-                    imgActive.fillAmount = timeToActive / timeToHacking;
-                break;
-            case Commander.ActiveSwitch:
-                break;
-            case Commander.SharePower:
-                break;
-        }
     }
 
-    public void ReceiveCommand(Commander command)
+    public void SetPosition(NavMeshAgent agent)
     {
-        switch (command)
-        {
-            case Commander.OpenDoor:
-                if (robot != null)
-                {
-                    robot.navMeshAgent.SetDestination(setPos);
-                    robot.SetPositionRobot(setRotation);
-                }
-                Invoke("OpenDoor", 2f);
-                break;
-
-            case Commander.HackDoor:
-                if (robot != null)
-                {
-                    robot.navMeshAgent.SetDestination(setPos);
-                    robot.SetPositionRobot(setRotation);
-                }
-                if (!isHacking)
-                {
-                    timeToActive += Time.deltaTime;
-                    isHacking = true;
-                    Invoke("HackingDoor", timeToHacking);
-                }
-                break;
-
-            case Commander.ActiveSwitch:
-                //
-                break;
-
-            case Commander.SharePower:
-                SharePower(); // เรียกใช้เมทอด ShaerPower เมื่อได้รับคำสั่ง ShaerPower
-                break;
-
-            default:
-                Debug.LogWarning("Unknown command received."); // กรณีไม่รู้จักคำสั่งที่ถูกส่งมา
-                break;
-        }
+        agent.SetDestination(setPos);
+        agent.transform.position = setPos;
+        agent. transform.rotation = setRotation;
     }
-    public void OpenDoor()
+
+    public void ActiveDoor()
     {
        if(isRobot)
         {
@@ -150,18 +87,19 @@ public class Command : MonoBehaviour
             }
             this.enabled = false;
             Destroy(outline);
+            robot.Order(false);
         }
     }
     public void HackingDoor()
     {
         if (isRobot)
-        {
-            
+        {            
             doorHacking.StartHacking();
             doorHacking.SetHacked(true);
             this.enabled = false;
             Destroy(outline,1f);
             timeToActive = 0f;
+            robot.Order(false);
         }
     }
 
@@ -198,7 +136,7 @@ public class Command : MonoBehaviour
         if (isRobot) Gizmos.color = transparentGreen;
         else Gizmos.color = transparentRed;
 
-        Vector3 position = transform.position - new Vector3(GroundedOffset.x, GroundedOffset.y, GroundedOffset.z);
+        Vector3 position = transform.localPosition - new Vector3(GroundedOffset.x, GroundedOffset.y, GroundedOffset.z);
 
         Gizmos.DrawCube(position, GroundedRadius);
     }

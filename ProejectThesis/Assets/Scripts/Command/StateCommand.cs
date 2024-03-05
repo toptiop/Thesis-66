@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class StateCommand : MonoBehaviour
 {
+    public Commander typeCommander;
+
     public LayerMask layerMask;
     public LayerMask obstructionMask;
     public Transform cameraPos;
-    public float distance = 5;
+    public float distance = 17;
     public Vector3 targetPosition;
 
     [Header("AI")]
@@ -15,7 +17,8 @@ public class StateCommand : MonoBehaviour
 
     [Header("Out Component")]
     [SerializeField] private Outline outlineScript;
-    [SerializeField] private Command sendCommand;
+    [SerializeField] private Command setType;
+    public CommandInvoker invoker;
     InputManager input;
     RaycastHit hit;
     void Start()
@@ -27,58 +30,129 @@ public class StateCommand : MonoBehaviour
     void Update()
     {
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
-        RaycastHit hit;
-
 
         if (Physics.Raycast(ray, out hit, distance) && !IsInLayerMask(hit.collider.gameObject.layer, obstructionMask))
         {
-           // Debug.Log("Hit Name: " + hit.collider.name);
-            if (hit.collider != null)
-            {
-                this.targetPosition = hit.point;
-                outlineScript = hit.collider.GetComponent<Outline>();
-                if (outlineScript != null)
-                {
-                    outlineScript.enabled = true;
-                }
+            targetPosition = hit.point;
 
-                sendCommand = hit.collider.GetComponent<Command>();
+            outlineScript = hit.collider.GetComponent<Outline>();
+            if (outlineScript != null)
+                outlineScript.enabled = true;
 
-            }
+            setType = hit.collider.GetComponent<Command>();
+            if (setType != null)
+                typeCommander = setType.typeCommand;
 
             Debug.DrawLine(ray.origin, hit.point, Color.red, distance);
         }
         else
         {
-            Debug.DrawRay(ray.origin, ray.direction * distance, Color.green, distance);
-            if (outlineScript != null )
-            {
+            if (outlineScript != null)
                 outlineScript.enabled = false;
-                outlineScript = null;                
-            }
-            if(sendCommand != null)
-            {
-                //sendCommand = null;
-            }
+
+            setType = null;
+            typeCommander = Commander.None;
         }
+
         if (input.command)
         {
-           robot.MoveToPosition(hit.point);
-            Debug.DrawLine(ray.origin, hit.point, Color.red, distance);
+            if (invoker != null)
+            {
+                ReceiveCommand(typeCommander);
+            }
+            else
+            {
+                Debug.LogError("Invoker or setType has not been assigned in the inspector!");
+            }
             input.command = false;
         }
 
-
-        if (Vector3.Distance(robot.transform.position, hit.point) <= 1) ;
+    }
+    void ReceiveCommand(Commander command) 
+    {
+        switch (command)
         {
-            if (sendCommand != null)
-            {
-
-            }
-               // sendCommand.ReceiveCommand(sendCommand.typeCommand);
+            case Commander.HackDoor:
+                MoveToPositionAndHackDoor(hit.collider.GetComponent<Command>().setPos, hit.collider.GetComponent<Command>());
+                break;
+            case Commander.ActiveSwitch:
+                MoveToPositionAndOpenDoor(hit.collider.GetComponent<Command>().setPos, hit.collider.GetComponent<Command>());
+                break;
+            case Commander.SharePower:
+                break;
+            case Commander.None:
+                MoveToPosition(hit.point);
+                break;
         }
     }
-    
+
+    #region Command
+
+    void MoveToPosition(Vector3 destination)
+    {
+        Debug.Log("Move To" + hit.point);
+        robot.Order(true);
+        ICommand moveCommand = new StateMoveToPosition(robot.agent, destination);
+        invoker.ExecuteCommand(moveCommand);
+    }
+
+    void MoveToPositionAndOpenDoor(Vector3 destination, Command command = null)
+    {
+        robot.Order(true);
+        ICommand moveCommand = new StateMoveToPosition(robot.agent, destination);
+        invoker.ExecuteCommand(moveCommand);
+        StartCoroutine(WaitForMoveCompletionAndOpenDoor(command));
+    }
+
+    private IEnumerator WaitForMoveCompletionAndOpenDoor(Command command)
+    {
+        while (robot.agent.pathPending || robot.agent.remainingDistance > 0.1f)
+        {
+            yield return null;
+        }
+        robot.agent.SetDestination(command.setPos);
+        ICommand openDoorCommand = new StateActiveDoor(robot.agent, command);
+        invoker.ExecuteCommand(openDoorCommand);
+    }
+
+    void MoveToPositionAndHackDoor(Vector3 destination, Command command = null)
+    {
+        robot.Order(true);
+        ICommand moveCommand = new StateMoveToPosition(robot.agent, destination);
+        invoker.ExecuteCommand(moveCommand);
+        StartCoroutine(WaitForMoveCompletionAndHackDoor(command));
+    }
+
+    private IEnumerator WaitForMoveCompletionAndHackDoor(Command command)
+    {
+        while (robot.agent.pathPending || robot.agent.remainingDistance > 0.1f)
+        {
+            yield return null;
+        }
+        robot.agent.SetDestination(command.setPos);
+        ICommand openDoorCommand = new StateDoorHack(robot.agent, command);
+        invoker.ExecuteCommand(openDoorCommand);
+    }
+
+    void MoveToPositionAndSharePower(Vector3 destination, Command command = null)
+    {
+        robot.Order(true);
+        ICommand moveCommand = new StateMoveToPosition(robot.agent, destination);
+        invoker.ExecuteCommand(moveCommand);
+        StartCoroutine(WaitForMoveCompletionAndSharePower(command));
+    }
+
+    private IEnumerator WaitForMoveCompletionAndSharePower(Command command)
+    {
+        while (robot.agent.pathPending || robot.agent.remainingDistance > 0.1f)
+        {
+            yield return null;
+        }
+        robot.agent.SetDestination(command.setPos);
+        ICommand openDoorCommand = new StateDoorHack(robot.agent, command);
+        invoker.ExecuteCommand(openDoorCommand);
+    }
+    #endregion
 
     // Check if a layer is in a LayerMask
     bool IsInLayerMask(int layer, LayerMask layerMask)
@@ -87,4 +161,4 @@ public class StateCommand : MonoBehaviour
     }
 }
 
-
+public enum Commander {HackDoor, ActiveSwitch, SharePower, None }

@@ -131,6 +131,7 @@ public class InventorySlotNote : MonoBehaviour, IDropHandler, IDragHandler, IBeg
         if (stack > 0)
             CheckShowText();
         inventory.ActivePanelNOte();
+        inventory.openNote.gameObject.SetActive(false);
     }
     public void SwapSlot(InventorySlotNote newSlot)
     {

@@ -34,21 +34,7 @@ public class InputRobotManager : MonoBehaviour
 
     public void OnMove(InputValue value)
     {
-        if (Singleton.Instance != null)
-        {
-            if (Singleton.controller.canMove)
-            {
-                MoveInput(value.Get<Vector2>());
-            }
-            else
-            {
-                move = Vector2.zero;
-            }
-        }
-        else
-        {
-            MoveInput(value.Get<Vector2>());
-        }
+        MoveInput(value.Get<Vector2>());
     }
 
     public void OnLook(InputValue value)

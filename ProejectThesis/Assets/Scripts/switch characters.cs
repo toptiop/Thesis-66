@@ -11,6 +11,7 @@ public class switchcharacters : MonoBehaviour
     public PlayerInput player;
     public Detection playerDetec;
     public CinemachineVirtualCamera camPlayer;
+    public StateCommand stateCommand;
 
     [Header("[Robot Component]")]
     public RobotController robotController;
@@ -45,17 +46,29 @@ public class switchcharacters : MonoBehaviour
             robotInput.swap = false;
             aiFollow.enabled = false;
         }
-        if (activeSwitch)
+
+        if(activeSwitch && isSwitch)
         {
             aiFollow.enabled = true;
+        }
+        else
+        {
+            aiFollow.enabled = false;
+        }
+
+        if (activeSwitch)
+        {
+            
             if (playerInput.swap || robotInput.swap)
             {
-                //ChangeCharactor();
-                //SwitchControl();
-                //playerInput.swap = false;
-                //robotInput.swap = false;
+                ChangeCharactor();
+                SwitchControl();
+                playerInput.swap = false;
+                robotInput.swap = false;
             }
         }
+
+
 
     }
     #region SwitchCharacter
@@ -80,6 +93,7 @@ public class switchcharacters : MonoBehaviour
         player.enabled = true;
         playerDetec.enabled = true;
         camPlayer.gameObject.SetActive(true);
+        stateCommand.enabled = true;
     }
 
     void DisableControlPlayer()
@@ -89,6 +103,7 @@ public class switchcharacters : MonoBehaviour
         player.enabled = false;
         playerDetec.enabled = false;
         camPlayer.gameObject.SetActive(false);
+        stateCommand.enabled = false;
     }
 
     void EnableControlRobot()
@@ -99,7 +114,7 @@ public class switchcharacters : MonoBehaviour
         camRobot.gameObject.SetActive(true);
         //
         aiFollow.enabled = false;
-        aiFollow.navMeshAgent.enabled = false;
+        aiFollow.agent.enabled = false;
     }
     void DisableControlRobot()
     {
@@ -109,7 +124,7 @@ public class switchcharacters : MonoBehaviour
         camRobot.gameObject.SetActive(false);
         //
         aiFollow.enabled = true;
-        aiFollow.navMeshAgent.enabled = true;
+        aiFollow.agent.enabled = true;
     }
     #endregion
 
