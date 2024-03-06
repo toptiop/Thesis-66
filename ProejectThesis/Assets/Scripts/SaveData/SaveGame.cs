@@ -4,22 +4,36 @@ using UnityEngine;
 
 public class SaveGame : MonoBehaviour
 {
+    public static SaveGame Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+    }
     private void Start()
     {
         
     }
-    private void OnGUI()
-    {
-        if (GUILayout.Button("Save"))
-        {
-            Save();
-        }
-        else if (GUILayout.Button("Load"))
-        {
-            Load();
-        }
+    //private void OnGUI()
+    //{
+    //    if (GUILayout.Button("Save"))
+    //    {
+    //        Save();
+    //    }
+    //    else if (GUILayout.Button("Load"))
+    //    {
+    //        Load();
+    //    }
 
-    }
+    //}
     public void Save()
     {
         Singleton.Instance.inventory.SaveInventory();

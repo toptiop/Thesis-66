@@ -89,13 +89,14 @@ GameObject:
   - component: {fileID: 1215857314486688142}
   - component: {fileID: 8053181544550094924}
   - component: {fileID: 1634359225136661564}
+  - component: {fileID: 6854584494877457939}
   m_Layer: 5
   m_Name: WaypointCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5909944861331686610
 RectTransform:
   m_ObjectHideFlags: 0
@@ -133,7 +134,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -179,6 +180,24 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &6854584494877457939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4559150987166258714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c5376c5081b8e64f9c04107f2fa6404, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  img: {fileID: 2034550368128052265}
+  target: {x: 220, y: 1, z: 136}
+  playerTransform: {fileID: 0}
+  meter: {fileID: 1427114237710950271}
+  offset: {x: 0, y: 2, z: 0}
+  isActive: 1
 --- !u!1 &7650006034386382560
 GameObject:
   m_ObjectHideFlags: 0

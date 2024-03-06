@@ -14,13 +14,18 @@ public class QuestWaypoint : MonoBehaviour
 
     [Header("Enable | Disable")]
     public bool isActive = true;
+
+    private void Start()
+    {
+        ToggleWaypoint(false);
+    }
     void Update()
     {
-        
+
         float minX = img.GetPixelAdjustedRect().width;
         float maxX = Screen.width - minX;
 
-        float minY = img.GetPixelAdjustedRect().height ;
+        float minY = img.GetPixelAdjustedRect().height;
         float maxY = Screen.height - minY;
 
         Vector2 pos = Camera.main.WorldToScreenPoint(target + offset);
@@ -41,6 +46,7 @@ public class QuestWaypoint : MonoBehaviour
         pos.y = Mathf.Clamp(pos.y, minY, maxY);
 
         img.transform.position = pos;
+        int me = (int)Vector3.Distance(target, playerTransform.position);
         meter.text = ((int)Vector3.Distance(target, playerTransform.position)).ToString() + "m";
     }
 
@@ -53,7 +59,7 @@ public class QuestWaypoint : MonoBehaviour
     {
         isActive = newActive;
 
-        if(isActive)
+        if (isActive)
         {
             img.gameObject.SetActive(true);
         }
