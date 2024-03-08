@@ -14,10 +14,15 @@ public class ReadNote : MonoBehaviour, IInteractable
     //public TMP_Text amountText;
     [SerializeField]
     private InventoryNote inventory;
-
+    ItemGO ItemGO;
     public GameObject canvasNote;
 
     public bool isOpen;
+
+    private void Awake()
+    {
+        ItemGO = GetComponent<ItemGO>();
+    }
     void Start()
     {
         actionText = "Read " + itemNote.itemName;
@@ -41,6 +46,11 @@ public class ReadNote : MonoBehaviour, IInteractable
             GameManager.Instance.InteractUI = false;
             canvasNote.SetActive(false);
             Destroy(gameObject);
+        }
+
+        if(ItemGO != null)
+        {
+            ItemGO.UpdateQuestProgress(itemNote);
         }
     }
 

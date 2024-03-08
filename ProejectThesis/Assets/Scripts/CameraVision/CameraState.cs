@@ -140,7 +140,7 @@ public class CameraState : MonoBehaviour
 
     void LookPlayer()
     {
-        if (useRotation && neck != null)
+        if (useRotation && neck != null && view.playerRef != null)
         {
             Debug.Log("Rotation");
             Vector3 targetDirection = view.playerRef.transform.position - neck.transform.position;
@@ -150,7 +150,8 @@ public class CameraState : MonoBehaviour
             Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
 
             // ทำการหมุนคอ
-            neck.transform.rotation = Quaternion.Slerp(neck.transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+            float smoothFactor = 5f;
+            neck.transform.rotation = Quaternion.Slerp(neck.transform.rotation, targetRotation, Time.deltaTime * rotationSpeed * smoothFactor);
         }
 
     }
@@ -163,9 +164,9 @@ public class CameraState : MonoBehaviour
 
     private Dictionary<CameraType, float> radiusSetting = new Dictionary<CameraType, float>()
     {
-        {CameraType.Camera01, 5 },
-        {CameraType.Camera02, 10 },
-        {CameraType.Camera03, 15}
+        {CameraType.Camera01, 15 },
+        {CameraType.Camera02, 15 },
+        {CameraType.Camera03, 20}
     };
     private Dictionary<CameraType, float> angleSetting = new Dictionary<CameraType, float>()
     {

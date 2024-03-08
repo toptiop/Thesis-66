@@ -15,10 +15,15 @@ public class ItemObject : MonoBehaviour, IInteractable
     //public TMP_Text amountText;
     [SerializeField]
     private Inventory inventory;
+    ItemGO ItemGO;
 
     private void Awake()
     {
         actionText = "Pick up " + item.itemName;
+
+        ItemGO = GetComponent<ItemGO>();
+
+        inventory = FindAnyObjectByType<Inventory>();
     }
     public void SetAmout(int newAmont)
     {
@@ -35,7 +40,7 @@ public class ItemObject : MonoBehaviour, IInteractable
     {
         if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Robot"))
         {
-            inventory = other.GetComponent<ItemPicker>().inventory;
+           // inventory = other.GetComponent<ItemPicker>().inventory;
             //Destroy(gameObject);
         }
     }
@@ -43,7 +48,7 @@ public class ItemObject : MonoBehaviour, IInteractable
     {
         if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Robot"))
         {
-            inventory = null;
+            //inventory = null;
             
         }
     }
@@ -51,6 +56,11 @@ public class ItemObject : MonoBehaviour, IInteractable
     void PickupItem()
     {
         inventory.AddItem(item, amont);
+
+        if(ItemGO != null)
+        {
+            ItemGO.UpdateQuestProgress(item);
+        }
         Destroy(gameObject);
     }
 

@@ -6,11 +6,12 @@ public class QuestManager : MonoBehaviour
 {
     public static QuestManager instance;
 
-    public QuestTracker[] OngoingQuest;
-    public QuestUI[] OngoingQuestUI;
+    [HideInInspector]public List<QuestTracker> OngoingQuest;
+    public List<QuestUI> OngoingQuestUI;
 
     public QuestWaypoint waypoint;
     public float distanceToDestinationRang = 2f;
+
     private void Awake()
     {
         if (instance == null)
@@ -22,61 +23,57 @@ public class QuestManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        OngoingQuest = new QuestTracker[OngoingQuestUI.Length];
+        if (OngoingQuestUI == null)
+        {
+            Debug.LogError("OngoingQuestUI list is not assigned!");
+        }
+    }
+
+    private void Start()
+    {
+        OngoingQuest = new List<QuestTracker>();
     }
 
     public void AcceptQuest(SO_Quest quest)
     {
         foreach (QuestTracker tracker in OngoingQuest)
         {
-            if (tracker.trackerQuest == null)
-                continue;
-
             if (tracker.trackerQuest == quest)
             {
-                Debug.Log("You already accepter this quest");
+                Debug.Log("You already accepted this quest");
                 return;
             }
         }
 
-        bool isFull = true;
-
-        for (int i = 0; i < OngoingQuest.Length; i++)
+        if (OngoingQuest.Count < OngoingQuestUI.Count)
         {
-            if (OngoingQuest[i].trackerQuest == null)
-            {
-                OngoingQuest[i] = new QuestTracker(quest);
-                isFull = false;
+            QuestTracker newQuestTracker = new QuestTracker(quest);
+            OngoingQuest.Add(newQuestTracker);
 
-                //UpdateUI;
-                OngoingQuestUI[i].SetValue(OngoingQuest[i], i);
-                break;
-            }
-        }
+            int newIndex = OngoingQuest.IndexOf(newQuestTracker);
+            OngoingQuestUI[newIndex].SetValue(newQuestTracker, newIndex);
 
-        if (isFull)
-        {
-            Debug.Log("Cannot accept more quest");
+            Debug.Log("The quest \"" + quest.questName + "\" has been accepted");
         }
         else
         {
-            Debug.Log("The quest \"" + quest.questName + "\" has been accepted");
+            Debug.Log("Cannot accept more quests");
         }
     }
 
     public void CancelQuest(int index)
     {
-        if (OngoingQuest[index].trackerQuest != null)
+        if (index >= 0 && index < OngoingQuest.Count)
         {
-            Debug.Log("The quest \"" + OngoingQuest[index].questName + "\" has been accepted");
-
-            OngoingQuest[index].trackerQuest = null;
+            Debug.Log("The quest \"" + OngoingQuest[index].questName + "\" has been canceled");
+            OngoingQuest.RemoveAt(index);
+            OngoingQuestUI[index].gameObject.SetActive(false);
         }
     }
 
     public void CompleteQuest(int index)
     {
-        if (OngoingQuest[index].trackerQuest != null)
+        if (index >= 0 && index < OngoingQuest.Count)
         {
             string itemList = "";
 
@@ -87,17 +84,19 @@ public class QuestManager : MonoBehaviour
                     if (item == null)
                         continue;
 
-                    itemList = "Item Reward : " + item.itemName + "\n";
+                    itemList += "Item Reward : " + item.itemName + "\n";
                 }
             }
+
             Debug.Log(
                "The quest \"" + OngoingQuest[index].questName + "\" has been completed" + "\n" +
                "Gold reward \"" + OngoingQuest[index].trackerQuest.goldReward + "\n" +
                "Exp reward \"" + OngoingQuest[index].trackerQuest.expReward + "\n" +
                itemList
                );
-            OngoingQuest[index].trackerQuest = null;
-            OngoingQuestUI[0].gameObject.SetActive(false);
+
+            OngoingQuest.RemoveAt(index);
+            OngoingQuestUI[index].gameObject.SetActive(false);
         }
     }
 
@@ -106,13 +105,12 @@ public class QuestManager : MonoBehaviour
         if (OngoingQuest == null)
             return;
 
-        for (int i = 0; i < OngoingQuest.Length; i++)
+        for (int i = 0; i < OngoingQuest.Count; i++)
         {
             if (OngoingQuest[i].trackerQuest != null)
             {
                 OngoingQuest[i].UpdateProgress(type, targetData);
-                //UpdateUI
-                OngoingQuestUI[i].UpdateProgress(OngoingQuest[i].questCanComplete);
+                //OngoingQuestUI[i].UpdateProgress(OngoingQuest[i].questCanComplete);
             }
         }
     }

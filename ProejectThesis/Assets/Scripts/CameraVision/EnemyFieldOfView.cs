@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,7 +7,7 @@ public class EnemyFieldOfView : MonoBehaviour
     public float radius;
     [Range(0, 360)]
     public float angle;
-
+    public float heightOffset = 0.0f;
     public GameObject playerRef;
 
     public LayerMask targetMask;
@@ -17,7 +17,7 @@ public class EnemyFieldOfView : MonoBehaviour
 
     private void Start()
     {
-        playerRef = GameObject.FindGameObjectWithTag("Player");
+        playerRef = GameObject.Find("TargetHit");
         StartCoroutine(FOVRoutine());
     }
 
@@ -39,7 +39,7 @@ public class EnemyFieldOfView : MonoBehaviour
         if (rangeChecks.Length != 0)
         {
             Transform target = rangeChecks[0].transform;
-            Vector3 directionToTarget = (target.position - transform.position).normalized;
+            Vector3 directionToTarget = (target.position - (transform.position + Vector3.up * heightOffset)).normalized;
 
             if (Vector3.Angle(transform.forward, directionToTarget) < angle / 2)
             {
@@ -56,4 +56,6 @@ public class EnemyFieldOfView : MonoBehaviour
         else if (canSeePlayer)
             canSeePlayer = false;
     }
+
+
 }
