@@ -131,6 +131,14 @@ public class Detection : MonoBehaviour
             {
                 if( interactableObject != null)
                 {
+                    string interactionText = interactableObject.GetInteractionText();
+
+                    if (actionUI != null)
+                    {
+                        actionUI.ShowInteractionUI(interactionText);
+
+                    }
+
                     if (_input.interaction)
                     {
                         _input.interaction = false;
@@ -161,6 +169,7 @@ public class Detection : MonoBehaviour
         // If no icon is shown, hide all icons
         if (!isAnyIconShown)
         {
+            actionUI.HideCanvas();
             foreach (Collider col in hitColliders)
             {
                 icon = col.gameObject.GetComponents<ShowIcon>();

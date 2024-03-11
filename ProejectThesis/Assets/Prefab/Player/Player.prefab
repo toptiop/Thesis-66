@@ -140,12 +140,11 @@ MonoBehaviour:
   detectionLayer:
     serializedVersion: 2
     m_Bits: 1
-  radiusInteract: 2
+  radiusInteract: 2.5
   detectionItemRadius: 7
   detectionSize: {x: 1.5, y: 3, z: 1.5}
   _input: {fileID: 104732886423570021}
   actionUI: {fileID: 0}
-  icon: []
 --- !u!1 &2560727361646608451
 GameObject:
   m_ObjectHideFlags: 0
@@ -377,6 +376,7 @@ GameObject:
   - component: {fileID: 2501705096857600848}
   - component: {fileID: 6249487772207349214}
   - component: {fileID: 3639689925164022506}
+  - component: {fileID: 1172124578893828646}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -580,7 +580,7 @@ MonoBehaviour:
   robot: {fileID: 0}
   outlineScript: {fileID: 0}
   setType: {fileID: 0}
-  invoker: {fileID: 0}
+  invoker: {fileID: 3639689925164022506}
 --- !u!114 &3639689925164022506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -593,6 +593,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9564311ff16ac147864d84bab86d02d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1172124578893828646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8898823514321473695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 770469068c0e5fb45b2b0e68cd38982d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OngoingQuest:
+  - trackerQuest: {fileID: 0}
+    questName: 
+    questDescription: 
+    objectives: []
+    questCanComplete: 0
+  OngoingQuestUI:
+  - {fileID: 0}
+  waypoint: {fileID: 0}
+  distanceToDestinationRang: 2
 --- !u!1001 &5270805640371928906
 PrefabInstance:
   m_ObjectHideFlags: 0
