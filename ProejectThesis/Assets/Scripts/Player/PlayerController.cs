@@ -70,8 +70,6 @@ public class PlayerController : MonoBehaviour
 
             return _playerInput.currentControlScheme == "KeyboardMouse";
 
-            return false;
-
         }
     }
     #endregion

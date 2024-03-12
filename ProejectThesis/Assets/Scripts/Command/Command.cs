@@ -31,29 +31,28 @@ public class Command : MonoBehaviour
     [Space]
     [Header("HackDoor")]
     [SerializeField] DoorHack doorHacking;
-    [SerializeField] float timeToHacking = 2f;
-    [SerializeField] bool isHacking = false;
+    [SerializeField] private bool isHacking = false;
     
 
     [Space]
     [Header("ActiveSwitch")]
-    [SerializeField] DoorActive door;
-    [SerializeField] bool isActiveObj;
+    [SerializeField] private DoorActive door;
+    [SerializeField] private bool isActiveObj;
 
     [Space]
     [Header("SharePower")]
-    [SerializeField] GameObject sharePowerToObj;
-    [SerializeField] bool isShare;
+    [SerializeField] private GameObject sharePowerToObj;
+    [SerializeField] private bool isShare;
     #endregion
 
     [Header("Time Active")]
-    [SerializeField] float timeToActive;
-    [SerializeField] Image imgActive;
+    [SerializeField] private float timeToActive;
+    [SerializeField] private Image imgActive;
 
 
     [Space]
     [Header("Colliders")]
-    [SerializeField] Collider[] col;
+    [SerializeField] private Collider[] col;
     Outline outline;
   
     private void Awake()

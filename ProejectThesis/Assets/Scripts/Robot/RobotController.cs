@@ -86,7 +86,6 @@ public class RobotController : MonoBehaviour
 
             return _playerInput.currentControlScheme == "KeyboardMouse";
 
-            return false;
 
         }
     }

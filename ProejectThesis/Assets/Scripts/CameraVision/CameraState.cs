@@ -24,8 +24,7 @@ public class CameraState : MonoBehaviour
     #endregion
 
     [Header("Timer")]
-    [SerializeField] float timer;
-    [SerializeField] float timeToSubtract = 1f;
+    [SerializeField]private float timer;
     public float timeAlert = 5.0f;
     public float resetAlert = 3.0f;
 

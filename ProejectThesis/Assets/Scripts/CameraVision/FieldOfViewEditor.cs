@@ -7,7 +7,7 @@ using UnityEditor;
 [CustomEditor(typeof(EnemyFieldOfView))]
 public class FieldOfViewEditor : Editor
 {
-  private void OnSceneGUI()
+ /* private void OnSceneGUI()
     {
         EnemyFieldOfView fov = (EnemyFieldOfView)target;
 
@@ -33,6 +33,6 @@ public class FieldOfViewEditor : Editor
         angleInDegrees += eulerY;
 
         return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), 0, Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
-    }
+    }*/
 }
 #endif
