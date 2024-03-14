@@ -18,6 +18,11 @@ public class WaypointGroup : MonoBehaviour
 
     private void Reset()
     {
+        foreach (Transform t in waypoints)
+        {
+            Destroy(t);
+            waypoints.Clear();
+        }
         while (waypoints.Count < 4)
         {
             CreateNewWaypoint();
