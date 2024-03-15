@@ -69,18 +69,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3b51c3b580bd7245a1820866bb15d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typeCommand: 0
-  setPos: {x: 0, y: 0, z: 0}
+  typeCommand: 1
+  setPos: {x: 211.4068, y: 0, z: 141}
   setRotation: {x: 0, y: 0, z: 0, w: 0}
-  GroundedOffset: {x: 0, y: 0.5, z: 0}
-  GroundedRadius: {x: 1, y: 1, z: 1}
+  GroundedOffset: {x: 0, y: 0.5, z: -1.5}
+  GroundedRadius: {x: 1.5, y: 1.5, z: 1.5}
   isRobot: 0
   layerRobot:
     serializedVersion: 2
     m_Bits: 128
   robot: {fileID: 0}
   doorHacking: {fileID: 0}
-  timeToHacking: 2
   isHacking: 0
   door: {fileID: 0}
   isActiveObj: 0
