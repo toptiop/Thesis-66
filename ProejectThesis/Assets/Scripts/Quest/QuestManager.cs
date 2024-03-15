@@ -6,7 +6,7 @@ public class QuestManager : MonoBehaviour
 {
     public static QuestManager instance;
 
-    [HideInInspector]public List<QuestTracker> OngoingQuest;
+    public List<QuestTracker> OngoingQuest;
     public List<QuestUI> OngoingQuestUI;
 
     public QuestWaypoint waypoint;

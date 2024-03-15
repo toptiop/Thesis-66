@@ -437,6 +437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06042abebae8b8842a8870146facedff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _canvas: {fileID: 0}
   icon: {fileID: 5956492821603854200}
   canInteract: {fileID: 21300000, guid: 915d3d78bd03fad4ba9ebba9aa928e68, type: 3}
   cantInteract: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
@@ -530,15 +531,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShowIconCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2182250438138325294, guid: 031b1c741615da3488019db953c63088,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5831437886941816344, guid: 031b1c741615da3488019db953c63088,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0.5
+      value: -4.5407
       objectReference: {fileID: 0}
     - target: {fileID: 5831437886941816344, guid: 031b1c741615da3488019db953c63088,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0.5
+      value: -4.5407
+      objectReference: {fileID: 0}
+    - target: {fileID: 5831437886941816344, guid: 031b1c741615da3488019db953c63088,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5831437886941816344, guid: 031b1c741615da3488019db953c63088,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7295068590122811863, guid: 031b1c741615da3488019db953c63088,
         type: 3}

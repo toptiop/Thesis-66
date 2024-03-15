@@ -10,8 +10,8 @@ public class PushBox : MonoBehaviour, IInteractable
     public bool setParent;
     public Rigidbody rb;
 
-    private PlayerController player;
-    private RobotController robot;
+    public PlayerController player;
+    public RobotController robot;
     string retureString;
 
     private void Update()
@@ -84,10 +84,22 @@ public class PushBox : MonoBehaviour, IInteractable
         {
             player = other.GetComponent<PlayerController>();
         }
-        else if (other.gameObject.CompareTag("Robot"))
+        //else if (other.gameObject.CompareTag("Robot"))
+        //{
+        //    robot = other.GetComponent<RobotController>();
+        //}
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
         {
-            robot = other.GetComponent<RobotController>();
+            player = other.GetComponent<PlayerController>();
         }
+        //else if (other.gameObject.CompareTag("Robot"))
+        //{
+        //    robot = other.GetComponent<RobotController>();
+        //}
     }
 
     private void OnTriggerExit(Collider other)

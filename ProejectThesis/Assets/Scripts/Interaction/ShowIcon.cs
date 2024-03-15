@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ShowIcon : MonoBehaviour
 {
-    private Canvas _canvas;
+    public Canvas _canvas;
 
     public Image icon;
 
@@ -15,7 +15,8 @@ public class ShowIcon : MonoBehaviour
 
     private void Awake()
     {
-        _canvas = GetComponentInChildren<Canvas>();
+        if(_canvas == null)
+            _canvas = GetComponentInChildren<Canvas>();
     }
 
     public void ActiveIcon()

@@ -50,10 +50,12 @@ public class switchcharacters : MonoBehaviour
         if(activeSwitch && isSwitch)
         {
             aiFollow.enabled = true;
+            stateCommand.enabled = true;
         }
         else
         {
             aiFollow.enabled = false;
+            stateCommand.enabled = false;
         }
 
         if (activeSwitch)

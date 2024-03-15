@@ -15,13 +15,18 @@ public class QuestWaypoint : MonoBehaviour
     [Header("Enable | Disable")]
     public bool isActive = true;
 
+
+
     private void Start()
     {
         ToggleWaypoint(false);
     }
     void Update()
     {
-
+        if(QuestManager.instance.OngoingQuest.Count == 0)
+        {
+            ToggleWaypoint(false);
+        }
         float minX = img.GetPixelAdjustedRect().width;
         float maxX = Screen.width - minX;
 

@@ -135,7 +135,7 @@ public class Detection : MonoBehaviour
 
                     if (actionUI != null)
                     {
-                        actionUI.ShowInteractionUI(interactionText);
+                       // actionUI.ShowInteractionUI(interactionText);
 
                     }
 
@@ -145,6 +145,11 @@ public class Detection : MonoBehaviour
                         interactableObject.Interact();
                     }
                 }
+                else
+                {
+                    StartCoroutine(DelayFalse());
+                }
+
                 if (ic != null)
                 {
                     // Only show the icon if it's within the detection radius
@@ -164,6 +169,8 @@ public class Detection : MonoBehaviour
                     StartCoroutine(DelayFalse());
                 }
             }
+
+            StartCoroutine(DelayFalse());
         }
 
         // If no icon is shown, hide all icons
@@ -187,9 +194,10 @@ public class Detection : MonoBehaviour
 
 
 
-IEnumerator DelayFalse()
+    IEnumerator DelayFalse()
     {
         yield return new WaitForSeconds(.1f);
+        Debug.Log("Not Detected");
         _input.interaction = false;
     }
 

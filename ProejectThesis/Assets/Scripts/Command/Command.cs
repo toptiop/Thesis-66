@@ -127,7 +127,7 @@ public class Command : MonoBehaviour
         }
     }
 
-    void OnDrawGizmosSelected()
+    private void OnDrawGizmosSelected()
     {
         Color transparentGreen = new Color(0.0f, 1.0f, 0.0f, 0.35f);
         Color transparentRed = new Color(1.0f, 0.0f, 0.0f, 0.35f);
@@ -135,7 +135,7 @@ public class Command : MonoBehaviour
         if (isRobot) Gizmos.color = transparentGreen;
         else Gizmos.color = transparentRed;
 
-        Vector3 position = transform.localPosition - new Vector3(GroundedOffset.x, GroundedOffset.y, GroundedOffset.z);
+        Vector3 position = transform.position - new Vector3(GroundedOffset.x, GroundedOffset.y, GroundedOffset.z);
 
         Gizmos.DrawCube(position, GroundedRadius);
     }
