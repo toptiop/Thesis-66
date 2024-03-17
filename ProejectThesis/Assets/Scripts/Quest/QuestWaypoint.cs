@@ -27,15 +27,15 @@ public class QuestWaypoint : MonoBehaviour
         {
             ToggleWaypoint(false);
         }
-        float minX = img.GetPixelAdjustedRect().width;
+        float minX = img.GetPixelAdjustedRect().width / 2;
         float maxX = Screen.width - minX;
 
-        float minY = img.GetPixelAdjustedRect().height;
+        float minY = img.GetPixelAdjustedRect().height / 2;
         float maxY = Screen.height - minY;
 
         Vector2 pos = Camera.main.WorldToScreenPoint(target + offset);
 
-        if (Vector3.Dot((target - transform.position), transform.position - transform.position) < 0)
+        if (Vector3.Dot((target - playerTransform.position), playerTransform.position - Camera.main.transform.position) < 0)
         {
             if (pos.x < Screen.width)
             {
