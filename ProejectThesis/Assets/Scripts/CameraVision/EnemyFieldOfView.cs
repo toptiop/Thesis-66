@@ -21,10 +21,16 @@ public class EnemyFieldOfView : MonoBehaviour
     public LayerMask obstructionMask;
 
     public bool canSeePlayer;
+    public bool visionActive = true;
 
     [Header("GUI")]
     [SerializeField] private bool showGUI = true;
     private void Start()
+    {
+      
+    }
+
+    private void OnEnable()
     {
         playerRef = GameObject.Find("TargetHit");
         StartCoroutine(FOVRoutine());
@@ -54,10 +60,13 @@ public class EnemyFieldOfView : MonoBehaviour
             {
                 float distanceToTarget = Vector3.Distance(transform.position, target.position);
 
-                if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionMask))
-                    canSeePlayer = true;
-                else
-                    canSeePlayer = false;
+                if (visionActive)
+                {
+                    if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionMask))
+                        canSeePlayer = true;
+                    else
+                        canSeePlayer = false;
+                }
             }
             else
                 canSeePlayer = false;

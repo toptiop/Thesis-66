@@ -35,6 +35,7 @@ public class Enemy : MonoBehaviour
     [Header("Attack")]
     public bool showGUI = true;
     public float range = 2;
+    public float viewAngle = 4;
     public float GUIOffset;
 
     
@@ -134,7 +135,17 @@ public class Enemy : MonoBehaviour
             case State.Idle:
 
                 if (vision.canSeePlayer)
-                    EnterState(State.CanSee);
+                {
+                    if(Vector3.Distance(transform.position, vision.playerRef.transform.position) < viewAngle)
+                    {
+                        EnterState(State.Chase);
+                    }
+                    else
+                    {
+                        EnterState(State.CanSee);
+                    }
+                }
+                 
 
                 transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(currentWaypoint.transform.forward), Time.deltaTime * rotateSpeed);
 
@@ -161,7 +172,16 @@ public class Enemy : MonoBehaviour
                 RotateTowardsWaypoint();
 
                 if (vision.canSeePlayer)
-                    EnterState(State.CanSee);
+                {
+                    if (Vector3.Distance(transform.position, vision.playerRef.transform.position) < viewAngle)
+                    {
+                        EnterState(State.Chase);
+                    }
+                    else
+                    {
+                        EnterState(State.CanSee);
+                    }
+                }
 
                 Vector3 waypointVector = transform.position - agent.destination;
                 if(Vector3.Distance(transform.position, currentWaypoint.position) >= 1)
@@ -297,6 +317,9 @@ public class Enemy : MonoBehaviour
         {
             Handles.color = Color.red;
             Handles.DrawWireArc(transform.position + Vector3.up * GUIOffset, Vector3.up, Vector3.forward, 360, range);
+
+            Handles.color = Color.blue;
+            Handles.DrawWireArc(transform.position + Vector3.up * GUIOffset, Vector3.up, Vector3.forward, 360, viewAngle);
         }
     }
 #endif

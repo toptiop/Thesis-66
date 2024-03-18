@@ -116,12 +116,16 @@ public class InventorySlotNote : MonoBehaviour, IDropHandler, IDragHandler, IBeg
     {
        if(item != inventory.EMPTY_ITEM)
             inventory.openNote.gameObject.SetActive(true);
+
+       InventoryInfo.instance.SetupInfoDisplay(item);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         if (item != inventory.EMPTY_ITEM)
             inventory.openNote.gameObject.SetActive(false);
+
+        InventoryInfo.instance.SetupNull();
     }
     #endregion
 

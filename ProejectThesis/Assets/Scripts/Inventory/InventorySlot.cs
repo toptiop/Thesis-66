@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
 
-public class InventorySlot : MonoBehaviour, IDropHandler, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerClickHandler
+public class InventorySlot : MonoBehaviour, IDropHandler, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerClickHandler,IPointerEnterHandler, IPointerExitHandler
 {
     [Header("Inventory Detail")]
     public Inventory inventory;
@@ -96,6 +96,22 @@ public class InventorySlot : MonoBehaviour, IDropHandler, IDragHandler, IBeginDr
         {
             inventory.OnFinishMiniCanvas();
         }
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (item != inventory.EMPTY_ITEM)
+            InventoryInfo.instance.SetupInfoDisplay(item);
+
+
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (item != inventory.EMPTY_ITEM)
+            InventoryInfo.instance.SetupNull();
+
+
     }
     #endregion
 
