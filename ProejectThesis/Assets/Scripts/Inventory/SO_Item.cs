@@ -18,11 +18,12 @@ public class SO_Item : ScriptableObject
     public string noteTitle;
     public string noteDescription;
 
+    public AudioClip pickupEFX;
 
     [Header("Video")]
     public VideoClip clip;
 
-    [Header("Video")]
+    [Header("Auido")]
     public AudioClip audio;
 
     [Header("In Game Object")]

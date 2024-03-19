@@ -31,7 +31,7 @@ public class InventoryAudio : MonoBehaviour
     [Header("Note")]
     public GameObject panelNote;
     public TMP_Text title;
-    public TMP_Text description;
+    public AudioSource audioSource;
 
 
     void Start()
@@ -206,7 +206,7 @@ public class InventoryAudio : MonoBehaviour
     public void SetTextNote(SO_Item item)
     {
         title.text = item.noteTitle;
-        description.text = item.noteDescription;
+        audioSource.clip = item.audio;
     }
 
     #endregion

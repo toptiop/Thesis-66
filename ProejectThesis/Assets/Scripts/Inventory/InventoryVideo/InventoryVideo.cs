@@ -18,7 +18,7 @@ public class InventoryVideo : MonoBehaviour
     [Header("Mini Canvas")]
     public RectTransform miniCanvas;
     [SerializeField] protected InventorySlotVideo rightClickSlot;
-    [SerializeField] protected InventorySlotNote leftClickSlot;
+    [SerializeField] protected InventorySlotVideo leftClickSlot;
 
     [Space(5)]
     public int SlotAmount = 30;
@@ -56,8 +56,8 @@ public class InventoryVideo : MonoBehaviour
     }
     public void UseItem() //OnClick Event
     {
-        rightClickSlot.UseItem();
-        OnFinishMiniCanvas();
+       /// rightClickSlot.UseItem();
+       // OnFinishMiniCanvas();
     }
     public void DropItem() //OnClick Event
     {
@@ -151,7 +151,7 @@ public class InventoryVideo : MonoBehaviour
     {
         rightClickSlot = slot;
     }
-    public void SetLeftClickSlot(InventorySlotNote slot)
+    public void SetLeftClickSlot(InventorySlotVideo slot)
     {
         leftClickSlot = slot;
     }

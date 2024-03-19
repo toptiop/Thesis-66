@@ -9,7 +9,7 @@ public class ReadNote : MonoBehaviour, IInteractable
 
     [Space]
     [Header("Item Detail")]
-    public SO_Item itemNote;
+    public SO_Item item;
     public int amont = 1;
     //public TMP_Text amountText;
     [SerializeField]
@@ -19,23 +19,25 @@ public class ReadNote : MonoBehaviour, IInteractable
 
     public bool isOpen;
 
+    public AudioSource audio;
+
     private void Awake()
     {
         ItemGO = GetComponent<ItemGO>();
     }
     void Start()
     {
-        actionText = "Read " + itemNote.itemName;
+        actionText = "Read " + item.itemName;
         inventory = FindObjectOfType<InventoryNote>();
     }
 
     void OpenNote()
     {
         isOpen = !isOpen;
-
+        audio.PlayOneShot(item.pickupEFX);
         if(isOpen)
         {
-            inventory.AddItem(itemNote, amont);
+            inventory.AddItem(item, amont);
             canvasNote.SetActive(true);
             GameManager.Instance.InteractUI = true;
             Singleton.controller.canMove = true;
@@ -50,7 +52,7 @@ public class ReadNote : MonoBehaviour, IInteractable
 
         if(ItemGO != null)
         {
-            ItemGO.UpdateQuestProgress(itemNote);
+            ItemGO.UpdateQuestProgress(item);
         }
     }
 

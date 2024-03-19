@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
 
-public class InventorySlotVideo : MonoBehaviour, IDropHandler, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerClickHandler
+public class InventorySlotVideo : MonoBehaviour, IDropHandler, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerClickHandler,IPointerEnterHandler, IPointerExitHandler
 {
     [Header("Inventory Detail")]
     public InventoryVideo inventory;
@@ -25,12 +25,27 @@ public class InventorySlotVideo : MonoBehaviour, IDropHandler, IDragHandler, IBe
     public RectTransform draggable;
     Canvas canvas;
     CanvasGroup canvasGroup;
+
+    Button button;
     void Start()
     {
         canvas = GetComponentInParent<Canvas>();
         canvasGroup = GetComponent<CanvasGroup>();
         siblingIndex = transform.GetSiblingIndex();
 
+        button = GetComponentInParent<Button>();
+
+    }
+
+    private void Update()
+    {
+        if (item != inventory.EMPTY_ITEM)
+        {
+            button.onClick.AddListener(() =>
+            {
+                inventory.ActivePanelNOte();
+            });
+        }
     }
 
     #region Drag and Drop Methods
@@ -86,16 +101,31 @@ public class InventorySlotVideo : MonoBehaviour, IDropHandler, IDragHandler, IBe
         {
             if (item == inventory.EMPTY_ITEM)
                 return;
-
-
-            inventory.OpenMiniCanvas(eventData.position);
-            inventory.SetRightClickSlot(this);
+            // inventory.OpenMiniCanvas(eventData.position);
+            // inventory.SetRightClickSlot(this);
+            inventory.OnFinishMiniCanvas();
         }
 
         if (eventData.button == PointerEventData.InputButton.Left)
         {
-            inventory.OnFinishMiniCanvas();
+            inventory.SetLeftClickSlot(this);
         }
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (item != inventory.EMPTY_ITEM)
+            inventory.openNote.gameObject.SetActive(true);
+
+        InventoryInfo.instance.SetupInfoDisplay(item);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (item != inventory.EMPTY_ITEM)
+            inventory.openNote.gameObject.SetActive(false);
+
+        InventoryInfo.instance.SetupNull();
     }
     #endregion
 
@@ -104,8 +134,7 @@ public class InventorySlotVideo : MonoBehaviour, IDropHandler, IDragHandler, IBe
         stack = Mathf.Clamp(stack - 1, 0, item.maxStack);
         if (stack > 0)
             CheckShowText();
-        else
-            inventory.RemoveItem(this);
+        inventory.ActivePanelNOte();
     }
     public void SwapSlot(InventorySlotVideo newSlot)
     {

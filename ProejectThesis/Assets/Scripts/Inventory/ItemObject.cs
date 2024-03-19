@@ -16,6 +16,7 @@ public class ItemObject : MonoBehaviour, IInteractable
     [SerializeField]
     private Inventory inventory;
     ItemGO ItemGO;
+    public AudioSource audio;
 
     private void Awake()
     {
@@ -24,6 +25,8 @@ public class ItemObject : MonoBehaviour, IInteractable
         ItemGO = GetComponent<ItemGO>();
 
         inventory = FindAnyObjectByType<Inventory>();
+
+
     }
     public void SetAmout(int newAmont)
     {
@@ -74,6 +77,7 @@ public class ItemObject : MonoBehaviour, IInteractable
         if(inventory != null)
         {
             PickupItem();
+            audio.PlayOneShot(item.pickupEFX);
         }
     }
 }

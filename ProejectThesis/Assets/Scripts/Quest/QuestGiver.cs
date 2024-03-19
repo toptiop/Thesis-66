@@ -15,18 +15,4 @@ public class QuestGiver : MonoBehaviour
             other.GetComponent<QuestManager>().AcceptQuest(quest);
         }
     }
-    private void OnGUI()
-    {
-        if (GUILayout.Button("quest1"))
-        {
-            Debug.Log("Accept : " + quest);
-            QuestManager.instance.AcceptQuest(quest);
-        }
-
-        if (GUILayout.Button("quest2"))
-        {
-            Debug.Log("Accept : " + quest2);
-            QuestManager.instance.AcceptQuest(quest2);
-        }
-    }
 }
