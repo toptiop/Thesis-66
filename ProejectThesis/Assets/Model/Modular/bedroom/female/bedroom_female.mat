@@ -15,6 +15,7 @@ Material:
   - _EMISSION
   - _METALLICSPECGLOSSMAP
   - _NORMALMAP
+  - _OCCLUSIONMAP
   - _PARALLAXMAP
   m_InvalidKeywords: []
   m_LightmapFlags: 2
@@ -29,11 +30,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 7796987919114504ca2ae12d606f78be, type: 3}
+        m_Texture: {fileID: 2800000, guid: cb2950b895f51904aa3486f3d13d3823, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: e714339804767844299cfee69c6c8f1d, type: 3}
+        m_Texture: {fileID: 2800000, guid: 6db99d3060d067e4c935d5c3f456c858, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -49,23 +50,23 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
-        m_Texture: {fileID: 2800000, guid: 6acc3cf41509c0046a234c60c5754ed9, type: 3}
+        m_Texture: {fileID: 2800000, guid: 8c1a2b05f1b456a4d9d207580293b8fb, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 7796987919114504ca2ae12d606f78be, type: 3}
+        m_Texture: {fileID: 2800000, guid: cb2950b895f51904aa3486f3d13d3823, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: 7f9f3ce861fb19e48b70dbc2ceee01f8, type: 3}
+        m_Texture: {fileID: 2800000, guid: 739ea99d206eb3649abceb6b54adfc6a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
-        m_Texture: {fileID: 2800000, guid: f32d79f595aa8fe42b82a4f6788f6d34, type: 3}
+        m_Texture: {fileID: 2800000, guid: d798b6ecad90c4748b875d78a09b0756, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
-        m_Texture: {fileID: 2800000, guid: 5b33ec8c044f6d84f9d8845835043b7a, type: 3}
+        m_Texture: {fileID: 2800000, guid: d3f63c6f8df060345beb9609962435a3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
@@ -104,7 +105,7 @@ Material:
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _Metallic: 0
-    - _OcclusionStrength: 0
+    - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueOffset: 0
     - _ReceiveShadows: 1
