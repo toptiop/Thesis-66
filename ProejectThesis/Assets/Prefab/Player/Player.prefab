@@ -356,9 +356,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.3
-  m_Height: 0.3
+  m_Height: 1.5127774
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.20751768, z: 0}
 --- !u!1 &8898823514321473695
 GameObject:
   m_ObjectHideFlags: 0
@@ -1155,7 +1155,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 02f0717874b84a24eaa7ed52a2f82c4a, type: 2}
+      objectReference: {fileID: 2100000, guid: e68b8cc36379f9847abdeef2fdd7c71e, type: 2}
     - target: {fileID: -6170625038081293824, guid: 2493ac82b412a33469ab216dd9cb37bd,
         type: 3}
       propertyPath: m_Layer
@@ -1220,7 +1220,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 02f0717874b84a24eaa7ed52a2f82c4a, type: 2}
+      objectReference: {fileID: 2100000, guid: e68b8cc36379f9847abdeef2fdd7c71e, type: 2}
     - target: {fileID: -1200856079203341021, guid: 2493ac82b412a33469ab216dd9cb37bd,
         type: 3}
       propertyPath: m_Layer
@@ -1279,7 +1279,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 02f0717874b84a24eaa7ed52a2f82c4a, type: 2}
+      objectReference: {fileID: 2100000, guid: e68b8cc36379f9847abdeef2fdd7c71e, type: 2}
     - target: {fileID: 2715566404302941441, guid: 2493ac82b412a33469ab216dd9cb37bd,
         type: 3}
       propertyPath: m_Layer
@@ -1309,7 +1309,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 02f0717874b84a24eaa7ed52a2f82c4a, type: 2}
+      objectReference: {fileID: 2100000, guid: e68b8cc36379f9847abdeef2fdd7c71e, type: 2}
     - target: {fileID: 3948933247560734027, guid: 2493ac82b412a33469ab216dd9cb37bd,
         type: 3}
       propertyPath: m_Layer
@@ -1324,7 +1324,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: a205f29f9865cda4f8d35e9e8440a83e, type: 2}
+      objectReference: {fileID: 2100000, guid: e68b8cc36379f9847abdeef2fdd7c71e, type: 2}
     - target: {fileID: 4441848305933595309, guid: 2493ac82b412a33469ab216dd9cb37bd,
         type: 3}
       propertyPath: m_Layer
