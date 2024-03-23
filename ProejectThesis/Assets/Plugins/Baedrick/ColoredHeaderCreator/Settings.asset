@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Settings
   m_EditorClassIdentifier: 
   headerSettings:
-    headerText: Enemy
-    headerColor: {r: 0.3679245, g: 0.029156322, b: 0.02603239, a: 1}
+    headerText: Quest
+    headerColor: {r: 0.4865218, g: 1, b: 0.4009434, a: 1}
     textAlignmentOptions: 0
     fontStyleOptions: 0
     fontSize: 12

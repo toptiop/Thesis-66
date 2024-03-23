@@ -83,6 +83,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_PushBox (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5741153016994114583, guid: cf7cfe682cf49f8488d27bef4e7ca7b0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -111,6 +116,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 823935355251005840, guid: 2ea762ef5b9109d49b9ad819c804c0d9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 901962369181408521, guid: 2ea762ef5b9109d49b9ad819c804c0d9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4436845187765733295, guid: 2ea762ef5b9109d49b9ad819c804c0d9,
         type: 3}
