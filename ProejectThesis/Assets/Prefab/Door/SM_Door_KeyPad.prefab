@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 256067622810681247}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -77,8 +77,8 @@ MonoBehaviour:
   keyPad: {fileID: 0}
   isOpen: 0
   doorMat: {fileID: 6514675052857759155}
-  matClose: {fileID: 2100000, guid: 9698be0268a63cd45a32c49ac0df306f, type: 2}
-  matUnlock: {fileID: 2100000, guid: f4f0875d6f9f05f41a50c835daf755ac, type: 2}
+  matClose: {fileID: 2100000, guid: f4f0875d6f9f05f41a50c835daf755ac, type: 2}
+  matUnlock: {fileID: 2100000, guid: 9698be0268a63cd45a32c49ac0df306f, type: 2}
 --- !u!82 &99864147949960195
 AudioSource:
   m_ObjectHideFlags: 0
@@ -88,7 +88,8 @@ AudioSource:
   m_GameObject: {fileID: 256067622810681247}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 3569524070283885062, guid: c843f6b517f4320409001a0c2a8bc201,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1

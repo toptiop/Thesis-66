@@ -22,6 +22,33 @@ public class SoundManager : MonoBehaviour
     [SerializeField] AudioClip ClickClip;
     [SerializeField] AudioSource sourceBTN;
 
+    private void Awake()
+    {
+        _masterSlider.onValueChanged.AddListener((Float) =>
+        {
+            MasterSlider();
+        });
+
+        _ambientSlider.onValueChanged.AddListener((Float) => 
+        {
+            AmbientSlider();
+        });
+
+        _cutSceneSlider.onValueChanged.AddListener((Float) =>
+        {
+            CutSceneSlider();
+        });
+
+        _efxSlider.onValueChanged.AddListener((Float) =>
+        {
+            EFXSlider();
+        });
+
+        _testSlider.onValueChanged.AddListener((Float) =>
+        {
+            TestSlider();
+        });
+    }
     private void Start()
     {
         LoadValues();
