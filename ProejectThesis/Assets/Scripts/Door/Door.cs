@@ -9,7 +9,10 @@ public class Door : MonoBehaviour
     public AudioSource source;
     void Start()
     {
-        anim = GetComponent<Animator>();
+        if(anim == null)
+        {
+            anim = GetComponent<Animator>();
+        }
         
     }
 
