@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public bool InteractUI;
     public bool cameraMove;
 
+    public bool pauseGame;
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -26,25 +27,30 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         ChangeCursorState(true);
+        TogglePause(false);
     }
 
     private void Update()
     {
         ControlActionUI();
         ChangeCursorState(!InteractUI);
+ 
     }
 
     public void ControlActionUI()
     {
-       if(Singleton.Instance != null)
+       if(Singleton.Instance != null )
         {
-            if (!InteractUI)
+            if(Singleton.Instance.actionUI != null)
             {
-                Singleton.Instance.actionUI.gameObject.SetActive(true);
-            }
-            else
-            {
-                Singleton.Instance.actionUI.gameObject.SetActive(false);
+                if (!InteractUI)
+                {
+                    Singleton.Instance.actionUI.gameObject.SetActive(true);
+                }
+                else
+                {
+                    Singleton.Instance.actionUI.gameObject.SetActive(false);
+                }
             }
         }
     }
@@ -68,5 +74,22 @@ public class GameManager : MonoBehaviour
     public void ChangeStateInteractUI(bool newState)
     {
         InteractUI = newState;
+    }
+
+    public void TogglePause(bool newState)
+    {
+        if(newState)
+        {
+            Time.timeScale = 0;
+            ChangeStateInteractUI(true);
+            Debug.Log("Stop");
+        }
+        else
+        {
+            Time.timeScale = 1;
+            ChangeStateInteractUI(false);
+            cameraMove = false;
+            
+        }
     }
 }

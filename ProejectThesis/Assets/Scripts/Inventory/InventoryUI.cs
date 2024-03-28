@@ -57,9 +57,9 @@ public class InventoryUI : MonoBehaviour
         }
     }
 
-    public void CloseUI()
+    public void CloseUI() // Fuction On UI
     {
-        isOpen = ! isOpen;
+       isOpen = ! isOpen;
         inventoryUI.SetActive(false);
         GameManager.Instance.ChangeStateInteractUI(false);
         Singleton.controller.SignalCanMoveDisabled();
