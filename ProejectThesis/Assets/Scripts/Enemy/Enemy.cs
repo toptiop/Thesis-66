@@ -188,7 +188,7 @@ public class Enemy : MonoBehaviour
                 {
                     agent.SetDestination(currentWaypoint.position);
                 }
-                else if(Vector3.Distance(transform.position,currentWaypoint.position) <= 0.1)
+                else if(Vector3.Distance(transform.position,currentWaypoint.position) <= 0.5)
                 {
                     EnterState(State.Idle);
                 }

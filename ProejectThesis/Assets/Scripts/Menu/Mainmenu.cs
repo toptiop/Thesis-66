@@ -8,10 +8,14 @@ using UnityEngine.UI;
 public class Mainmenu : MonoBehaviour
 {
     public GameObject panelEscape;
-
+    GameManager gm;
     [SerializeField] private InputManager _input;
     void Start()
     {
+        gm = GameManager.Instance;
+        gm.TogglePause(false);
+        gm.ChangeStateInteractUI(true);
+
         //GetComponent
         _input = FindAnyObjectByType<InputManager>();
 
@@ -51,7 +55,7 @@ public class Mainmenu : MonoBehaviour
 
     public void PauseGame()
     {
-        GameManager.Instance.pauseGame = !GameManager.Instance.pauseGame;
+        gm.pauseGame = !gm.pauseGame;
 
         if(!GameManager.Instance.pauseGame )
         {
