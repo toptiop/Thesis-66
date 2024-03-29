@@ -13,6 +13,8 @@ public class InventoryUI : MonoBehaviour
     private void Awake()
     {
         _input = FindAnyObjectByType<InputManager>();
+
+        inventoryUI.SetActive(false);
     }
 
     private void Update()
