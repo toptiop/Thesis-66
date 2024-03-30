@@ -14,6 +14,10 @@ public class PushBox : MonoBehaviour, IInteractable
     public RobotController robot;
     string retureString;
 
+    private void Awake()
+    {
+        player = FindFirstObjectByType<PlayerController>();
+    }
     private void Update()
     {
         if (setParent)
@@ -82,7 +86,7 @@ public class PushBox : MonoBehaviour, IInteractable
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            player = other.GetComponent<PlayerController>();
+            //player = other.GetComponent<PlayerController>();
         }
         //else if (other.gameObject.CompareTag("Robot"))
         //{
@@ -94,7 +98,7 @@ public class PushBox : MonoBehaviour, IInteractable
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            player = other.GetComponent<PlayerController>();
+            //player = other.GetComponent<PlayerController>();
         }
         //else if (other.gameObject.CompareTag("Robot"))
         //{
@@ -106,11 +110,8 @@ public class PushBox : MonoBehaviour, IInteractable
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            player = null;
+            //player = null;
         }
-        else if (other.gameObject.CompareTag("Robot"))
-        {
-            robot = null;
-        }
+       
     }
 }
