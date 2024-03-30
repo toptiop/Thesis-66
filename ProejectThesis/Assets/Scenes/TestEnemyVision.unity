@@ -12374,7 +12374,7 @@ GameObject:
   m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1513970278
 Transform:
   m_ObjectHideFlags: 0
@@ -12426,7 +12426,7 @@ MonoBehaviour:
   - {fileID: 782566524}
   - {fileID: 669419178}
   - {fileID: 461811105}
-  showGUI: 1
+  showGUI: 0
 --- !u!1 &1514312116
 GameObject:
   m_ObjectHideFlags: 0
@@ -16634,57 +16634,17 @@ PrefabInstance:
         type: 3}
       propertyPath: waypointsPattern.Array.data[0].waypoint.Array.data[0]
       value: 
-      objectReference: {fileID: 193912524}
+      objectReference: {fileID: 2062256631}
     - target: {fileID: 6743772566827555570, guid: 969433d4ec1ac7c41aa7e385f09f3cb9,
         type: 3}
       propertyPath: waypointsPattern.Array.data[0].waypoint.Array.data[1]
       value: 
-      objectReference: {fileID: 2062256631}
-    - target: {fileID: 6743772566827555570, guid: 969433d4ec1ac7c41aa7e385f09f3cb9,
-        type: 3}
-      propertyPath: waypointsPattern.Array.data[0].waypoint.Array.data[2]
-      value: 
       objectReference: {fileID: 473471551}
-    - target: {fileID: 6743772566827555570, guid: 969433d4ec1ac7c41aa7e385f09f3cb9,
+    - target: {fileID: 6814751073595136822, guid: 969433d4ec1ac7c41aa7e385f09f3cb9,
         type: 3}
-      propertyPath: waypointsPattern.Array.data[0].waypoint.Array.data[3]
-      value: 
-      objectReference: {fileID: 137061853}
-    - target: {fileID: 6743772566827555570, guid: 969433d4ec1ac7c41aa7e385f09f3cb9,
-        type: 3}
-      propertyPath: waypointsPattern.Array.data[0].waypoint.Array.data[4]
-      value: 
-      objectReference: {fileID: 362706283}
-    - target: {fileID: 6743772566827555570, guid: 969433d4ec1ac7c41aa7e385f09f3cb9,
-        type: 3}
-      propertyPath: waypointsPattern.Array.data[0].waypoint.Array.data[5]
-      value: 
-      objectReference: {fileID: 1817119007}
-    - target: {fileID: 6743772566827555570, guid: 969433d4ec1ac7c41aa7e385f09f3cb9,
-        type: 3}
-      propertyPath: waypointsPattern.Array.data[0].waypoint.Array.data[6]
-      value: 
-      objectReference: {fileID: 1984294188}
-    - target: {fileID: 6743772566827555570, guid: 969433d4ec1ac7c41aa7e385f09f3cb9,
-        type: 3}
-      propertyPath: waypointsPattern.Array.data[0].waypoint.Array.data[7]
-      value: 
-      objectReference: {fileID: 1476436007}
-    - target: {fileID: 6743772566827555570, guid: 969433d4ec1ac7c41aa7e385f09f3cb9,
-        type: 3}
-      propertyPath: waypointsPattern.Array.data[0].waypoint.Array.data[8]
-      value: 
-      objectReference: {fileID: 782566524}
-    - target: {fileID: 6743772566827555570, guid: 969433d4ec1ac7c41aa7e385f09f3cb9,
-        type: 3}
-      propertyPath: waypointsPattern.Array.data[0].waypoint.Array.data[9]
-      value: 
-      objectReference: {fileID: 669419178}
-    - target: {fileID: 6743772566827555570, guid: 969433d4ec1ac7c41aa7e385f09f3cb9,
-        type: 3}
-      propertyPath: waypointsPattern.Array.data[0].waypoint.Array.data[10]
-      value: 
-      objectReference: {fileID: 461811105}
+      propertyPath: showGUI
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6814751073595136822, guid: 969433d4ec1ac7c41aa7e385f09f3cb9,
         type: 3}
       propertyPath: playerRef
