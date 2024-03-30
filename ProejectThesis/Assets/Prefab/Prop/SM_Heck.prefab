@@ -70,9 +70,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   typeCommand: 1
-  setPos: {x: 211.4068, y: 0, z: 141}
+  setPos: {x: 208.071, y: 0, z: 66}
   setRotation: {x: 0, y: 0, z: 0, w: 0}
-  GroundedOffset: {x: 0, y: 0.5, z: -1.5}
+  GroundedOffset: {x: 0, y: 0.5, z: 1.5}
   GroundedRadius: {x: 1.5, y: 1.5, z: 1.5}
   isRobot: 0
   layerRobot:
@@ -250,7 +250,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 13693bf5693996d4c97ab628274cb6a4, type: 2}
+  - {fileID: 2100000, guid: d42133f3b5f586348be491f8ae1834cf, type: 2}
   - {fileID: 2100000, guid: e3cb220c507a1644daf62ed118e4118c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
