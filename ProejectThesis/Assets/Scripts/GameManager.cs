@@ -71,9 +71,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void Inter(bool newin)
+    {
+        InteractUI = newin;
+    }
+
     public void ChangeStateInteractUI(bool newState)
     {
         InteractUI = newState;
+        Debug.Log("ChangStateMouse");
     }
 
     public void TogglePause(bool newState)

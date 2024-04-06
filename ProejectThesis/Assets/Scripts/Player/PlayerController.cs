@@ -248,6 +248,11 @@ public class PlayerController : MonoBehaviour
         canMove = false;
     }
 
+    public void StateCamera(bool newState)
+    {
+        GameManager.Instance.InteractUI = newState;
+    }
+
 
     #region save
 

@@ -13,6 +13,7 @@ public class Mainmenu : MonoBehaviour
     {
         
         GameManager.Instance.TogglePause(false);
+
         Scene currentScene = SceneManager.GetActiveScene();
 
         if (currentScene.buildIndex == 0)

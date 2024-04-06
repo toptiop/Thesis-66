@@ -21,7 +21,7 @@ public class ShowIcon : MonoBehaviour
 
     public void ActiveIcon()
     {
-        Debug.Log("Enabled");
+       
         if (!_canvas.enabled)
             _canvas.enabled = true;
         icon.gameObject.SetActive(true);
@@ -29,7 +29,7 @@ public class ShowIcon : MonoBehaviour
 
     public void HideIcon()
     {
-        Debug.Log("Disabled");
+
         if (_canvas.enabled)
             _canvas.enabled = false;
         icon.gameObject.SetActive(false);
