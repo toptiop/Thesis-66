@@ -34,7 +34,6 @@ public class StateCommand : MonoBehaviour
         if (Physics.Raycast(ray, out hit, distance) && !IsInLayerMask(hit.collider.gameObject.layer, obstructionMask))
         {
             targetPosition = hit.point;
-            Debug.Log("CurrentPos : " + targetPosition);
 
             outlineScript = hit.collider.GetComponent<Outline>();
             if (outlineScript != null)

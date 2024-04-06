@@ -10,8 +10,26 @@ public class WayPointGo : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            other.GetComponent<QuestManager>().UpdateQuestProgress(ObjectiveType.Go, Point);
-            Destroy(gameObject);
+            QuestManager questManager = other.GetComponent<QuestManager>(); // Cache the QuestManager component
+
+            if (questManager.OngoingQuest.Count > 0)
+            {
+                foreach (var quest in questManager.OngoingQuest)
+                {
+                    if (quest.trackerQuest != null)
+                    {
+                        foreach (var objective in quest.trackerQuest.objectives)
+                        {
+                            if (objective.targetDetail != null && objective.targetDetail == Point)
+                            {
+                                questManager.UpdateQuestProgress(ObjectiveType.Go, Point);
+                                Destroy(gameObject);
+                                return; // Exit the method after destroying the waypoint
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
