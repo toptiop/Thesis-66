@@ -4106,8 +4106,8 @@ MonoBehaviour:
   SoundCutText: {fileID: 873980214}
   SoundEFXText: {fileID: 1778607492}
   SoundTestText: {fileID: 1033619901}
-  hoverClip: {fileID: 8300000, guid: 14e8a8d2158bec840b56c54f5266e692, type: 3}
-  ClickClip: {fileID: 8300000, guid: 3b02dc832528cae47b8cc7e2e6e64479, type: 3}
+  hoverClip: {fileID: 8300000, guid: 9321ca52f5f02ca4ca67d3fbe5095947, type: 3}
+  ClickClip: {fileID: 8300000, guid: 330298f8fac936340aeb88e5bdf73e68, type: 3}
   sourceBTN: {fileID: 613336291}
 --- !u!4 &1596601724
 Transform:
