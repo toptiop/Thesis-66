@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5312861069231467547}
   - component: {fileID: 5505731133631608948}
   - component: {fileID: 3555137210716027824}
+  - component: {fileID: 1861736755508462658}
   m_Layer: 5
   m_Name: DoorPadCanvas
   m_TagString: Untagged
@@ -124,6 +125,18 @@ MonoBehaviour:
   current: {r: 1, g: 1, b: 1, a: 1}
   correct: {r: 0.19709802, g: 1, b: 0, a: 1}
   incorrect: {r: 1, g: 0, b: 0, a: 1}
+--- !u!114 &1861736755508462658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 15334239334308423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ce4b05144c662b489bc74c67a555d55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &156580877533014355
 GameObject:
   m_ObjectHideFlags: 0
@@ -588,6 +601,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactable: {fileID: 15334239334308423}
   isOpen: 0
+  setinterface: {fileID: 1861736755508462658}
 --- !u!114 &3418932478832485154
 MonoBehaviour:
   m_ObjectHideFlags: 0

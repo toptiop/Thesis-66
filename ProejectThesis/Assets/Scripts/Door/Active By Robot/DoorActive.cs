@@ -11,7 +11,8 @@ public class DoorActive : MonoBehaviour
     public bool isDelaying = false;
     void Start()
     {
-        anim = GetComponent<Animator>();
+        if(anim == null)
+            anim = GetComponent<Animator>();
     }
 
     

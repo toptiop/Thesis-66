@@ -30,15 +30,15 @@ public class Singleton : MonoBehaviour
 
         #region FindScript
         controller = FindAnyObjectByType<PlayerController>();
-        //ai = FindAnyObjectByType<AutoPilotRobot>();
-        //inputManager = FindAnyObjectByType<InputManager>();
-        //inventory = FindAnyObjectByType<Inventory>();
-        //inventoryNote = FindAnyObjectByType<InventoryNote>();
-        //cameraFollow = FindAnyObjectByType<CameraFollow>();
-        //detection = FindAnyObjectByType<Detection>();
-        //quest = FindAnyObjectByType<QuestManager>();
-        //actionUI = FindAnyObjectByType<ActionUI>();
-        //switchcharacters = FindAnyObjectByType<switchcharacters>();
+        ai = FindAnyObjectByType<AutoPilotRobot>();
+        inputManager = FindAnyObjectByType<InputManager>();
+        inventory = FindAnyObjectByType<Inventory>();
+        inventoryNote = FindAnyObjectByType<InventoryNote>();
+        cameraFollow = FindAnyObjectByType<CameraFollow>();
+        detection = FindAnyObjectByType<Detection>();
+        quest = FindAnyObjectByType<QuestManager>();
+        actionUI = FindAnyObjectByType<ActionUI>();
+        switchcharacters = FindAnyObjectByType<switchcharacters>();
         #endregion
     }
 }

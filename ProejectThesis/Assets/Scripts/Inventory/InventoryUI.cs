@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InventoryUI : MonoBehaviour
+public class InventoryUI : MonoBehaviour, OpenUI
 {
     [SerializeField]private GameObject inventoryUI;
     public bool activeInventory;
@@ -10,11 +10,25 @@ public class InventoryUI : MonoBehaviour
     private InputManager _input;
 
     public List<GameObject> tapUI = new List<GameObject>();
+
+    [SerializeField] private GetInterface setInterface;
+
+    public bool IsOpen
+    {
+        get { return isOpen; }
+        set { isOpen = value; }
+    }
+
     private void Awake()
     {
         _input = FindAnyObjectByType<InputManager>();
 
         inventoryUI.SetActive(false);
+    }
+
+    private void Start()
+    {
+        setInterface.Interface = this;
     }
 
     private void Update()
@@ -41,6 +55,7 @@ public class InventoryUI : MonoBehaviour
         isOpen = !isOpen;
         if(isOpen)
         {
+            UIManager.instance.AddUI(inventoryUI);
             GameManager.Instance.ChangeStateInteractUI(true);
             Singleton.controller.SignalCanMoveEnabled();
             inventoryUI.SetActive(true);
@@ -65,5 +80,10 @@ public class InventoryUI : MonoBehaviour
         inventoryUI.SetActive(false);
         GameManager.Instance.ChangeStateInteractUI(false);
         Singleton.controller.SignalCanMoveDisabled();
+    }
+
+    public void Close()
+    {
+        isOpen = false;
     }
 }

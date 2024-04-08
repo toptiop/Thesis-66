@@ -28,6 +28,7 @@ public class switchcharacters : MonoBehaviour
     [Space(20)]
     public bool isSwitch;
     public bool activeSwitch;
+    public bool canSwitch;
     void Start()
     {
         StartCoroutine(DelayeStart());
@@ -58,16 +59,24 @@ public class switchcharacters : MonoBehaviour
             stateCommand.enabled = false;
         }
 
-        if (activeSwitch)
+        if (activeSwitch )
         {
-            
-            if (playerInput.swap || robotInput.swap)
+            if(canSwitch)
             {
-                ChangeCharactor();
-                SwitchControl();
+                if (playerInput.swap || robotInput.swap)
+                {
+                    ChangeCharactor();
+                    SwitchControl();
+                    playerInput.swap = false;
+                    robotInput.swap = false;
+                }
+            }
+            else
+            {
                 playerInput.swap = false;
                 robotInput.swap = false;
             }
+            
         }
 
 
