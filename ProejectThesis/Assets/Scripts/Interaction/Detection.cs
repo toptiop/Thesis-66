@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,7 +9,7 @@ public class Detection : MonoBehaviour
     public float detectionItemRadius = 7f;
     public Vector3 detectionSize = new Vector3(2f, 2f, 2f);
 
-
+    public bool showIcon;
     public InputManager _input;
     public ActionUI actionUI;
 
@@ -84,7 +84,7 @@ public class Detection : MonoBehaviour
                 if (ic != null)
                 {
                     // Only show the icon if it's within the detection radius
-                    if (Vector3.Distance(transform.position, col.transform.position) <= detectionItemRadius)
+                    if (Vector3.Distance(transform.position, col.transform.position) <= detectionItemRadius && showIcon)
                     {
                         ic.ChangeCantIcon();
                         ic.ActiveIcon();
@@ -153,7 +153,7 @@ public class Detection : MonoBehaviour
                 if (ic != null)
                 {
                     // Only show the icon if it's within the detection radius
-                    if (Vector3.Distance(transform.position, col.transform.position) <= detectionItemRadius)
+                    if (Vector3.Distance(transform.position, col.transform.position) <= detectionItemRadius && showIcon)
                     {
                         ic.ChangeIcon();
                         isAnyIconShown = true;
@@ -191,7 +191,7 @@ public class Detection : MonoBehaviour
         }
     }
 
-
+    
 
 
     IEnumerator DelayFalse()

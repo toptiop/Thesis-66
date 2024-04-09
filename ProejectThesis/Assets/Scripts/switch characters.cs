@@ -38,7 +38,7 @@ public class switchcharacters : MonoBehaviour
         yield return new WaitForSeconds(1);
         SwitchControl();
     }
-    void Update()
+    void FixedUpdate()
     {
 
         if (!activeSwitch)
@@ -82,24 +82,29 @@ public class switchcharacters : MonoBehaviour
 
 
     }
+
+
     #region SwitchCharacter
     void SwitchControl()
     {
         if (isSwitch)
         {
-            DisableControlRobot();
-            EnableControlPlayer();
+            robotDetec.showIcon = false;
+            Invoke("DisableControlRobot", 0.1f);
+            Invoke("EnableControlPlayer", 0.2f);
         }
         else
         {
-            DisableControlPlayer();
-            EnableControlRobot();
+            playerDetec.showIcon = false;
+            Invoke("DisableControlPlayer", 0.1f);
+            Invoke("EnableControlRobot", 0.2f);
         }
     }
 
 
     void EnableControlPlayer()
     {
+        playerDetec.showIcon = true;
         controller.enabled = true;
         player.enabled = true;
         playerDetec.enabled = true;
@@ -110,6 +115,7 @@ public class switchcharacters : MonoBehaviour
     void DisableControlPlayer()
     {
         ResetAnimationPlayer();
+
         controller.enabled = false;
         player.enabled = false;
         playerDetec.enabled = false;
@@ -119,6 +125,7 @@ public class switchcharacters : MonoBehaviour
 
     void EnableControlRobot()
     {
+        robotDetec.showIcon = true;
         robotController.enabled = true;
         robot.enabled = true;
         robotDetec.enabled = true;

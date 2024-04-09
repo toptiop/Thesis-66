@@ -58,6 +58,8 @@ public class CommandEditor : Editor
         EditorGUILayout.Space();
         EditorGUILayout.PropertyField(serializedObject.FindProperty("isRobot"));
         EditorGUILayout.PropertyField(serializedObject.FindProperty("layerRobot"));
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("icon"));
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("canvasIcon"));
 
 
         EditorGUILayout.Space();
@@ -94,10 +96,6 @@ public class CommandEditor : Editor
         {
             sharePowerTypeProperty.objectReferenceValue = null;
         }
-
-        EditorGUILayout.PropertyField(serializedObject.FindProperty("timeToActive"));
-        EditorGUILayout.PropertyField(serializedObject.FindProperty("imgActive"));
-
         serializedObject.ApplyModifiedProperties();
     }
 }

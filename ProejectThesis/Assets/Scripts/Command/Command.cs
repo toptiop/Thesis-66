@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
-public class Command : MonoBehaviour
+public class Command : MonoBehaviour, IInteractable
 {
     public Commander typeCommand;
 
@@ -19,7 +19,8 @@ public class Command : MonoBehaviour
     [Tooltip("Select Layer Robot")]
     public LayerMask layerRobot;
     bool isPlaySound;
-    
+    [SerializeField] private ShowIcon icon;
+    [SerializeField] private GameObject canvasIcon;
 
     [Space]
     [Header("Robot Componenet")]
@@ -45,14 +46,12 @@ public class Command : MonoBehaviour
     [SerializeField] private bool isShare;
     #endregion
 
-    [Header("Time Active")]
-    [SerializeField] private float timeToActive;
-    [SerializeField] private Image imgActive;
-
 
     [Space]
     [Header("Colliders")]
     [SerializeField] private Collider[] col;
+    
+
     Outline outline;
   
     private void Awake()
@@ -60,6 +59,11 @@ public class Command : MonoBehaviour
         outline = GetComponent<Outline>();
     }
 
+    private void Start()
+    {
+        icon = GetComponent<ShowIcon>();      
+    }
+   
     private void Update()
     {
         CheckRobot();
@@ -86,6 +90,8 @@ public class Command : MonoBehaviour
             }
             this.enabled = false;
             Destroy(outline);
+            Destroy(icon);
+            Destroy(canvasIcon);
             robot.Order(false);
         }
     }
@@ -97,7 +103,8 @@ public class Command : MonoBehaviour
             doorHacking.SetHacked(true);
             this.enabled = false;
             Destroy(outline,1f);
-            timeToActive = 0f;
+            Destroy(icon);
+            Destroy(canvasIcon); 
             robot.Order(false);
         }
     }
@@ -140,6 +147,27 @@ public class Command : MonoBehaviour
         Gizmos.DrawCube(position, GroundedRadius);
     }
 
+    public string GetInteractionText()
+    {
+        return "";
+    }
+
+    public void Interact()
+    {
+        switch (typeCommand)
+        {
+            case Commander.HackDoor:
+                HackingDoor();
+                break;
+            case Commander.ActiveSwitch:
+                ActiveDoor();
+                break;
+            case Commander.SharePower:
+                break;
+            case Commander.None:
+                break;
+        }
 
 
+    }
 }
