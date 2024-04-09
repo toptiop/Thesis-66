@@ -118,7 +118,7 @@ MonoBehaviour:
   followDistance: 5
   timer: 1
   animator: {fileID: 4022953995281624449}
-  navMeshAgent: {fileID: 9194612261271462863}
+  agent: {fileID: 0}
   robotController: {fileID: 7852387928708503038}
   targetPos: {fileID: 0}
   isOrder: 0
@@ -129,7 +129,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4284513251294834928}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 91818b880daad964faf9134597327df1, type: 3}
   m_Name: 
@@ -137,7 +137,7 @@ MonoBehaviour:
   MoveSpeed: 2
   SprintSpeed: 6
   Gravity: 1
-  useFlying: 0
+  useFlying: 1
   isFly: 0
   canFly: 0
   upSpeed: 5
@@ -186,19 +186,9 @@ MonoBehaviour:
   inventory: 0
   swap: 0
   interaction: 0
-  oneSlot: 0
-  twoSlot: 0
-  threeSlot: 0
-  fourSlot: 0
-  fiveSlot: 0
-  sixSlot: 0
   esc: 0
   mouse0: 0
   mouse1: 0
-  scrollIncrease: 0
-  scrollDecrease: 0
-  book: 0
-  mouseHold: 0
   down: 0
   next: 0
   back: 0
@@ -226,7 +216,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4284513251294834928}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
@@ -520,8 +510,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detectionLayer:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 256
+  radiusInteract: 1.8
+  detectionItemRadius: 5
   detectionSize: {x: 1, y: 2, z: 1}
+  showIcon: 0
   _input: {fileID: 7172581055039583201}
   actionUI: {fileID: 0}
 --- !u!1001 &1180073429168167337
