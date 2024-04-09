@@ -50,7 +50,7 @@ public class PushBox : MonoBehaviour, IInteractable
         setParent = !setParent;
         if (!setParent)
         {
-            mover.transform.position = transform.position;
+            mover.transform.localPosition = transform.localPosition;
             mover.transform.rotation = Quaternion.Euler(setRotation);
 
             rb.isKinematic = true;

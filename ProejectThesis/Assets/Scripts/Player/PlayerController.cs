@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -8,9 +8,10 @@ public class PlayerController : MonoBehaviour
     #region PlayerController
     [Header("Player")]
     public float MoveSpeed = 2.0f;
+    public float BackSpeed = -2.0f;
     public float SprintSpeed = 5.335f;
     public float Gravity = 9.81f;
-    private Vector3 _moveDirection; 
+    public Vector3 _moveDirection; 
     [Header("Interacting")]
     public PlayerState state;
 
@@ -40,7 +41,8 @@ public class PlayerController : MonoBehaviour
 
     // player
     private float _speed;
-    private float _animationBlend;
+    private float _animationBlendX;
+    private float _animationBlendY;
     private float _targetRotation = 0.0f;
     private float _rotationVelocity;
     private float _verticalVelocity;
@@ -153,14 +155,24 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
+        float Horizontal = _input.move.x;
+        float Vertical = _input.move.y;
+
         float targetSpeed = MoveSpeed; // Default to MoveSpeed
 
         if (state.isInteractingBox)
         {
             targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed; // Update targetSpeed based on sprint input
+           
+        }
+        else if (!state.isInteractingBox && Vertical < 0)  // ถ้าถอยหลัง
+        {
+            targetSpeed = BackSpeed;
         }
 
-        _moveDirection = new Vector3(_input.move.x, 0f, _input.move.y);
+        Debug.Log("CurrentSpeed : " + targetSpeed);
+
+       
 
 
         if (!_controller.isGrounded)
@@ -196,8 +208,6 @@ public class PlayerController : MonoBehaviour
             _speed = targetSpeed;
         }
 
-        _animationBlend = Mathf.Lerp(_animationBlend, targetSpeed, Time.deltaTime * SpeedChangeRate);
-        if (_animationBlend < 0.01f) _animationBlend = 0f;
 
         Vector3 inputDirection = new Vector3(_input.move.x, 0.0f, _input.move.y).normalized;
 
@@ -221,12 +231,19 @@ public class PlayerController : MonoBehaviour
 
         }
 
+        
         Vector3 targetDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward;
+        _moveDirection = new Vector3(_input.move.x, 0f, _input.move.y) * targetSpeed;
+        float targetBlendX = _moveDirection.x;
+        float targetBlendY = _moveDirection.z;
 
-        _controller.Move(targetDirection.normalized * (_speed * Time.deltaTime) +
-                         new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
+        _animationBlendX = Mathf.Lerp(_animationBlendX, targetBlendX, Time.deltaTime * SpeedChangeRate);
+        _animationBlendY = Mathf.Lerp(_animationBlendY, targetBlendY, Time.deltaTime * SpeedChangeRate);
 
-        _animator.SetFloat(_animIDSpeed, _animationBlend);
+        _controller.Move(targetDirection.normalized * (_speed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
+
+        _animator.SetFloat("SpeedY", _animationBlendY);
+        _animator.SetFloat("SpeedX", _animationBlendX);
         _animator.SetFloat(_animIDMotionSpeed, inputMagnitude);
     }
 

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2b721a57660a29d438c7020c842ae469
+guid: 36e79742e9336a84285531246640a6af
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -33,11 +33,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Push
+      name: PUllnew
       takeName: Take 001
       internalID: 1827226128182048838
       firstFrame: 0
-      lastFrame: 90
+      lastFrame: 140
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

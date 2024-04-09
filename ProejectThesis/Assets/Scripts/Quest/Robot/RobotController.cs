@@ -120,10 +120,7 @@ public class RobotController : MonoBehaviour
         if (!canMove)
         {
             Move();
-            if (useFlying)
-            {
-                Flying();
-            }
+           
             CheckGround();
             GroundedCheck();
         }
@@ -140,6 +137,11 @@ public class RobotController : MonoBehaviour
         if (useCamera)
         {
             CameraRotation();
+        }
+
+        if (useFlying)
+        {
+            Flying();
         }
     }
 
