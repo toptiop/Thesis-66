@@ -93,6 +93,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8644184764597864764}
+  - component: {fileID: 3555817275598397287}
+  - component: {fileID: 730383051629489832}
   m_Layer: 0
   m_Name: Sign+Tree
   m_TagString: Untagged
@@ -117,6 +119,48 @@ Transform:
   - {fileID: 1559965213069455308}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &3555817275598397287
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 905316586742682488}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 6.2091537, y: 1, z: 1.2123318}
+  m_Center: {x: -0.086287916, y: 0, z: 0.31715554}
+--- !u!65 &730383051629489832
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 905316586742682488}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 6.4053965, y: 5.5651402, z: 1}
+  m_Center: {x: -0.06433928, y: 2.2825701, z: 0.000000011504786}
 --- !u!1 &1443513103564159151
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,7 +223,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 25f1865684df40b4cb1728d1ddd60b47, type: 2}
-  - {fileID: 2100000, guid: 95cce8e4c46b5bc408fa805a065cc349, type: 2}
+  - {fileID: 2100000, guid: 8ff75db8ca96d3f45a9024fdfcd7d147, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
