@@ -125,7 +125,7 @@ public class PlayerController : MonoBehaviour
 
     private void AssignAnimationIDs()
     {
-        _animIDSpeed = Animator.StringToHash("Speed");
+        _animIDSpeed = Animator.StringToHash("SpeedY");
 
         _animIDMotionSpeed = Animator.StringToHash("MotionSpeed");
     }
