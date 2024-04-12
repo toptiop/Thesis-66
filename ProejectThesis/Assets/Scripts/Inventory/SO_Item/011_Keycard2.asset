@@ -13,14 +13,15 @@ MonoBehaviour:
   m_Name: 011_Keycard2
   m_EditorClassIdentifier: 
   itemType: 0
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: f24c6c4044b791e4f8e9721f5535885a, type: 3}
   id: 
   itemName: 
   description: 
-  maxStack: 0
+  maxStack: 1
   noteTitle: 
   noteDescription: 
-  pickupEFX: {fileID: 0}
+  pickupEFX: {fileID: 8300000, guid: fd06bd42c9f6a2f47a613ae754a5aed8, type: 3}
   clip: {fileID: 0}
   audio: {fileID: 0}
-  gamePrefab: {fileID: 0}
+  gamePrefab: {fileID: 6794265077219951203, guid: 2fed07ba1fdd5a94ba1e25ab468b3131,
+    type: 3}

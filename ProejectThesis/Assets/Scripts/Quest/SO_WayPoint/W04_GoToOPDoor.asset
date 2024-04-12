@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6efe30931a0cbbf4ea0271a093eb7e23, type: 3}
   m_Name: W04_GoToOPDoor
   m_EditorClassIdentifier: 
-  waypoint: {x: 0, y: 0, z: 0}
+  waypoint: {x: -93.88, y: 17.433, z: -60.46}
