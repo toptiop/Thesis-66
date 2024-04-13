@@ -20,9 +20,15 @@ public class CheckBox : MonoBehaviour
                     correct = true;
 
                     if (door != null && unlock != null)
+                    {
                         door.source.PlayOneShot(unlock);
+                        StartCoroutine(door.DelayDoor(true));
+                    }                        
                     else
+                    {
                         Debug.LogWarning("Null references in" + this);
+                    }
+                       
                 }
             }
         }

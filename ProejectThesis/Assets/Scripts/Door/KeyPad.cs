@@ -62,6 +62,7 @@ public class KeyPad : MonoBehaviour
         uiCanvas.SetActive(false);
         GameManager.Instance.ChangeStateInteractUI(false);
         Singleton.controller.SignalCanMoveDisabled();
+        Destroy(this);
     }
 
     IEnumerator swapColor()

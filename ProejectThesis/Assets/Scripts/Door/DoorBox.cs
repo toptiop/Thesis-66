@@ -35,11 +35,12 @@ public class DoorBox : MonoBehaviour
             }
             else
             {
-                Debug.LogError("Door material or materials array not properly set.");
+                //Debug.LogError("Door material or materials array not properly set.");
             }
         }
     }
 
+/*
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -75,9 +76,11 @@ public class DoorBox : MonoBehaviour
             }           
         }
     }
+*/
 
-    IEnumerator DelayDoor(bool newOpen)
+    public IEnumerator DelayDoor(bool newOpen)
     {
+        source.PlayOneShot(open);
         yield return new WaitForSeconds(1);
         anim.SetBool("isOpen", newOpen);
     }

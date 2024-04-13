@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4198081154126148736}
   - component: {fileID: 2690463499704446786}
   - component: {fileID: 8341051814916158434}
+  - component: {fileID: 7204440315199148998}
   m_Layer: 0
   m_Name: Floor_iron
   m_TagString: Untagged
@@ -106,6 +107,25 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 10.929694, y: 0, z: 10.929693}
   m_Center: {x: 0.0050387383, y: 0, z: 0.0055344105}
+--- !u!114 &7204440315199148998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3457801950749930764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 0
+  m_OverrideGenerateLinks: 1
+  m_GenerateLinks: 1
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1 &5181039093098048411
 GameObject:
   m_ObjectHideFlags: 0

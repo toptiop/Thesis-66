@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DoorKey : MonoBehaviour
@@ -15,6 +16,18 @@ public class DoorKey : MonoBehaviour
     public Material matUnlock;
     private void Update()
     {
+        if (keyPad != null)
+        {
+            if (keyPad.isUnlock)
+            {
+                if (open != null && source != null)
+                {
+                    //source.PlayOneShot(open);
+                }
+                StartCoroutine(DelayDoor(true));
+            }
+        }
+
         if (keyPad != null)
         {
             isOpen = keyPad.isUnlock;
@@ -35,7 +48,7 @@ public class DoorKey : MonoBehaviour
             }
             else
             {
-                Debug.LogError("Door material or materials array not properly set.");
+                //Debug.LogError("Door material or materials array not properly set.");
             }
         }
     }
@@ -44,45 +57,12 @@ public class DoorKey : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            if(keyPad != null)
-            {
-                if (keyPad.isUnlock)
-                {
-                    if (open != null && source != null)
-                    {
-                        source.PlayOneShot(open);
-                    }
-                    StartCoroutine(DelayDoor(true));
-                }
-            }         
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            if (keyPad != null)
-            {
-                if (keyPad.isUnlock)
-                {
-                    if (close != null && source != null)
-                    {
-                        source.PlayOneShot(close);
-                    }
-                    StartCoroutine(DelayDoor(false));
-                }
-            }           
-        }
-    }
-
+   
     IEnumerator DelayDoor(bool newOpen)
     {
+        source.PlayOneShot(open);
         yield return new WaitForSeconds(1);
         anim.SetBool("isOpen", newOpen);
+        Destroy(this);
     }
 }
