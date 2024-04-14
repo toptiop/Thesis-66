@@ -145,6 +145,7 @@ namespace DialogueEditor
 
         public void StartConversation(NPCConversation conversation)
         {
+            Singleton.controller.StateCamera(true);
             m_conversation = conversation.Deserialize();
             if (OnConversationStarted != null)
                 OnConversationStarted.Invoke();

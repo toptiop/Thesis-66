@@ -11,6 +11,7 @@ public class DoorKey : MonoBehaviour
 
     public KeyPad keyPad;
     public bool isOpen;
+    bool isPlay;
     public Renderer doorMat;
     public Material matClose;
     public Material matUnlock;
@@ -22,11 +23,17 @@ public class DoorKey : MonoBehaviour
             {
                 if (open != null && source != null)
                 {
-                    //source.PlayOneShot(open);
+                    if (!isPlay)
+                    {
+                        isPlay = true;
+                        source.PlayOneShot(open);
+                    }
+
                 }
                 StartCoroutine(DelayDoor(true));
             }
         }
+
 
         if (keyPad != null)
         {
