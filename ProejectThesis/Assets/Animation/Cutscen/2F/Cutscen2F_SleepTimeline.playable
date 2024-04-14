@@ -25,7 +25,7 @@ MonoBehaviour:
     m_Start: 10.716666666666667
     m_ClipIn: 0
     m_Asset: {fileID: -664336159244701501}
-    m_Duration: 5.583333333333334
+    m_Duration: 5.633333333333335
     m_TimeScale: 1
     m_ParentTrack: {fileID: -8321008886896209621}
     m_EaseInDuration: 0
@@ -1048,7 +1048,25 @@ MonoBehaviour:
     m_BlendOutDuration: -1
     m_MixInCurve:
       serializedVersion: 2
-      m_Curve: []
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -1537,7 +1555,25 @@ MonoBehaviour:
       m_RotationOrder: 4
     m_MixOutCurve:
       serializedVersion: 2
-      m_Curve: []
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -2006,7 +2042,7 @@ MonoBehaviour:
     m_Start: 4.783333333333333
     m_ClipIn: 0
     m_Asset: {fileID: -7845773585642419683}
-    m_Duration: 11.516666666666667
+    m_Duration: 11.566666666666668
     m_TimeScale: 1
     m_ParentTrack: {fileID: -2210910886612789288}
     m_EaseInDuration: 0
@@ -2096,7 +2132,7 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 16.216666666666665
+    m_Start: 16.35
     m_ClipIn: 0
     m_Asset: {fileID: 3793846930896170292}
     m_Duration: 8.175
@@ -2356,7 +2392,7 @@ MonoBehaviour:
   - {fileID: 1071579926757212518}
   - {fileID: 3418271273351717200}
   - {fileID: 7944463347162394428}
-  m_FixedDuration: 16.3
+  m_FixedDuration: 16.466666666666665
   m_EditorSettings:
     m_Framerate: 60
     m_ScenePreview: 1
@@ -2401,7 +2437,7 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 16.216666666666665
+    m_Start: 16.35
     m_ClipIn: 0
     m_Asset: {fileID: 2732181891132378762}
     m_Duration: 8.175
@@ -3162,7 +3198,7 @@ MonoBehaviour:
     m_Start: 0
     m_ClipIn: 0
     m_Asset: {fileID: -472656888311946456}
-    m_Duration: 16.3
+    m_Duration: 16.383333333333333
     m_TimeScale: 1
     m_ParentTrack: {fileID: 3934592188397345321}
     m_EaseInDuration: 0
@@ -3861,7 +3897,25 @@ MonoBehaviour:
       m_RotationOrder: 4
     m_MixOutCurve:
       serializedVersion: 2
-      m_Curve: []
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -3888,7 +3942,25 @@ MonoBehaviour:
     m_BlendOutDuration: -1
     m_MixInCurve:
       serializedVersion: 2
-      m_Curve: []
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -3995,10 +4067,10 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 15.3
+    m_Start: 15.5
     m_ClipIn: 0
     m_Asset: {fileID: 6693279802077393645}
-    m_Duration: 7.9583333333333375
+    m_Duration: 8.775000000000004
     m_TimeScale: 1
     m_ParentTrack: {fileID: 7944463347162394428}
     m_EaseInDuration: 0

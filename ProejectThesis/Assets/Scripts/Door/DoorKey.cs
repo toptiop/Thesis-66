@@ -67,7 +67,6 @@ public class DoorKey : MonoBehaviour
    
     IEnumerator DelayDoor(bool newOpen)
     {
-        source.PlayOneShot(open);
         yield return new WaitForSeconds(1);
         anim.SetBool("isOpen", newOpen);
         Destroy(this);
