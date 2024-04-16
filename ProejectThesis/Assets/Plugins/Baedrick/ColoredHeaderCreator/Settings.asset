@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Settings
   m_EditorClassIdentifier: 
   headerSettings:
-    headerText: Audio
-    headerColor: {r: 0.47906196, g: 1, b: 0, a: 1}
+    headerText: Note
+    headerColor: {r: 1, g: 0, b: 0.7317085, a: 1}
     textAlignmentOptions: 0
     fontStyleOptions: 0
     fontSize: 12
