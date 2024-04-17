@@ -7,6 +7,7 @@ TagManager:
   - Robot
   - Pickupable
   - Box
+  - Interact
   layers:
   - Default
   - TransparentFX

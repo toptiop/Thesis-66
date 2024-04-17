@@ -71,4 +71,9 @@ public class DoorKey : MonoBehaviour
         anim.SetBool("isOpen", newOpen);
         Destroy(this);
     }
+
+    public void Open()
+    {
+        anim.SetBool("isOpen", true);
+    }
 }

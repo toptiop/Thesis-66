@@ -348,9 +348,10 @@ GameObject:
   - component: {fileID: 6828135357256646467}
   - component: {fileID: 1754654147627086153}
   - component: {fileID: 4404602371686768705}
+  - component: {fileID: 4454272088746260013}
   m_Layer: 0
   m_Name: BoxG
-  m_TagString: Box
+  m_TagString: Interact
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -452,6 +453,24 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &4454272088746260013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4760845457885583342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c5b2bfa78a677e4f81ad4786ceceb26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uniqueId: 31024bdf-ce38-49a1-ac79-27fecc1556c1
+  itemTransform:
+    uniqueId: 
+    prefab: {fileID: 4760845457885583342}
+    Position: {x: 0, y: 0, z: 0}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &6427479033750989154
 GameObject:
   m_ObjectHideFlags: 0

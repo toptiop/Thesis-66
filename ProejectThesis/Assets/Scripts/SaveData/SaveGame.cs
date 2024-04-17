@@ -38,6 +38,7 @@ public class SaveGame : MonoBehaviour
         Singleton.Instance.inventory.SaveInventory();
         Singleton.Instance.inventoryNote.SaveInventory();
         Singleton.Instance.inventoryVideo.SaveInventory();
+        Singleton.Instance.itemInGameManager.SaveData();
         //Singleton.controller.Save();
     }
 
@@ -46,6 +47,24 @@ public class SaveGame : MonoBehaviour
         Singleton.Instance.inventory.LoadInventory();
         Singleton.Instance.inventoryNote.LoadInventory();
         Singleton.Instance.inventoryVideo.LoadInventory();
+        Singleton.Instance.itemInGameManager.LoadData();
         //Singleton.controller.Load();
+    }
+
+    private void OnGUI()
+    {
+        Rect saveButtonRect = new Rect(10, 10, 100, 30);
+        Rect loadButtonRect = new Rect(10, 50, 100, 30);
+
+       
+        if (GUI.Button(saveButtonRect, "Save"))
+        {
+            Save();
+        }
+
+        if (GUI.Button(loadButtonRect, "Load"))
+        {
+            Load();
+        }
     }
 }

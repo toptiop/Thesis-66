@@ -17,6 +17,7 @@ public class Singleton : MonoBehaviour
     public QuestManager quest;
     public ActionUI actionUI;
     public switchcharacters switchcharacters;
+    public ItemInGameManager itemInGameManager;
     private void Awake()
     {
         if(Instance != null && Instance != this)
@@ -41,6 +42,7 @@ public class Singleton : MonoBehaviour
         quest = FindAnyObjectByType<QuestManager>();
         actionUI = FindAnyObjectByType<ActionUI>();
         switchcharacters = FindAnyObjectByType<switchcharacters>();
+        itemInGameManager = FindObjectOfType<ItemInGameManager>();
         #endregion
     }
 }

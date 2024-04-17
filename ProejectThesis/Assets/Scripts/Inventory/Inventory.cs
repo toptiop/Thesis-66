@@ -198,7 +198,7 @@ public class Inventory : MonoBehaviour
     public void LoadInventory()
     {
         string filePath = Application.persistentDataPath + "/inventorySave.json";
-
+        Debug.Log(filePath);
         if (File.Exists(filePath))
         {
             string json = File.ReadAllText(filePath);

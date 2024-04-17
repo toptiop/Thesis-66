@@ -84,4 +84,9 @@ public class DoorBox : MonoBehaviour
         yield return new WaitForSeconds(1);
         anim.SetBool("isOpen", newOpen);
     }
+
+    public void Open()
+    {
+        anim.SetBool("isOpen", true);
+    }
 }
