@@ -197,7 +197,6 @@ public class Detection : MonoBehaviour
     IEnumerator DelayFalse()
     {
         yield return new WaitForSeconds(.1f);
-        Debug.Log("Not Detected");
         _input.interaction = false;
     }
 

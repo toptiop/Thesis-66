@@ -187,7 +187,8 @@ AudioSource:
   m_GameObject: {fileID: 2560727361646608451}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 3569524070283885062, guid: c843f6b517f4320409001a0c2a8bc201,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -3187,6 +3188,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 9090000114741310917}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 248e9788c1059da4bb5c80e1a3468082,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7944867867930712400}
   m_SourcePrefab: {fileID: 100100000, guid: 248e9788c1059da4bb5c80e1a3468082, type: 3}
 --- !u!4 &139739930531278719 stripped
 Transform:
@@ -3512,3 +3517,28 @@ MonoBehaviour:
   - m_Rig: {fileID: 8232062364310063786}
     m_Active: 1
   m_Effectors: []
+--- !u!114 &7944867867930712400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8836972747707038162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9655c91dfda3a74cbdee059c61a7c89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FootstepAudioClips:
+  - {fileID: 8300000, guid: 72f526a6a9890f643a88e85a61c86c8a, type: 3}
+  - {fileID: 8300000, guid: 85016e0f2b01da248b9663dd49a161b0, type: 3}
+  - {fileID: 8300000, guid: 186de84b3207156479abe98f4958fed0, type: 3}
+  - {fileID: 8300000, guid: 1a91fcd19acf1e54bba0945d9f390849, type: 3}
+  - {fileID: 8300000, guid: 14e8a8d2158bec840b56c54f5266e692, type: 3}
+  - {fileID: 8300000, guid: 29841e7d5bbfb5b419c9ad16ca8bc4c1, type: 3}
+  - {fileID: 8300000, guid: dd1af302b8902684d9381de1f2d3a5af, type: 3}
+  - {fileID: 8300000, guid: 67c8b33e424ccdc4486edf538ab91c5a, type: 3}
+  - {fileID: 8300000, guid: 274649b0e221539409070ebf6c18918b, type: 3}
+  - {fileID: 8300000, guid: a3194b8bbc96ef84fab1f98f4b7dae3e, type: 3}
+  audioSource: {fileID: 7959767503649800202}
+  FootstepAudioVolume: 0.5

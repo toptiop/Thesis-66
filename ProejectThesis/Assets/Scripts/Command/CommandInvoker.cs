@@ -33,8 +33,4 @@ public class CommandInvoker : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmos()
-    {
-        Debug.Log("Queue count: " + commandQueue.Count);
-    }
 }

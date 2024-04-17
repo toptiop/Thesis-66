@@ -11,6 +11,7 @@ public class Singleton : MonoBehaviour
     public InputManager inputManager;
     public Inventory inventory;
     public InventoryNote inventoryNote;
+    public InventoryVideo inventoryVideo;
     public CameraFollow cameraFollow;
     public Detection detection;
     public QuestManager quest;
@@ -34,6 +35,7 @@ public class Singleton : MonoBehaviour
         inputManager = FindAnyObjectByType<InputManager>();
         inventory = FindAnyObjectByType<Inventory>();
         inventoryNote = FindAnyObjectByType<InventoryNote>();
+        inventoryVideo = FindAnyObjectByType<InventoryVideo>();
         cameraFollow = FindAnyObjectByType<CameraFollow>();
         detection = FindAnyObjectByType<Detection>();
         quest = FindAnyObjectByType<QuestManager>();

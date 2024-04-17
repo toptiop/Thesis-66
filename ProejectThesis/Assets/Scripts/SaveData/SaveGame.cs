@@ -15,7 +15,6 @@ public class SaveGame : MonoBehaviour
         else
         {
             Instance = this;
-            DontDestroyOnLoad(this.gameObject);
         }
     }
     private void Start()
@@ -38,13 +37,15 @@ public class SaveGame : MonoBehaviour
     {
         Singleton.Instance.inventory.SaveInventory();
         Singleton.Instance.inventoryNote.SaveInventory();
-        Singleton.controller.Save();
+        Singleton.Instance.inventoryVideo.SaveInventory();
+        //Singleton.controller.Save();
     }
 
     public void Load()
     {
         Singleton.Instance.inventory.LoadInventory();
         Singleton.Instance.inventoryNote.LoadInventory();
-        Singleton.controller.Load();
+        Singleton.Instance.inventoryVideo.LoadInventory();
+        //Singleton.controller.Load();
     }
 }

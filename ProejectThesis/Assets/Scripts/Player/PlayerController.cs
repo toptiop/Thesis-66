@@ -109,7 +109,8 @@ public class PlayerController : MonoBehaviour
         }
         else
         {          
-            _animator.SetFloat(_animIDSpeed, 0);
+            _animator.SetFloat("SpeedY", 0);
+            _animator.SetFloat("SpeedX", 0);
             return;
         }
 
@@ -169,11 +170,7 @@ public class PlayerController : MonoBehaviour
         {
             targetSpeed = BackSpeed;
         }
-
-        Debug.Log("CurrentSpeed : " + targetSpeed);
-
-       
-
+           
 
         if (!_controller.isGrounded)
         {
