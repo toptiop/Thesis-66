@@ -13,8 +13,14 @@ public class TriggerLoad : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            save.Load();
-            Destroy(gameObject);
+            StartCoroutine(DelayLoad());
+            Destroy(gameObject,2.5f);
         }
+    }
+
+    IEnumerator DelayLoad()
+    {
+        yield return new WaitForSeconds(2);
+        save.Load();
     }
 }

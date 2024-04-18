@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e1ecf2d8ac1bde45bc8bfed6b8debde, type: 3}
   m_Name: 001 Go To Point A
   m_EditorClassIdentifier: 
-  questName: A
-  questDescription: Go to A
+  questName: "\u0E44\u0E1B\u0E22\u0E31\u0E07\u0E0A\u0E31\u0E49\u0E19\u0E2A\u0E2D\u0E07"
+  questDescription: "\u0E44\u0E1B\u0E17\u0E35\u0E48\u0E25\u0E34\u0E1F"
   objectives:
   - type: 3
     targetDetail: {fileID: 11400000, guid: d636751c022100f45bad2c193273afa4, type: 2}

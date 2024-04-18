@@ -5,6 +5,7 @@ using UnityEngine;
 public class SaveGame : MonoBehaviour
 {
     public static SaveGame Instance { get; private set; }
+    public bool loadTransform;
 
     private void Awake()
     {
@@ -47,7 +48,11 @@ public class SaveGame : MonoBehaviour
         Singleton.Instance.inventory.LoadInventory();
         Singleton.Instance.inventoryNote.LoadInventory();
         Singleton.Instance.inventoryVideo.LoadInventory();
-        Singleton.Instance.itemInGameManager.LoadData();
+
+        if(loadTransform)
+        {
+            Singleton.Instance.itemInGameManager.LoadData();
+        }
         //Singleton.controller.Load();
     }
 

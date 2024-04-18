@@ -31,6 +31,8 @@ public class CameraState : MonoBehaviour
     [SerializeField]
     private EnemyFieldOfView view;
 
+
+
     private void Awake()
     {
 
@@ -95,7 +97,8 @@ public class CameraState : MonoBehaviour
                 }
                 else
                 {
-                    LookPlayer();
+                    StartCoroutine(Singleton.Instance.status.DIE());
+                    //LookPlayer();
                 }
                 break;
         }

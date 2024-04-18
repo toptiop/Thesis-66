@@ -8,6 +8,7 @@ public class Singleton : MonoBehaviour
 
     public static PlayerController controller;
     public static AutoPilotRobot ai;
+    public PlayerStatus status;
     public InputManager inputManager;
     public Inventory inventory;
     public InventoryNote inventoryNote;
@@ -18,6 +19,7 @@ public class Singleton : MonoBehaviour
     public ActionUI actionUI;
     public switchcharacters switchcharacters;
     public ItemInGameManager itemInGameManager;
+    public CheckPoint checkPoint;
     private void Awake()
     {
         if(Instance != null && Instance != this)
@@ -27,12 +29,12 @@ public class Singleton : MonoBehaviour
         else
         {
             Instance = this;
-            DontDestroyOnLoad(this.gameObject);
         }
 
         #region FindScript
         controller = FindAnyObjectByType<PlayerController>();
         ai = FindAnyObjectByType<AutoPilotRobot>();
+        status = FindAnyObjectByType<PlayerStatus>();
         inputManager = FindAnyObjectByType<InputManager>();
         inventory = FindAnyObjectByType<Inventory>();
         inventoryNote = FindAnyObjectByType<InventoryNote>();
@@ -43,6 +45,7 @@ public class Singleton : MonoBehaviour
         actionUI = FindAnyObjectByType<ActionUI>();
         switchcharacters = FindAnyObjectByType<switchcharacters>();
         itemInGameManager = FindObjectOfType<ItemInGameManager>();
+        checkPoint = FindObjectOfType<CheckPoint>();
         #endregion
     }
 }

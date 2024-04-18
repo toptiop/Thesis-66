@@ -6,51 +6,43 @@ using TMPro;
 
 public class PlayerStatus : MonoBehaviour
 {
-    public float currentFood = 0;
-    public float maxFood = 100;
-    public float decreaseFood = 2.0f;
-    public float timer = 10;
 
-    public Image imgFood;
-    public TMP_Text foodText;
+    public GameObject screenDie;
+    public Animator anim;
 
+    public PlayerController player;
+    public AutoPilotRobot ai;
     private void Start()
     {
-        currentFood = maxFood;
+        anim = screenDie.GetComponent<Animator>();
+
+        player = FindObjectOfType<PlayerController>();
+        ai = FindObjectOfType<AutoPilotRobot>();
     }
 
 
-    void Update()
+    public IEnumerator DIE()
     {
-        currentFood = Mathf.Clamp(currentFood, 0f, maxFood);
+        Debug.Log("Die");
+        screenDie.SetActive(true);
 
-        timer -= Time.deltaTime;
-        if (timer <= 0f)
-        {
-            DelFood(decreaseFood);
-            timer = 10f; 
-        }
+        player.enabled = false;
+        ai.enabled = false;
 
-        UpdateUI();
-    }
+        anim.Play("YouDie");
 
-    void UpdateUI()
-    {
-        float fillAmount = currentFood / maxFood;
-        if (imgFood != null && foodText != null)
-        {
-            imgFood.fillAmount = fillAmount;
-            foodText.text = currentFood + "|" + maxFood.ToString(); ;
-        }
-    }
+        yield return new WaitForSeconds(2.5f);
 
-    public void AddFood(float value)
-    {
-        currentFood += value;
-    }
+        Singleton.Instance.checkPoint.RespawnPlayer(player.gameObject);
+        Singleton.Instance.checkPoint.RespawnPlayer(ai.gameObject);
 
-    public void DelFood(float value)
-    {
-        currentFood -= value;
+        yield return new WaitForSeconds(1);
+
+        anim.Play("YouDie_Cl");
+
+        screenDie.SetActive(false);
+
+        player.enabled = true;
+        ai.enabled = true;
     }
 }

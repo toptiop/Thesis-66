@@ -58,11 +58,11 @@ Material:
     - _CastShadows: 0
     - _Cull: 0
     - _DstBlend: 10
-    - _Fresnel_Power: 0.2
+    - _Fresnel_Power: 1.27
     - _Glitch_Strength: 0.01
-    - _MainColorPower: 1000
+    - _MainColorPower: 1200
     - _Noise_Scale: 500
-    - _Noise_Strength: 0.3
+    - _Noise_Strength: 0.25
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1

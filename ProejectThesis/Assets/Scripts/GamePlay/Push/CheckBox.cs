@@ -10,7 +10,7 @@ public class CheckBox : MonoBehaviour
     public DoorBox door;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Box"))
+        if (other.gameObject.CompareTag("Interact"))
         {
             IDBox pbox = other.GetComponent<IDBox>();
             if (pbox != null)

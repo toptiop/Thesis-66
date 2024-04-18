@@ -36,8 +36,10 @@ public class Warp : MonoBehaviour, IInteractable
 
     IEnumerator Delaywarp()
     {
+        player.canMove = true;
         col.enabled = false;
         player.enabled = false;
+
         if(warpBot)
         {
             robot.enabled = false;
@@ -56,14 +58,14 @@ public class Warp : MonoBehaviour, IInteractable
             robot.transform.position = warpPos.position;
         }
         yield return new WaitForSeconds(1);
-        anim.Play("Fade out");
+        anim.Play("Fade Out");
 
         
         fadeScreen.SetActive(false);
 
         col.enabled = true;
         player.enabled = true;
-
+        player.canMove = false;
         if(warpBot)
         {
             robot.enabled = true;

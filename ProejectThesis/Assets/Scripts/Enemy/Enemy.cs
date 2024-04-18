@@ -252,6 +252,7 @@ public class Enemy : MonoBehaviour
                 {
                     agent.SetDestination(transform.position);
                     Debug.Log("You Die");
+                    StartCoroutine(Singleton.Instance.status.DIE());
                 }
 
                 break;
