@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Q09_FindKeycard
   m_EditorClassIdentifier: 
   questName: "\u0E15\u0E32\u0E21\u0E2B\u0E32\u0E04\u0E35\u0E22\u0E4C\u0E01\u0E32\u0E23\u0E4C\u0E14"
-  questDescription: "\u0E2B\u0E32\u0E04\u0E35\u0E22\u0E4C\u0E01\u0E32\u0E23\u0E4C\u0E14\u0E20\u0E32\u0E22\u0E43\u0E19\u0E2B\u0E49\u0E2D\u0E07\u0E1E\u0E31\u0E01\u0E0A\u0E32\u0E22"
+  questDescription: "\u0E2B\u0E32\u0E04\u0E35\u0E22\u0E4C\u0E01\u0E32\u0E23\u0E4C\u0E14\u0E20\u0E32\u0E22\u0E43\u0E19\u0E2B\u0E2D\u0E1E\u0E31\u0E01\u0E0A\u0E32\u0E22"
   objectives:
   - type: 1
     targetDetail: {fileID: 11400000, guid: 92de9854052e7e44da91314046a6e5b6, type: 2}

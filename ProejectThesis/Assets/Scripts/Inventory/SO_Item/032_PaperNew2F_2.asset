@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 032_PaperNew2F_2
   m_EditorClassIdentifier: 
   itemType: 0
-  icon: {fileID: 21300000, guid: 1a022029f0d07df4ba2e2ef03b7fcc7b, type: 3}
+  icon: {fileID: 21300000, guid: 5653a6a245f25b94d8b482c52035462f, type: 3}
   id: 
   itemName: "\u0E2B\u0E19\u0E31\u0E07\u0E2A\u0E37\u0E2D\u0E1E\u0E34\u0E21\u0E1E\u0E4C\u0E40\u0E01\u0E48\u0E32\u0E46"
   description: "\u0E2B\u0E19\u0E31\u0E07\u0E2A\u0E37\u0E2D\u0E1E\u0E34\u0E21\u0E1E\u0E4C\u0E17\u0E35\u0E48\u0E16\u0E39\u0E01\u0E27\u0E32\u0E07\u0E17\u0E34\u0E49\u0E07\u0E44\u0E27\u0E49

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 008_Note5
   m_EditorClassIdentifier: 
   itemType: 1
-  icon: {fileID: 21300000, guid: f24c6c4044b791e4f8e9721f5535885a, type: 3}
+  icon: {fileID: 21300000, guid: 1a022029f0d07df4ba2e2ef03b7fcc7b, type: 3}
   id: 006
   itemName: Note3
   description: 
