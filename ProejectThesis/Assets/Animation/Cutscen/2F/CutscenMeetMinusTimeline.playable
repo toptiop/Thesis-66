@@ -647,7 +647,7 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 5
+    m_Start: 4.9
     m_ClipIn: 0
     m_Asset: {fileID: 7739662016255923468}
     m_Duration: 5
@@ -1455,7 +1455,7 @@ MonoBehaviour:
   - {fileID: -3717790983166910104}
   - {fileID: 5757390604095934898}
   - {fileID: 1109269249865877117}
-  m_FixedDuration: 5
+  m_FixedDuration: 6.016666666666667
   m_EditorSettings:
     m_Framerate: 60
     m_ScenePreview: 1
@@ -1483,7 +1483,7 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 5
+    m_Start: 4.9
     m_ClipIn: 0
     m_Asset: {fileID: 1514321540785176069}
     m_Duration: 5
@@ -2294,7 +2294,7 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 5
+    m_Start: 4.9
     m_ClipIn: 0
     m_Asset: {fileID: -5612417610300862740}
     m_Duration: 5
