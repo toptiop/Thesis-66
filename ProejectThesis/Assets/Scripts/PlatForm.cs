@@ -29,8 +29,9 @@ public class PlatForm : MonoBehaviour
                 player.enabled = true;
 
             }
-            StartCoroutine(SetlastPos());
+            
         }
+        StartCoroutine(SetlastPos());
     }
 
     IEnumerator SetlastPos()
