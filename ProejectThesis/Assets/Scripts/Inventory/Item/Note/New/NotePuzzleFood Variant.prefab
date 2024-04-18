@@ -61,20 +61,18 @@ PrefabInstance:
     - target: {fileID: 3445887502939991973, guid: 94ac4c37c0ddcea4e9798d2d7f056860,
         type: 3}
       propertyPath: m_text
-      value: 'Test
-
-
-'
+      value: "\u0E40\u0E2D\u0E01\u0E2A\u0E32\u0E23\u0E1B\u0E23\u0E34\u0E28\u0E19\u0E32\n\n"
       objectReference: {fileID: 0}
     - target: {fileID: 5949205623352389479, guid: 94ac4c37c0ddcea4e9798d2d7f056860,
         type: 3}
       propertyPath: m_text
-      value: Test
+      value: "\u0E02\u0E27\u0E14 = 1\n\u0E40\u0E40\u0E01\u0E49\u0E27 = 2\n\u0E01\u0E23\u0E30\u0E1B\u0E4B\u0E2D\u0E07
+        = 3\n? = 4\n"
       objectReference: {fileID: 0}
     - target: {fileID: 7372747276456459117, guid: 94ac4c37c0ddcea4e9798d2d7f056860,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8941250108491358506, guid: 94ac4c37c0ddcea4e9798d2d7f056860,
         type: 3}

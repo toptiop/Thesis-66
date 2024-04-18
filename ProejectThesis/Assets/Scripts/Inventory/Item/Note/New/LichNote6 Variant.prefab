@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &5849175473074819610
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1800790612180055156, guid: 94ac4c37c0ddcea4e9798d2d7f056860,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -225.07413
+      objectReference: {fileID: 0}
+    - target: {fileID: 1800790612180055156, guid: 94ac4c37c0ddcea4e9798d2d7f056860,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.074771404
+      objectReference: {fileID: 0}
+    - target: {fileID: 1800790612180055156, guid: 94ac4c37c0ddcea4e9798d2d7f056860,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 9.546639
+      objectReference: {fileID: 0}
+    - target: {fileID: 1800790612180055156, guid: 94ac4c37c0ddcea4e9798d2d7f056860,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.803803
+      objectReference: {fileID: 0}
+    - target: {fileID: 1800790612180055156, guid: 94ac4c37c0ddcea4e9798d2d7f056860,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1800790612180055156, guid: 94ac4c37c0ddcea4e9798d2d7f056860,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.5948956
+      objectReference: {fileID: 0}
+    - target: {fileID: 1800790612180055156, guid: 94ac4c37c0ddcea4e9798d2d7f056860,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1800790612180055156, guid: 94ac4c37c0ddcea4e9798d2d7f056860,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1800790612180055156, guid: 94ac4c37c0ddcea4e9798d2d7f056860,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 73.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1800790612180055156, guid: 94ac4c37c0ddcea4e9798d2d7f056860,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3445887502939991973, guid: 94ac4c37c0ddcea4e9798d2d7f056860,
+        type: 3}
+      propertyPath: m_text
+      value: "\u0E44\u0E14\u0E2D\u0E32\u0E23\u0E35\u0E48\u0E02\u0E2D\u0E07\u0E25\u0E34\u0E0B"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5949205623352389479, guid: 94ac4c37c0ddcea4e9798d2d7f056860,
+        type: 3}
+      propertyPath: m_text
+      value: "\u0E27\u0E31\u0E19\u0E19\u0E35\u0E49\u0E40\u0E01\u0E34\u0E14\u0E40\u0E2B\u0E15\u0E38\u0E01\u0E32\u0E23\u0E13\u0E4C\u0E2D\u0E30\u0E44\u0E23\u0E44\u0E21\u0E48\u0E23\u0E39\u0E49
+        \u0E40\u0E2B\u0E21\u0E37\u0E2D\u0E19\u0E08\u0E30\u0E40\u0E1B\u0E47\u0E19\u0E04\u0E27\u0E32\u0E21\u0E1C\u0E34\u0E14\u0E1E\u0E25\u0E32\u0E14\u0E02\u0E2D\u0E07\u0E17\u0E35\u0E21\u0E27\u0E34\u0E08\u0E31\u0E22\u0E15\u0E49\u0E19\u0E44\u0E21\u0E49
+        \u0E21\u0E31\u0E19\u0E17\u0E33\u0E43\u0E2B\u0E49\u0E0A\u0E31\u0E49\u0E19\u0E1A\u0E23\u0E23\u0E22\u0E32\u0E01\u0E32\u0E28\u0E2B\u0E32\u0E22\u0E44\u0E1B
+        \u0E19\u0E35\u0E48\u0E21\u0E31\u0E19\u0E40\u0E2B\u0E25\u0E37\u0E2D\u0E40\u0E0A\u0E37\u0E48\u0E2D\u0E21\u0E32\u0E01
+        \u0E1C\u0E39\u0E49\u0E04\u0E19\u0E21\u0E32\u0E01\u0E21\u0E32\u0E22\u0E15\u0E49\u0E2D\u0E07\u0E40\u0E02\u0E49\u0E32\u0E21\u0E32\u0E2B\u0E25\u0E1A\u0E20\u0E31\u0E22\u0E17\u0E35\u0E48\u0E28\u0E39\u0E19\u0E22\u0E4C\u0E27\u0E34\u0E08\u0E31\u0E22\u0E01\u0E31\u0E19\u0E2B\u0E21\u0E14
+        \u0E40\u0E1E\u0E23\u0E32\u0E30\u0E28\u0E39\u0E19\u0E22\u0E4C\u0E27\u0E34\u0E08\u0E31\u0E22\u0E21\u0E35\u0E21\u0E48\u0E32\u0E19\u0E1B\u0E49\u0E2D\u0E07\u0E01\u0E31\u0E19\u0E23\u0E31\u0E07\u0E2A\u0E35\u0E2D\u0E22\u0E39\u0E48
+        \u0E40\u0E40\u0E1A\u0E1A\u0E19\u0E35\u0E49\u0E21\u0E35\u0E42\u0E2D\u0E01\u0E32\u0E2A\u0E40\u0E01\u0E34\u0E14\u0E27\u0E31\u0E19\u0E2A\u0E34\u0E49\u0E19\u0E42\u0E25\u0E01\u0E2A\u0E39\u0E07\u0E21\u0E32\u0E01"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7372747276456459117, guid: 94ac4c37c0ddcea4e9798d2d7f056860,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8941250108491358506, guid: 94ac4c37c0ddcea4e9798d2d7f056860,
+        type: 3}
+      propertyPath: m_Name
+      value: LichNote6 Variant
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 94ac4c37c0ddcea4e9798d2d7f056860, type: 3}
