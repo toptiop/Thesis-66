@@ -82,7 +82,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5884323996638836589, guid: 06e015b4c2a0baf4cb586bfa28fed4f1,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -157952067117824347}
   m_SourcePrefab: {fileID: 100100000, guid: 06e015b4c2a0baf4cb586bfa28fed4f1, type: 3}
 --- !u!223 &1698050760911587191 stripped
 Canvas:
@@ -90,3 +94,23 @@ Canvas:
     type: 3}
   m_PrefabInstance: {fileID: 1551429314611064912}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4913033304115234621 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5884323996638836589, guid: 06e015b4c2a0baf4cb586bfa28fed4f1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1551429314611064912}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-157952067117824347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4913033304115234621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 047d1c8a1d67b92438a2597251e4769e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isnextQuest: 0
+  nextQuest: {fileID: 0}
