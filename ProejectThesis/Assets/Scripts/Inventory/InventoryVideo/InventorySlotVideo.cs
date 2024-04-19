@@ -114,16 +114,14 @@ public class InventorySlotVideo : MonoBehaviour, IDropHandler, IDragHandler, IBe
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (item != inventory.EMPTY_ITEM)
-            inventory.openNote.gameObject.SetActive(true);
+       
 
         InventoryInfo.instance.SetupInfoDisplay(item);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (item != inventory.EMPTY_ITEM)
-            inventory.openNote.gameObject.SetActive(false);
+  
 
         InventoryInfo.instance.SetupNull();
     }

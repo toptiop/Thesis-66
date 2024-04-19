@@ -26,7 +26,7 @@ public class InventoryNote : MonoBehaviour
     [Header("InventoryUI")]
     public GameObject inventoryUI;
     public GameObject panelButton;
-    public Button openNote;
+    //public Button openNote;
 
     [Header("Note")]
     public GameObject panelNote;

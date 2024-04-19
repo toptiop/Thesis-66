@@ -114,16 +114,14 @@ public class InventorySlotNote : MonoBehaviour, IDropHandler, IDragHandler, IBeg
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
-       if(item != inventory.EMPTY_ITEM)
-            inventory.openNote.gameObject.SetActive(true);
+
 
        InventoryInfo.instance.SetupInfoDisplay(item);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (item != inventory.EMPTY_ITEM)
-            inventory.openNote.gameObject.SetActive(false);
+
 
         InventoryInfo.instance.SetupNull();
     }
@@ -135,7 +133,6 @@ public class InventorySlotNote : MonoBehaviour, IDropHandler, IDragHandler, IBeg
         if (stack > 0)
             CheckShowText();
         inventory.ActivePanelNOte();
-        inventory.openNote.gameObject.SetActive(false);
     }
     public void SwapSlot(InventorySlotNote newSlot)
     {

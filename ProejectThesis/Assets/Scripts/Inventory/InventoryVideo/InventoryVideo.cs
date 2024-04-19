@@ -27,7 +27,7 @@ public class InventoryVideo : MonoBehaviour
     [Header("InventoryUI")]
     public GameObject inventoryUI;
     public GameObject panelButton;
-    public Button openNote;
+    //public Button openNote;
 
     [Header("Video")]
     public GameObject panelNote;
