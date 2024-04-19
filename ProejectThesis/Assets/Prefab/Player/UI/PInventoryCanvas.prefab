@@ -1819,7 +1819,6 @@ MonoBehaviour:
   inventorySlots: []
   inventoryUI: {fileID: 2180233571897043450}
   panelButton: {fileID: 7743254222336528359}
-  openNote: {fileID: 5816475127502113560}
   panelNote: {fileID: 1588690731799007555}
   title: {fileID: 5519600883142065126}
   description: {fileID: 5118499008412799457}
@@ -1846,7 +1845,6 @@ MonoBehaviour:
   inventorySlots: []
   inventoryUI: {fileID: 2180233571897043450}
   panelButton: {fileID: 7743254222336528359}
-  openNote: {fileID: 3362763874531306857}
   panelNote: {fileID: 5103821890450665538}
   title: {fileID: 4174292357938522574}
   videoPlayer: {fileID: 7895113886522610223}
@@ -3789,7 +3787,8 @@ AudioSource:
   m_GameObject: {fileID: 2511873986559629136}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 3339510084752112776, guid: c843f6b517f4320409001a0c2a8bc201,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -5795,7 +5794,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -11113,7 +11112,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -15075,10 +15074,10 @@ RectTransform:
   - {fileID: 1663588101319159141}
   m_Father: {fileID: 2825540570874474856}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 64, y: -105.720825}
+  m_SizeDelta: {x: 128, y: 64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8509823401582908234
 CanvasRenderer:
