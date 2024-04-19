@@ -20,7 +20,13 @@ public class switchcharacters : MonoBehaviour
     public CinemachineVirtualCamera camRobot;
     public AutoPilotRobot aiFollow;
 
+    [Header("Image")]
+    public GameObject roll;
+    public GameObject skill, _return;
 
+    [Header("Animator")]
+    public Animator anim;
+    
     [Header("Input")]
     public InputManager playerInput;
     public InputRobotManager robotInput;
@@ -52,17 +58,22 @@ public class switchcharacters : MonoBehaviour
         {
             aiFollow.enabled = true;
             stateCommand.enabled = true;
+            skill.SetActive(true);
+            _return.SetActive(true);
         }
         else
         {
             aiFollow.enabled = false;
             stateCommand.enabled = false;
+            skill.SetActive(false);
+            _return.SetActive(false);
         }
 
         if (activeSwitch )
         {
             if(canSwitch)
             {
+                roll.SetActive(true);
                 if (playerInput.swap || robotInput.swap)
                 {
                     ChangeCharactor();
@@ -73,6 +84,7 @@ public class switchcharacters : MonoBehaviour
             }
             else
             {
+                roll.SetActive(false);
                 playerInput.swap = false;
                 robotInput.swap = false;
             }
@@ -104,6 +116,7 @@ public class switchcharacters : MonoBehaviour
 
     void EnableControlPlayer()
     {
+        anim.SetBool("isSwap", true);
         playerDetec.showIcon = true;
         controller.enabled = true;
         player.enabled = true;
@@ -125,6 +138,7 @@ public class switchcharacters : MonoBehaviour
 
     void EnableControlRobot()
     {
+        anim.SetBool("isSwap", false);
         robotDetec.showIcon = true;
         robotController.enabled = true;
         robot.enabled = true;

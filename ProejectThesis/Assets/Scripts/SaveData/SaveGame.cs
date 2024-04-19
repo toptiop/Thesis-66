@@ -56,20 +56,5 @@ public class SaveGame : MonoBehaviour
         //Singleton.controller.Load();
     }
 
-    private void OnGUI()
-    {
-        Rect saveButtonRect = new Rect(10, 10, 100, 30);
-        Rect loadButtonRect = new Rect(10, 50, 100, 30);
-
-       
-        if (GUI.Button(saveButtonRect, "Save"))
-        {
-            Save();
-        }
-
-        if (GUI.Button(loadButtonRect, "Load"))
-        {
-            Load();
-        }
-    }
+    
 }
