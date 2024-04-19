@@ -38,6 +38,7 @@ public class switchcharacters : MonoBehaviour
     void Start()
     {
         StartCoroutine(DelayeStart());
+        anim.Play("PlayDaisyy");
     }
     IEnumerator DelayeStart()
     {
@@ -49,6 +50,7 @@ public class switchcharacters : MonoBehaviour
 
         if (!activeSwitch)
         {
+            roll.SetActive(false);
             playerInput.swap = false;
             robotInput.swap = false;
             aiFollow.enabled = false;
@@ -101,12 +103,14 @@ public class switchcharacters : MonoBehaviour
     {
         if (isSwitch)
         {
+            anim.Play("PlayDaisyy");
             robotDetec.showIcon = false;
             Invoke("DisableControlRobot", 0.1f);
             Invoke("EnableControlPlayer", 0.2f);
         }
         else
         {
+            anim.Play("PlayMike");
             playerDetec.showIcon = false;
             Invoke("DisableControlPlayer", 0.1f);
             Invoke("EnableControlRobot", 0.2f);
@@ -116,7 +120,7 @@ public class switchcharacters : MonoBehaviour
 
     void EnableControlPlayer()
     {
-        anim.SetBool("isSwap", true);
+       
         playerDetec.showIcon = true;
         controller.enabled = true;
         player.enabled = true;
@@ -138,7 +142,7 @@ public class switchcharacters : MonoBehaviour
 
     void EnableControlRobot()
     {
-        anim.SetBool("isSwap", false);
+       
         robotDetec.showIcon = true;
         robotController.enabled = true;
         robot.enabled = true;

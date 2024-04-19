@@ -5,6 +5,7 @@ using UnityEngine;
 public class InventoryUI : MonoBehaviour, OpenUI
 {
     [SerializeField]private GameObject inventoryUI;
+    [SerializeField] private GameObject hub;
     public bool activeInventory;
     [SerializeField]private bool isOpen;
     private InputManager _input;
@@ -55,6 +56,7 @@ public class InventoryUI : MonoBehaviour, OpenUI
         isOpen = !isOpen;
         if(isOpen)
         {
+            hub.SetActive(false);
             UIManager.instance.AddUI(inventoryUI);
             GameManager.Instance.ChangeStateInteractUI(true);
             Singleton.controller.SignalCanMoveEnabled();
@@ -63,6 +65,7 @@ public class InventoryUI : MonoBehaviour, OpenUI
         }
         else 
         {
+            hub.SetActive(true);
             GameManager.Instance.ChangeStateInteractUI(false);
             Singleton.controller.SignalCanMoveDisabled();
             inventoryUI.SetActive(false); 
