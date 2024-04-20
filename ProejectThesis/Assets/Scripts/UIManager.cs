@@ -29,6 +29,7 @@ public class UIManager : MonoBehaviour
         {
             RemoveUI();
             Singleton.controller.canMove = false;
+            Singleton.Instance.invUI.hub.SetActive(true);
         }
     }
     public void AddUI(GameObject ui)

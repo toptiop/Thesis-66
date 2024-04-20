@@ -11,6 +11,7 @@ public class Singleton : MonoBehaviour
     public PlayerStatus status;
     public InputManager inputManager;
     public Inventory inventory;
+    public InventoryUI invUI;
     public InventoryNote inventoryNote;
     public InventoryVideo inventoryVideo;
     public CameraFollow cameraFollow;
@@ -46,6 +47,7 @@ public class Singleton : MonoBehaviour
         switchcharacters = FindAnyObjectByType<switchcharacters>();
         itemInGameManager = FindObjectOfType<ItemInGameManager>();
         checkPoint = FindObjectOfType<CheckPoint>();
+        invUI = FindObjectOfType<InventoryUI>();
         #endregion
     }
 }

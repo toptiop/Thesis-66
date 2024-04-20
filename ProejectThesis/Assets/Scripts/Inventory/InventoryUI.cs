@@ -5,7 +5,7 @@ using UnityEngine;
 public class InventoryUI : MonoBehaviour, OpenUI
 {
     [SerializeField]private GameObject inventoryUI;
-    [SerializeField] private GameObject hub;
+    public GameObject hub;
     public bool activeInventory;
     [SerializeField]private bool isOpen;
     private InputManager _input;

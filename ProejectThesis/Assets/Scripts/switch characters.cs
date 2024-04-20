@@ -23,6 +23,7 @@ public class switchcharacters : MonoBehaviour
     [Header("Image")]
     public GameObject roll;
     public GameObject skill, _return;
+    public GameObject mike;
 
     [Header("Animator")]
     public Animator anim;
@@ -62,6 +63,7 @@ public class switchcharacters : MonoBehaviour
             stateCommand.enabled = true;
             skill.SetActive(true);
             _return.SetActive(true);
+            
         }
         else
         {
@@ -69,6 +71,7 @@ public class switchcharacters : MonoBehaviour
             stateCommand.enabled = false;
             skill.SetActive(false);
             _return.SetActive(false);
+            
         }
 
         if (activeSwitch )
@@ -103,6 +106,7 @@ public class switchcharacters : MonoBehaviour
     {
         if (isSwitch)
         {
+            mike.SetActive(false);
             anim.Play("PlayDaisyy");
             robotDetec.showIcon = false;
             Invoke("DisableControlRobot", 0.1f);
@@ -110,6 +114,7 @@ public class switchcharacters : MonoBehaviour
         }
         else
         {
+            mike.SetActive(true);
             anim.Play("PlayMike");
             playerDetec.showIcon = false;
             Invoke("DisableControlPlayer", 0.1f);

@@ -89,7 +89,7 @@ public class AutoPilotRobot : MonoBehaviour
         {
             timer -= Time.deltaTime;
             if (timer <= 0)
-                DelayMove();
+                StartCoroutine(Recall());
         }
         else
         {
@@ -105,6 +105,20 @@ public class AutoPilotRobot : MonoBehaviour
         agent.SetDestination(player.position);
         float speed = agent.velocity.magnitude;
         animator.SetFloat("Speed", speed);
+    }
+
+    IEnumerator Recall()
+    {
+        agent.enabled = false;
+
+        yield return new WaitForSeconds(1);
+
+        Vector3 pos = new Vector3(player.position.x, player.position.y + 1.5f, player.position.z );
+        transform.position = pos;
+
+        yield return new WaitForSeconds(1);
+
+        agent.enabled = true;
     }
 
     public void Order(bool order)

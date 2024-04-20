@@ -58,6 +58,7 @@ public class PlayerController : MonoBehaviour
 
     public Animator _animator;
     [HideInInspector] public CharacterController _controller;
+    [HideInInspector] public SoundManager _soundManager;
     [SerializeField] public InputManager _input;
     private GameObject _mainCamera;
 
@@ -94,6 +95,7 @@ public class PlayerController : MonoBehaviour
         _controller = GetComponent<CharacterController>();
         _input = GetComponent<InputManager>();
         _playerInput = GetComponent<PlayerInput>();
+        _soundManager = FindAnyObjectByType<SoundManager>();
 
 
         AssignAnimationIDs();
@@ -102,7 +104,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-
+        sensitivity = _soundManager._mouse.value;
         if (!canMove)
         {
             Move();

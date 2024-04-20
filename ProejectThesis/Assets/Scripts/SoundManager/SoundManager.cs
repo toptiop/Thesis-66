@@ -5,6 +5,7 @@ using TMPro;
 
 public class SoundManager : MonoBehaviour
 {
+    [SerializeField] public Slider _mouse;
     [SerializeField] private AudioMixer mixer;
     [SerializeField] private Slider _masterSlider;
     [SerializeField] private Slider _ambientSlider;
@@ -12,6 +13,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private Slider _efxSlider;
     [SerializeField] private Slider _testSlider;
 
+    [SerializeField] protected TMP_Text mouseText;
     [SerializeField] protected TMP_Text masterText;
     [SerializeField] protected TMP_Text soundAmText;
     [SerializeField] protected TMP_Text SoundCutText;
@@ -24,6 +26,11 @@ public class SoundManager : MonoBehaviour
 
     private void Awake()
     {
+        _mouse.onValueChanged.AddListener((Float) =>
+        {
+            MouseSlider();
+        });
+
         _masterSlider.onValueChanged.AddListener((Float) =>
         {
             MasterSlider();
@@ -68,6 +75,12 @@ public class SoundManager : MonoBehaviour
 
     #endregion
     #region Sound Settings
+
+    public void MouseSlider()
+    {
+        SetMouseValue(_mouse.value);
+    }
+
     public void MasterSlider()
     {
         SetMasterVolume(_masterSlider.value);
@@ -91,6 +104,12 @@ public class SoundManager : MonoBehaviour
     public void TestSlider()
     {
         SetTestVolume(_testSlider.value);
+    }
+
+    public void SetMouseValue(float value)
+    {
+        mouseText.text = value.ToString("0.0");
+        PlayerPrefs.SetFloat("MouseValue", value);
     }
 
     public void SetMasterVolume(float sliderMasterValue)
@@ -130,6 +149,10 @@ public class SoundManager : MonoBehaviour
 
     public void LoadValues()
     {
+        float mouseValue = PlayerPrefs.GetFloat("MouseValue");
+        _mouse.value = mouseValue;
+        SetMouseValue(mouseValue);
+
         float MasterValue = PlayerPrefs.GetFloat("MasterVolume");
         _masterSlider.value = MasterValue;
         SetMasterVolume(MasterValue);
