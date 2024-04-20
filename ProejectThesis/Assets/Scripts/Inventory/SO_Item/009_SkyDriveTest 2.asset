@@ -21,7 +21,7 @@ MonoBehaviour:
   noteTitle: 
   noteDescription: 
   pickupEFX: {fileID: 8300000, guid: 3b02dc832528cae47b8cc7e2e6e64479, type: 3}
-  clip: {fileID: 32900000, guid: fbd8dbd25d102e647ae1f84c443eb2f2, type: 3}
+  clip: {fileID: 32900000, guid: 8ade7ba318668554dbdbbcef4dff2997, type: 3}
   audio: {fileID: 0}
   gamePrefab: {fileID: 8726567644002829474, guid: 88cd4b992bade0648b9ad37630ccc548,
     type: 3}
